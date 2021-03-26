@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Game;
+import Main.ProjetPOOGomoku;
 
 /**
  *
@@ -12,3 +13,4 @@ package Game;
 public class Match {
     
 }
+
