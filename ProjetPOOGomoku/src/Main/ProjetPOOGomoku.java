@@ -19,7 +19,7 @@ public class ProjetPOOGomoku {
     public static void main(String[] args) {
         System.out.println("Hello Word");
         
-        Board b = new Board(10, 4);
+        Board b = new Board(4, 4);
         b.dessin();
     }
     

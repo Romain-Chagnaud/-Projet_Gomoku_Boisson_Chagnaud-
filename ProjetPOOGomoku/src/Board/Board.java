@@ -11,12 +11,11 @@ import java.util.ArrayList;
  *
  * @author romai
  */
-public class Board extends Game{
+public class Board extends Game {
 
     private int Coll;
     private int Ligne;
-    ArrayList numColl = new ArrayList();
-    ArrayList numLigne = new ArrayList();
+   
 
     public Board(int col, int lig) {
         this.Coll = col;
@@ -25,13 +24,14 @@ public class Board extends Game{
 
     public void dessin() {
         for (int x = 0; x < Coll; x++) {
-            System.out.println("|");
-        }
-        for (int y = 0; y < Ligne; y++) {
+            System.out.println("+" );
+            for (int y = 0; y < Ligne; y++) {
+                System.out.println("|");
+            }
             System.out.println("-");
+
         }
-        
-        System.out.println("|");
+
     }
 
 }
