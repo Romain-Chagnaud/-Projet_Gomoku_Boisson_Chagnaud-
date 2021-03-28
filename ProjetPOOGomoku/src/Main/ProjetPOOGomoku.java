@@ -5,6 +5,8 @@
  */
 package Main;
 
+import Board.Board;
+
 /**
  *
  * @author manboisson
@@ -16,6 +18,9 @@ public class ProjetPOOGomoku {
      */
     public static void main(String[] args) {
         System.out.println("Hello Word");
+        
+        Board b = new Board(10, 4);
+        b.dessin();
     }
     
 }
