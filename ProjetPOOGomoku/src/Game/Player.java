@@ -4,13 +4,11 @@
  * and open the template in the editor.
  */
 package Game;
-import Main.ProjetPOOGomoku;
 
 /**
  *
  * @author romai
  */
-public class Match implements Player  {
+public interface Player {
     
 }
-
