@@ -18,7 +18,8 @@ public class ProjetPOOGomoku {
      */
     public static void main(String[] args) {
         Board b = new Board(5, 8);
-        b.dessin();
+        b.display();
+        
     }
     
 }
