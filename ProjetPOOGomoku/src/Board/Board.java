@@ -14,36 +14,43 @@ import java.util.ArrayList;
 public class Board extends Game {
 
     private final int Cols, Rows;
-    private final char[][] image;
 
     public Board(int lig, int col) {
         this.Cols = col;
         this.Rows = lig;
-        this.image = new char[col][lig];
     }
     
     
     public void display() {
-        displayBar();
+        for(int x = 0; x <Rows; x++){
+            alphabet();
+        }
+        Bar();
         for (int r = 0; r < Rows; r++) {
             System.out.print("|");
             for (int c = 0; c < Cols; c++) {
-                System.out.print(image[c][r]);
+                System.out.print(" "); 
             }
             System.out.println("|");
         }
-        displayBar();
+        Bar();
     }
 
     /**
      * affiche l'image
      */
-    private void displayBar() {
+    private void Bar() {
         System.out.print("+");
         for (int c = 0; c < Cols; c++) {
             System.out.print("-");
         }
         System.out.println("+");
+    }
+    
+    private void alphabet(){
+        for(char c ='a'; c <= 'z'; c++){
+            System.out.println(c);
+        }
     }
     
 }
