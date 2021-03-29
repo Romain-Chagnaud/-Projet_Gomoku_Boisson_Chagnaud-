@@ -46,36 +46,4 @@ public class Board extends Game {
         System.out.println("+");
     }
     
-    
-
-    /* int b = 0;
-        int c = 0;
-
-        for (int y = 0; y < 1; y++) {
-            System.out.print("+");
-
-            for (int x = 0; x < Coll; x++) {
-                System.out.print("-");
-            }
-            System.out.println("+");
-        }
-
-        for (int z = 0; z < Ligne; z++) {
-            System.out.print("|");
-            for (int a = 0; a < Coll; a++) {
-                System.out.print(" ");
-            }
-            System.out.println("|");
-        }
-
-        for (int y = 0; y < 1; y++) {
-            System.out.print("+");
-            for (int x = 0; x < Coll; x++) {
-                System.out.print("-");
-            }
-            System.out.println("+");
-
-        }*/
-    
-
 }
