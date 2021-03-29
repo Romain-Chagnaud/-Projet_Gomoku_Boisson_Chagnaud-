@@ -13,14 +13,40 @@ import java.util.ArrayList;
  */
 public class Board extends Game {
 
-    private final int nbCols, nbRows;
+    private final int Cols, Rows;
     private final char[][] image;
 
     public Board(int lig, int col) {
-        this.nbCols = lig;
-        this.nbRows = col;
+        this.Cols = col;
+        this.Rows = lig;
         this.image = new char[col][lig];
     }
+    
+    
+    public void display() {
+        displayBar();
+        for (int r = 0; r < Rows; r++) {
+            System.out.print("|");
+            for (int c = 0; c < Cols; c++) {
+                System.out.print(image[c][r]);
+            }
+            System.out.println("|");
+        }
+        displayBar();
+    }
+
+    /**
+     * affiche l'image
+     */
+    private void displayBar() {
+        System.out.print("+");
+        for (int c = 0; c < Cols; c++) {
+            System.out.print("-");
+        }
+        System.out.println("+");
+    }
+    
+    
 
     /* int b = 0;
         int c = 0;
@@ -50,27 +76,6 @@ public class Board extends Game {
             System.out.println("+");
 
         }*/
-    public void display() {
-        displayBar();
-        for (int r = 0; r < nbRows; r++) {
-            System.out.print("|");
-            for (int c = 0; c < nbCols; c++) {
-                System.out.print(image[c][r]);
-            }
-            System.out.println("|");
-        }
-        displayBar();
-    }
-
-    /**
-     * affiche l'image
-     */
-    private void displayBar() {
-        System.out.print("+");
-        for (int c = 0; c < nbCols; c++) {
-            System.out.print("-");
-        }
-        System.out.println("+");
-    }
+    
 
 }
