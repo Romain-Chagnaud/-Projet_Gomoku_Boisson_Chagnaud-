@@ -19,22 +19,35 @@ public class Board extends Game {
     public Board(int lig, int col) {
         this.Ligne = lig;
         this.Coll = col;
-
     }
 
     public void dessin() {
 
-        for (int y = 0; y < Ligne; y++) {
+        for (int y = 0; y < 1; y++) {
             System.out.print("+");
 
             for (int x = 0; x < Coll; x++) {
                 System.out.print("-");
             }
-            
-           System.out.println("+");
+            System.out.println("+");
+
         }
-         for (int y = 0; y < Ligne; y++) {
+        for (int z = 0; z < Ligne; z++) {
+            System.out.print("|");
+            for (int a = 0; a < Coll; a++) {
+                System.out.print(" ");
+            }
             System.out.println("|");
+        }
+        
+        for (int y = 0; y < 1; y++) {
+            System.out.print("+");
+
+            for (int x = 0; x < Coll; x++) {
+                System.out.print("-");
+            }
+            System.out.println("+");
+
         }
     }
 }
