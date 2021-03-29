@@ -15,23 +15,26 @@ public class Board extends Game {
 
     private int Coll;
     private int Ligne;
-   
 
-    public Board(int col, int lig) {
-        this.Coll = col;
+    public Board(int lig, int col) {
         this.Ligne = lig;
+        this.Coll = col;
+
     }
 
     public void dessin() {
-        for (int x = 0; x < Coll; x++) {
-            System.out.println("+" );
-            for (int y = 0; y < Ligne; y++) {
-                System.out.println("|");
+
+        for (int y = 0; y < Ligne; y++) {
+            System.out.print("+");
+
+            for (int x = 0; x < Coll; x++) {
+                System.out.print("-");
             }
-            System.out.println("-");
-
+            
+           System.out.println("+");
         }
-
+         for (int y = 0; y < Ligne; y++) {
+            System.out.println("|");
+        }
     }
-
 }
