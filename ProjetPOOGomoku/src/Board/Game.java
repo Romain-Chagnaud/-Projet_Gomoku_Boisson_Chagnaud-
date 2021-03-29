@@ -11,7 +11,7 @@ import Main.ProjetPOOGomoku;
  *
  * @author romai
  */
-public class Game {
+public class Game {   
     public void Test(){
         System.out.println("Hello word");
 }
