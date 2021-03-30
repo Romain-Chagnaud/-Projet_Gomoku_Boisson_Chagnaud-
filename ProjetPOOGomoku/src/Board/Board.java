@@ -32,9 +32,8 @@ public class Board {
             }
             System.out.print("|");
             for (int c = 0; c < Cols; c++) {
-                System.out.print("     ");
+                System.out.print("   ");
             }
-
             System.out.println("|");
         }
         Bar();
@@ -47,14 +46,15 @@ public class Board {
 
         System.out.print("   " + "+");
         for (int c = 0; c < Cols; c++) {
-            System.out.print("-----");
+            System.out.print("---");
         }
         System.out.println("+");
     }
 
     private void alphabet() {
+        System.out.print("    ");
         for (int c = 0; c < Cols; c++) {
-            System.out.print("    " + (char) ('A' + c));
+            System.out.print(" " +(char)('A' + c) + " ");
         }
     }
 }
