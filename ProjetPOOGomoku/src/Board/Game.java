@@ -11,6 +11,6 @@ import Main.ProjetPOOGomoku;
  *
  * @author romai
  */
-public class Game {
-   
+public class Game{
+    
 }

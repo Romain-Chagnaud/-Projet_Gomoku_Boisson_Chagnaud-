@@ -17,8 +17,8 @@ public class ProjetPOOGomoku {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Board b = new Board(10, 10);
-        b.display();
+       Board b = new Board(10, 10);
+       b.display();
         
     }
     

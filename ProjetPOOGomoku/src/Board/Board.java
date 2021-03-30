@@ -32,7 +32,7 @@ public class Board extends Game {
             System.out.println("|");
         }
         Bar();
-        System.out.println(" ");
+        
        chiffre();
     }
 
@@ -49,10 +49,11 @@ public class Board extends Game {
     }
 
     private void alphabet() {
-        ArrayList tab = new ArrayList();
+        
         for (char c = 'A'; c <= 'Z'; c++) {
-            tab.add(c);
-            System.out.print(c);
+            for(int r =0; r < Rows; r++ ){
+                System.out.print(c);
+            }  
         }
     }
     
