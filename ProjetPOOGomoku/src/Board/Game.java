@@ -6,6 +6,8 @@
 package Board;
 
 import java.awt.Color;
+import static java.awt.Color.BLACK;
+import static java.awt.Color.WHITE;
 import java.util.ArrayList;
 
 /**
@@ -36,22 +38,32 @@ public class Game {
      * une certaine position.
      *
      * @param p la position à laquelle le joueur veut placer son pion
-     * @return true si le joueur peu poser son pion sur la position en question.
+     * @return true si le joueur peut poser son pion sur la position en question.
      */
-    private boolean play(Position p) {
+    private boolean play(Position p, Color color) {
 
-        boolean play;
-        Color color;
+        
+       
+       
+        boolean play = false;
+       
 
         if (coupsJoues.contains(p)) { // on verifie si le arrayList qui enregistre les coups joués contient la position à laquelle le joueur veut se placer
-            // on ajoute un pion sur le plateur a la position demandé
-            // on change de joueur
-            play = true;
-        } else {
+
             play = false;
+        } else if (Position.voisines(p) !=  0 && Position.caseVide(p)){ 
+           
+            posePion(p);// on ajoute un pion sur le plateur a la position demandé
+           
+            if(color == BLACK) {  // on change de joueur
+              color = WHITE;  
+            } else {
+                color = BLACK;
+            }
+            play = true;
         }
 
-        return true;
+        return play;
 
     }
 
@@ -59,12 +71,7 @@ public class Game {
      * Méthode indiquant si une parite est finie ou non.
      *
      * @param p une position du plateau de jeu.
-     * @return =======
-     *
-     * /**
-     * Méthode indiquant si une parite est finie ou non.
-     * @param p une position du plateau de jeu.
-     * @return >>>>>>> gameBranch
+     * @return true si la partie est finie
      */
     public boolean partieFinie(Position p) {
         // si toutes les cases sont occupées partie finie = true
@@ -72,6 +79,15 @@ public class Game {
 
         return false;
 
+    }
+
+
+/**
+ * Méthode responsable de la pose d'un pion sur le plateau
+ * @param p la position à laquelle le joueur souhaite poser son pion.
+ */
+    private void posePion(Position p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
