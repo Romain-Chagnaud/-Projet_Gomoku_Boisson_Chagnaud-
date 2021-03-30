@@ -9,6 +9,9 @@ package Board;
  *
  * @author manon
  */
-public class Color {
-    
+public enum Color {
+    BLACK,
+    WHITE,
+    NONE;
+   
 }
