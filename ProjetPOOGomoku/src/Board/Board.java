@@ -25,15 +25,15 @@ public class Board extends Game {
         System.out.println(" ");
         Bar();
         for (int r = 0; r < Rows; r++) {
+            chiffre();
             System.out.print("|");
             for (int c = 0; c < Cols; c++) {
-                System.out.print(" ");
+                System.out.print(" " + " " + " ");
             }
+
             System.out.println("|");
         }
         Bar();
-        
-       chiffre();
     }
 
     /**
@@ -43,24 +43,20 @@ public class Board extends Game {
 
         System.out.print("+");
         for (int c = 0; c < Cols; c++) {
-            System.out.print("-");
+            System.out.print("---");
         }
         System.out.println("+");
     }
 
     private void alphabet() {
-        
-        for (char c = 'A'; c <= 'Z'; c++) {
-            for(int r =0; r < Rows; r++ ){
-                System.out.print(c);
-            }  
+        for (int c = 0; c < Cols; c++) {
+            System.out.print(" " + " " + (char) ('A' + c));
         }
     }
-    
+
     private void chiffre() {
-        for(int d = 0; d <= 100; d++){
-            System.out.print(d);
+        for (int d = 0; d < Rows; d++) {
+            System.out.println((int) ('1' + d));
         }
     }
 }
-
