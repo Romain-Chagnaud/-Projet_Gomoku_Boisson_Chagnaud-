@@ -14,10 +14,10 @@ public class Position {
     public char row;
     public int col;
     
+    
     public Position (char row, int col) {
         this.row = row;
         this.col = col;
     }
     
-   
 }
