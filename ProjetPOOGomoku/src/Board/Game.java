@@ -19,6 +19,18 @@ public class Game {
     Board board;
     ArrayList<Position> coupsJoues;
     
+    /**
+     *
+     * @param nextPlayer
+     * @param board
+     * @param coups
+     */
+    public Game (Color nextPlayer, Board board, ArrayList<Position> coupsJoues) {
+        this.nextPlayer = nextPlayer;
+        this.board = board;
+        this.coupsJoues = coupsJoues;
+    }
+    
     public void Test(){
         System.out.println("Hello word");
 }
