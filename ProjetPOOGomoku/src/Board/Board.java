@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author romai
  */
-public class Board extends Game {
+public class Board{
 
     private final int Cols, Rows;
 
@@ -19,13 +19,13 @@ public class Board extends Game {
         this.Cols = col;
         this.Rows = lig;
     }
-
+    
+   
     public void display() {
         alphabet();
         System.out.println(" ");
         Bar();
-        for (int r = 0; r < Rows; r++) {
-            chiffre();
+        for (int r = 0; r < Rows; r++) {      
             System.out.print("|");
             for (int c = 0; c < Cols; c++) {
                 System.out.print(" " + " " + " ");
@@ -34,6 +34,8 @@ public class Board extends Game {
             System.out.println("|");
         }
         Bar();
+        chiffre();
+        
     }
 
     /**
@@ -50,13 +52,13 @@ public class Board extends Game {
 
     private void alphabet() {
         for (int c = 0; c < Cols; c++) {
-            System.out.print(" " + " " + (char) ('A' + c));
+            System.out.print(" " + " " +(char) ('A' + c));
         }
     }
 
     private void chiffre() {
         for (int d = 0; d < Rows; d++) {
-            System.out.println((int) ('1' + d));
+            System.out.println((int) (1 + d));
         }
     }
 }
