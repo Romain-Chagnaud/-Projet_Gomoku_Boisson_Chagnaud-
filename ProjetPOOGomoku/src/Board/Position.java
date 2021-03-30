@@ -11,12 +11,17 @@ package Board;
  */
 public class Position {
     
-    public char row;
+    public int row;
     public int col;
     
-    Position (char row, int col) {
+    Position (int row, int col) {
         this.row = row;
         this.col = col;
+        
+    }
+    
+    public static int voisines (Position p) {
+        return 0;
         
     }
     

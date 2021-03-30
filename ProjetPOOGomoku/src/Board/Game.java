@@ -6,6 +6,8 @@
 package Board;
 
 import java.awt.Color;
+import static java.awt.Color.BLACK;
+import static java.awt.Color.WHITE;
 import java.util.ArrayList;
 
 /**
@@ -31,7 +33,6 @@ public class Game {
         this.coupsJoues = coupsJoues;
     }
 
-    
     /**
      * Méthode qui indique si il est possible pour un joueur de placer un pion à
      * une certaine position.
@@ -39,28 +40,38 @@ public class Game {
      * @param p la position à laquelle le joueur veut placer son pion
      * @return true si le joueur peu poser son pion sur la position en question.
      */
-    private boolean play(Position p) {
+    private boolean play(Position p, Color color) {
 
-        boolean play;
-        Color color;
+        
+       
+       
+        boolean play = false;
+       
 
         if (coupsJoues.contains(p)) { // on verifie si le arrayList qui enregistre les coups joués contient la position à laquelle le joueur veut se placer
-            // on ajoute un pion sur le plateur a la position demandé
-            // on change de joueur
-            play = true;
-        } else {
+
             play = false;
+        } else if (Position.voisines(p) !=  0){ 
+           
+            posePion(p);// on ajoute un pion sur le plateur a la position demandé
+           
+            if(color == BLACK) {  // on change de joueur
+              color = WHITE;  
+            } else {
+                color = BLACK;
+            }
+            play = true;
         }
 
-        return true;
+        return play;
 
     }
 
-    
     /**
      * Méthode indiquant si une parite est finie ou non.
+     *
      * @param p une position du plateau de jeu.
-     * @return 
+     * @return
      */
     public boolean partieFinie(Position p) {
         // si toutes les cases sont occupées partie finie = true
@@ -72,5 +83,9 @@ public class Game {
 
     public void Test() {
         System.out.println("Hello word");
+    }
+
+    private void posePion(Position p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
