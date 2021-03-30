@@ -6,12 +6,19 @@
 
 package Board;
 import Main.ProjetPOOGomoku;
+import java.awt.Color;
+import java.util.ArrayList;
 
 /**
  *
  * @author romai
  */
 public class Game {
+    
+    Color nextPlayer;
+    Board board;
+    ArrayList<Position> coupsJoues;
+    
     public void Test(){
         System.out.println("Hello word");
 }
