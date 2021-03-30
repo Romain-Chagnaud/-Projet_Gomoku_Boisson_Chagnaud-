@@ -28,7 +28,7 @@ public class Board{
         for (int r = 0; r < Rows; r++) {      
             System.out.print("|");
             for (int c = 0; c < Cols; c++) {
-                System.out.print(" " + " " + " ");
+                System.out.print("   ");
             }
 
             System.out.println("|");
@@ -52,7 +52,7 @@ public class Board{
 
     private void alphabet() {
         for (int c = 0; c < Cols; c++) {
-            System.out.print(" " + " " +(char) ('A' + c));
+            System.out.print("  " +(char) ('A' + c));
         }
     }
 
