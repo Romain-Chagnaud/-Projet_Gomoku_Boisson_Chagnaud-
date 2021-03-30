@@ -51,7 +51,7 @@ public class Game {
         if (coupsJoues.contains(p)) { // on verifie si le arrayList qui enregistre les coups joués contient la position à laquelle le joueur veut se placer
 
             play = false;
-        } else if (Position.voisines(p) !=  0){ 
+        } else if (Position.voisines(p) !=  0 && Position.caseVide(p)){ 
            
             posePion(p);// on ajoute un pion sur le plateur a la position demandé
            
@@ -81,10 +81,10 @@ public class Game {
 
     }
 
-    public void Test() {
-        System.out.println("Hello word");
-    }
-
+/**
+ * Méthode responsable de la pose d'un pion sur le plateau
+ * @param p la position à laquelle le joueur souhaite poser son pion.
+ */
     private void posePion(Position p) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
