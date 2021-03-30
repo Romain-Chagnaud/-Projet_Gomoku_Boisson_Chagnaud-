@@ -59,7 +59,12 @@ public class Game {
      * Méthode indiquant si une parite est finie ou non.
      *
      * @param p une position du plateau de jeu.
-     * @return
+     * @return =======
+     *
+     * /**
+     * Méthode indiquant si une parite est finie ou non.
+     * @param p une position du plateau de jeu.
+     * @return >>>>>>> gameBranch
      */
     public boolean partieFinie(Position p) {
         // si toutes les cases sont occupées partie finie = true
@@ -69,6 +74,5 @@ public class Game {
 
     }
 
-    public void Test() {
-    }
 }
+

@@ -10,8 +10,8 @@ package Board;
  * @author manon
  */
 public enum Color {
-    HEAD,
     BLACK,
     WHITE,
     NONE;
+
 }

@@ -11,13 +11,14 @@ package Board;
  */
 public class Position {
     
-    public char row;
+    public int row;
     public int col;
     
-    
-    public Position (char row, int col) {
+    Position (int row, int col) {
         this.row = row;
         this.col = col;
+        
+
     }
     
 }
