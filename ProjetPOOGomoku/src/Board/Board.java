@@ -11,10 +11,10 @@ import java.util.ArrayList;
  *
  * @author romai
  */
-public class Board extends Game {
+public class Board {
 
     private final int nbCols, nbRows;
-    private final char[][] image;
+    final char[][] image;
 
     public Board(int lig, int col) {
         this.nbCols = lig;
