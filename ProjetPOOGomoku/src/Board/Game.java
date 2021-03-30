@@ -38,7 +38,7 @@ public class Game {
      * une certaine position.
      *
      * @param p la position à laquelle le joueur veut placer son pion
-     * @return true si le joueur peu poser son pion sur la position en question.
+     * @return true si le joueur peut poser son pion sur la position en question.
      */
     private boolean play(Position p, Color color) {
 
@@ -71,7 +71,7 @@ public class Game {
      * Méthode indiquant si une parite est finie ou non.
      *
      * @param p une position du plateau de jeu.
-     * @return
+     * @return true si la partie est finie
      */
     public boolean partieFinie(Position p) {
         // si toutes les cases sont occupées partie finie = true

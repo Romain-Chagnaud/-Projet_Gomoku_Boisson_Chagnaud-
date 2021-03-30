@@ -21,7 +21,18 @@ public class Position {
     }
     
     public static int voisines (Position p) {
-        return 0;
+      
+        int nbVoisines = 0;
+        
+        if (p.row +1 != 0 || p.row -1 != 0 || p.col +1 != 0 || p.col -1 != 0) {
+            nbVoisines += nbVoisines;
+        }
+        
+       if (p.row +1 != 0 && p.row +1 != 0 || p.col +1 != 0 && p.col -1 != 0) {
+           nbVoisines = nbVoisines +2;
+       }
+      
+        return nbVoisines;
         
     }
     
