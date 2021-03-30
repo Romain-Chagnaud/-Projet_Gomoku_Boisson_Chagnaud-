@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author romai
  */
-public class Board{
+public class Board {
 
     private final int Cols, Rows;
 
@@ -19,23 +19,25 @@ public class Board{
         this.Cols = col;
         this.Rows = lig;
     }
-    
-   
+
     public void display() {
         alphabet();
         System.out.println(" ");
         Bar();
-        for (int r = 0; r < Rows; r++) {      
+
+        for (int r = 1; r <= Rows; r++) {
+            System.out.print(r + " ");
+            if (r <= 9) {
+                System.out.print(" ");
+            }
             System.out.print("|");
             for (int c = 0; c < Cols; c++) {
-                System.out.print("   ");
+                System.out.print("     ");
             }
 
             System.out.println("|");
         }
         Bar();
-        chiffre();
-        
     }
 
     /**
@@ -43,22 +45,16 @@ public class Board{
      */
     private void Bar() {
 
-        System.out.print("+");
+        System.out.print("   " + "+");
         for (int c = 0; c < Cols; c++) {
-            System.out.print("---");
+            System.out.print("-----");
         }
         System.out.println("+");
     }
 
     private void alphabet() {
         for (int c = 0; c < Cols; c++) {
-            System.out.print("  " +(char) ('A' + c));
-        }
-    }
-
-    private void chiffre() {
-        for (int d = 0; d < Rows; d++) {
-            System.out.println((int) (1 + d));
+            System.out.print("    " + (char) ('A' + c));
         }
     }
 }
