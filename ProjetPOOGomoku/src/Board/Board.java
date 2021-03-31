@@ -16,9 +16,9 @@ public class Board {
     private final int Cols, Rows;
 
     /**
-     *
-     * @param lig
-     * @param col
+     * Constructeur permettant l'affichage de plateau
+     * @param lig nombre de ligne sur le plateau
+     * @param col nombre de colonne sur le plateau
      */
     public Board(int lig, int col) {
         this.Cols = col;
@@ -26,7 +26,7 @@ public class Board {
     }
 
     /**
-     * Composition du plateau avec la barre
+     * Code 
      */
     public void display() {
         alphabet();
