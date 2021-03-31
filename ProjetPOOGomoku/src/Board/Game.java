@@ -38,25 +38,22 @@ public class Game {
      * une certaine position.
      *
      * @param p la position à laquelle le joueur veut placer son pion
-     * @return true si le joueur peut poser son pion sur la position en question.
+     * @return true si le joueur peut poser son pion sur la position en
+     * question.
      */
     private boolean play(Position p, Color color) {
 
-        
-       
-       
         boolean play = false;
-       
 
         if (coupsJoues.contains(p)) { // on verifie si le arrayList qui enregistre les coups joués contient la position à laquelle le joueur veut se placer
 
             play = false;
-        } else if (Position.voisines(p) !=  0 && Position.caseVide(p)){ 
-           
+        } else if (Position.voisines(p) != 0 && Position.caseVide(p)) {
+
             posePion(p);// on ajoute un pion sur le plateur a la position demandé
-           
-            if(color == BLACK) {  // on change de joueur
-              color = WHITE;  
+
+            if (color == BLACK) {  // on change de joueur
+                color = WHITE;
             } else {
                 color = BLACK;
             }
@@ -74,18 +71,23 @@ public class Game {
      * @return true si la partie est finie
      */
     public boolean partieFinie(Position p) {
-        // si toutes les cases sont occupées partie finie = true
-        // si 5 pions sont alignés partie finie  = true.
-
-        return false;
+        if (Position.rowComplete() || Position.colComplete() || Position.diagComplete()) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 
-/**
- * Méthode responsable de la pose d'un pion sur le plateau
- * @param p la position à laquelle le joueur souhaite poser son pion.
- */
+    /**
+     * Méthode responsable de la pose d'un pion sur le plateau
+     *
+     * @param p la position à laquelle le joueur souhaite poser son pion.
+     */
     private void posePion(Position p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
+
+    // pose de pion
+    // on ajoute un symbole a la position p
 }

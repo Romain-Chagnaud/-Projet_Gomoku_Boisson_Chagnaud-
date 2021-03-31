@@ -53,5 +53,35 @@ public class Position {
         return caseVide;
 
     }
+    
+    
+    //Trouver un moyen de factoriser ces trois methodes pour eviter la duplication de code
+    
+    
+    /**
+     * Méthode indiquant si 5 pions sont alignés sur une ligne.
+     * @return true si 5 pions sont alignés sur une ligne et false sinon.
+     */
+    public static boolean rowComplete() {
+        return true;
+    }
+    
+    
+    /**
+     * Méthode indiquant si 5 pions sont alignés sur une colonne.
+     * @return true si 5 pions sont alignés sur une colonne et false sinon.
+     */
+    public static boolean colComplete() {
+        return true;
+    }
+    
+    
+    /**
+     * Méthode indiquant si 5 pions sont alignés sur une diagonale.
+     * @return true si 5 pions sont alignés sur une diagonale et false sinon.
+     */
+    public static boolean diagComplete() {
+        return true;
+    }
 
 }
