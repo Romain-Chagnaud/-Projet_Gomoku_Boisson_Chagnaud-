@@ -52,7 +52,6 @@ public class Position {
         }
         return caseVide;
 
-
     }
 
 }
