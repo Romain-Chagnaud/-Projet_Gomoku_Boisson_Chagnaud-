@@ -7,7 +7,6 @@ package Board;
 
 /**
  *
-<<<<<<< HEAD
  * @author manon
  */
 public class Position {
