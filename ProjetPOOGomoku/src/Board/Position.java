@@ -7,6 +7,7 @@ package Board;
 
 /**
  *
+<<<<<<< HEAD
  * @author manon
  */
 public class Position {
@@ -53,5 +54,6 @@ public class Position {
         return caseVide;
 
     }
+
 
 }

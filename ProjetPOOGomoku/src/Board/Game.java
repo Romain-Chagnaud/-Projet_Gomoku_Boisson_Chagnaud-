@@ -14,6 +14,7 @@ import java.util.ArrayList;
  *
  * @author romai
  */
+
 public class Game {
 
     Color nextPlayer;

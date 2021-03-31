@@ -7,6 +7,7 @@ package Board;
 
 /**
  *
+<<<<<<< HEAD
  * @author manon
  */
 public enum Color {
