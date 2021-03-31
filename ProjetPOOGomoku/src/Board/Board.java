@@ -15,11 +15,19 @@ public class Board {
 
     private final int Cols, Rows;
 
+    /**
+     *
+     * @param lig
+     * @param col
+     */
     public Board(int lig, int col) {
         this.Cols = col;
         this.Rows = lig;
     }
 
+    /**
+     * Composition du plateau avec la barre
+     */
     public void display() {
         alphabet();
         System.out.println(" ");
@@ -40,7 +48,7 @@ public class Board {
     }
 
     /**
-     * affiche l'image
+     * affiche la barre "+----+"
      */
     private void Bar() {
 
@@ -51,6 +59,9 @@ public class Board {
         System.out.println("+");
     }
 
+    /**
+     *
+     */
     private void alphabet() {
         System.out.print("    ");
         for (int c = 0; c < Cols; c++) {
