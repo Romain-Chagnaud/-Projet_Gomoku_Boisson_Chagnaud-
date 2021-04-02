@@ -87,7 +87,7 @@ public class Game {
      * @param p la position à laquelle le joueur souhaite poser son pion.
      */
 
-    private void posePion(Position p) {
+     public void posePion(Position p) {
 
     }
 
