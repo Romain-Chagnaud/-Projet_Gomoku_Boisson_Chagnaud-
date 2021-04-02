@@ -14,9 +14,7 @@ import org.testng.annotations.Test;
  * @author romai
  */
 public class GameTest {
-    
-    
-
+   
     /**
      * Test of partieFinie method, of class Game.
      */
