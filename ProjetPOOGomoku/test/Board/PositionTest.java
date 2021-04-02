@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class PositionTest {
     
-   
+    
 
     /**
      * Test of voisines method, of class Position.
