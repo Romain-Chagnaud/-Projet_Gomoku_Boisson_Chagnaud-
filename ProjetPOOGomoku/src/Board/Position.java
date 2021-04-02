@@ -92,5 +92,11 @@ public class Position {
         return true;
     }
 
-
+    /**
+     * Méthode qui permet de prendre la position de la colonne.
+     * @return la colonnes choisis. 
+     */
+    public int Col(){
+        return this.col;
+    }
 }
