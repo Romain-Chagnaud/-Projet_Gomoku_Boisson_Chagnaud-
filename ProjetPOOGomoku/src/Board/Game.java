@@ -32,6 +32,7 @@ public class Game {
         this.nextPlayer = nextPlayer;
         this.board = board;
         this.coupsJoues = coupsJoues;
+        
     }
 
     /**
@@ -52,6 +53,7 @@ public class Game {
         } else if (Position.voisines(p) != 0 && Position.caseVide(p)) {
 
             posePion(p);// on ajoute un pion sur le plateur a la position demandé
+            // ajouter la position a la liste
 
             if (color == BLACK) {  // on change de joueur
                 color = WHITE;
@@ -89,10 +91,13 @@ public class Game {
 
      public void posePion(Position p) {
 
+         System.out.println("");
     }
-
-    // pose de pion
+   
+    
+    
     // on ajoute un symbole a la position p
+
 
 }
 

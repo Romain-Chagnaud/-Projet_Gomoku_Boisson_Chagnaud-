@@ -12,5 +12,7 @@ import Main.ProjetPOOGomoku;
  */
 public class Match implements Player  {
     
+    // lancement de la partie + appel des joueurs
+    
 }
 

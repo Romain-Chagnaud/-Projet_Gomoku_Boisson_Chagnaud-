@@ -10,5 +10,5 @@ package Game;
  * @author romai
  */
 public class IA implements Player{
-    
+    //crée un joueur IA
 }

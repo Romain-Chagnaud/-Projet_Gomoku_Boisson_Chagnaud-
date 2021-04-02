@@ -13,12 +13,16 @@ public class Position {
 
     public int row;
     public int col;
+    
+    Board board = new Board(row, col);
 
     Position(int row, int col) {
         this.row = row;
         this.col = col;
 
     }
+    
+    
 
     /**
      * Méthode indiquant le nombre de cases voisines occupées
@@ -68,7 +72,10 @@ public class Position {
         boolean estComplet = false;
         
         while (estComplet == false) {
-            //for(int i = 0; i < ) {
+         
+         
+               
+           
             
             
         }
