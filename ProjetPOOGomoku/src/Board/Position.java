@@ -63,12 +63,14 @@ public class Position {
     public static boolean rowComplete() {
         //tant que est complet est faux pour chaque ligne on parcourt les colonnes, tant que nb pions < 5 on continue
         
+        
+        
         boolean estComplet = false;
+        
         while (estComplet == false) {
-            /*for (int i = 0; i < board.lig; i++) {
-
-            }
-            */
+            //for(int i = 0; i < ) {
+            
+            
         }
         return true;
     }
