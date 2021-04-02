@@ -20,6 +20,7 @@ public class ProjetPOOGomoku {
 
         Board b = new Board(5, 8);
         b.display();
+        
 
         
     }
