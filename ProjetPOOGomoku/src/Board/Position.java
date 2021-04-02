@@ -55,5 +55,44 @@ public class Position {
 
     }
 
+    //Trouver un moyen de factoriser ces trois methodes pour eviter la duplication de code
+    /**
+     * Méthode indiquant si 5 pions sont alignés sur une ligne.
+     *
+     * @return true si 5 pions sont alignés sur une ligne et false sinon.
+     */
+    public static boolean rowComplete() {
+        //tant que est complet est faux pour chaque ligne on parcourt les colonnes, tant que nb pions < 5 on continue
+        
+        
+        
+        boolean estComplet = false;
+        
+        while (estComplet == false) {
+            //for(int i = 0; i < ) {
+            
+            
+        }
+        return true;
+    }
+
+    /**
+     * Méthode indiquant si 5 pions sont alignés sur une colonne.
+     *
+     * @return true si 5 pions sont alignés sur une colonne et false sinon.
+     */
+    public static boolean colComplete() {
+        return true;
+    }
+
+    /**
+     * Méthode indiquant si 5 pions sont alignés sur une diagonale.
+     *
+     * @return true si 5 pions sont alignés sur une diagonale et false sinon.
+     */
+    public static boolean diagComplete() {
+        return true;
+    }
+
 
 }
