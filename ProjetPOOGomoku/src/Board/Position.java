@@ -14,7 +14,7 @@ public class Position {
     public int row;
     public int col;
 
-    Board board = new Board(row, col);
+    Board board = new Board(8);
 
     Position(int row, char col) { // la position c'est un nombre et un lettre 
         this.row = row;
@@ -68,7 +68,7 @@ public class Position {
         int nbPions = 0;
 
         while (estComplet == false) {
-            for (int i = 0; i < b.Rows; i++) {
+         //   for (int i = 0; i < b.Rows; i++) {
              /*   if (b.col[i] != 0) {
                     nbPions += nbPions;
                 }*/
@@ -76,7 +76,7 @@ public class Position {
                     estComplet = true;
                 }
             }
-        }
+       // }
         return estComplet;
     }
 
@@ -92,10 +92,10 @@ public class Position {
         int nbPions = 0;
         
         while (estComplet == false) {
-            for(int j = 0; j < b.cols; j++) {
+           // for(int j = 0; j < b.cols; j++) {
                 
             }
-        }
+        //}
 
         return true;
     }
