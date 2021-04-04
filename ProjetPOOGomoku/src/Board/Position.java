@@ -61,15 +61,23 @@ public class Position {
      *
      * @return true si 5 pions sont alignés sur une ligne et false sinon.
      */
-    public static boolean rowComplete() {
+    public static boolean rowComplete(Position p, Board b) {
         //tant que est complet est faux pour chaque ligne on parcourt les colonnes, tant que nb pions < 5 on continue
 
         boolean estComplet = false;
+        int nbPions = 0;
 
         while (estComplet == false) {
-
+            for(int i = 0; i < b.rows; i++) {
+                if(b.cols != 0) {
+                    nbPions += nbPions;
+                }
+                if (nbPions == 5) {
+                    estComplet = true;
+                }
+            }
         }
-        return true;
+        return estComplet;
     }
 
     /**
