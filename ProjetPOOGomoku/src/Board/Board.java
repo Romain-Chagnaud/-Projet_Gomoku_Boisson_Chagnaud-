@@ -5,29 +5,39 @@
  */
 package Board;
 
-
-
 /**
  *
  * @author romai
  */
 public class Board {
 
-    
     private final int Cols, Rows;
+    int rows = 0;
+    char cols = 'A';
+    Position[][] pos;
 
     /**
-     * Constructeur permettant l'affichage de plateau
+     * Constructeur pour l'affichage de plateau
+     *
      * @param lig nombre de ligne sur le plateau
      * @param col nombre de colonne sur le plateau
      */
     public Board(int lig, int col) {
         this.Cols = col;
         this.Rows = lig;
+        this.pos = new Position[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                Position posi = new Position(lig, col);
+                pos[i][j] = posi;
+            }
+
+        }
+
     }
 
     /**
-     * Code 
+     * Code
      */
     public void display() {
         alphabet();
@@ -60,14 +70,13 @@ public class Board {
         System.out.println("+");
     }
 
-
     /**
-     *
+     * Permet l'affichage de l'alphabet en haut du tableau
      */
     private void alphabet() {
         System.out.print("    ");
         for (int c = 0; c < Cols; c++) {
-            System.out.print(" " +(char)('A' + c) + " ");
+            System.out.print(" " + (char) ('A' + c) + " ");
         }
     }
 }
