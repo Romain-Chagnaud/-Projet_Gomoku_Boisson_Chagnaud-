@@ -13,16 +13,13 @@ public class Position {
 
     public int row;
     public int col;
-    
+
     Board board = new Board(row, col);
 
-    Position(int row, int col) {
+    Position(int row, char col) { // la position c'est un nombre et un lettre 
         this.row = row;
         this.col = col;
-
     }
-    
-    
 
     /**
      * Méthode indiquant le nombre de cases voisines occupées
@@ -66,18 +63,11 @@ public class Position {
      */
     public static boolean rowComplete() {
         //tant que est complet est faux pour chaque ligne on parcourt les colonnes, tant que nb pions < 5 on continue
-        
-        
-        
+
         boolean estComplet = false;
-        
+
         while (estComplet == false) {
-         
-         
-               
-           
-            
-            
+
         }
         return true;
     }
@@ -100,5 +90,12 @@ public class Position {
         return true;
     }
 
-
+    /**
+     * Méthode qui permet de prendre la position de la colonne.
+     *
+     * @return la colonnes choisis.
+     */
+    public int Col() {
+        return this.col;
+    }
 }
