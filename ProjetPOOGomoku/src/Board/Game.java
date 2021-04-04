@@ -89,7 +89,7 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
     public void posePion(Position p) {
           for(int x = 0; x < board.cols; x++){
             for(int y = 0; y < board.rows; y++){
-               
+               //ici je sais pas trop quoi mettre donc il faut voir 
             }
         }
        
