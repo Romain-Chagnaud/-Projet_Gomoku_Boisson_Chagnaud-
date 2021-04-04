@@ -24,6 +24,9 @@ public class ProjetPOOGomoku {
         b.display();
         
 
+        //on crée une nouvelle instance de match et on lance la partie avec run()
+
+
         
     }
     

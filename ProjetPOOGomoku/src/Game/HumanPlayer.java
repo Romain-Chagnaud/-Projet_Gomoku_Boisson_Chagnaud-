@@ -11,4 +11,8 @@ package Game;
  */
 public class HumanPlayer implements Player{
     
+    
+    
+    //joueur 
+    // indique qui va jouer
 }

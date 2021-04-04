@@ -10,5 +10,5 @@ package Game;
  * @author romai
  */
 public interface Player {
-    
+    // crée un joueur
 }
