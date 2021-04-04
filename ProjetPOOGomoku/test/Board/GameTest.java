@@ -28,8 +28,8 @@ public class GameTest {
      */
     @Test
     public void testPosePion() {
-        Position p = new Position(3, 4);
-        int expResult = 4;
+        Position p = new Position(3, 'A');
+        char expResult = 'A';
         int result = p.Col();
         assertEquals(expResult,result);
     }

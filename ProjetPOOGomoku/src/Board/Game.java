@@ -14,8 +14,7 @@ import java.util.ArrayList;
  *
  * @author romai
  */
-
-public class Game {
+public class Game {  // il faut voir mais pour moi il faut extend avec Board
 
     Color nextPlayer;
     Board board;
@@ -32,7 +31,7 @@ public class Game {
         this.nextPlayer = nextPlayer;
         this.board = board;
         this.coupsJoues = coupsJoues;
-        
+
     }
 
     /**
@@ -82,24 +81,20 @@ public class Game {
 
     }
 
-
     /**
      * Méthode responsable de la pose d'un pion sur le plateau
      *
      * @param p la position à laquelle le joueur souhaite poser son pion.
      */
-
-
     public void posePion(Position p) {
-        
-
-         System.out.println("");
+          for(int x = 0; x < board.cols; x++){
+            for(int y = 0; y < board.rows; y++){
+               
+            }
+        }
+       
+         
     }
-   
-    
-    
+
     // on ajoute un symbole a la position p
-
-
 }
-

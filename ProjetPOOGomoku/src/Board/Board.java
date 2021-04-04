@@ -17,7 +17,7 @@ public class Board {
     Position[][] pos;
 
     /**
-     * Constructeur pour l'affichage de plateauB
+     * Constructeur pour l'affichage de plateau
      *
      * @param lig nombre de ligne sur le plateau
      * @param col nombre de colonne sur le plateau
@@ -28,7 +28,7 @@ public class Board {
         this.pos = new Position[rows][cols];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                Position posi = new Position(lig, col);
+                Position posi = new Position(rows, cols);
                 pos[i][j] = posi;
             }
 
