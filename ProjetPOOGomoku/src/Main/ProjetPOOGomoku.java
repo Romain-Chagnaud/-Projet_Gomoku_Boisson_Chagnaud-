@@ -23,7 +23,16 @@ public class ProjetPOOGomoku {
         
         //on crée une nouvelle instance de match et on lance la partie avec run()
 
+    }
+         public static  void dialogue () {
+              // Demander le nom du joueur 1
+              // Demander le nom du joueur 2
+              // demander la taille du plateau
+             System.out.println("");
+          }
+            
         
     }
     
-}
+  
+    
