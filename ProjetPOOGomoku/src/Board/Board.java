@@ -17,7 +17,7 @@ public class Board {
     Position[][] pos;
 
     /**
-     * Constructeur pour l'affichage de plateau
+     * Constructeur pour l'affichage de plateauB
      *
      * @param lig nombre de ligne sur le plateau
      * @param col nombre de colonne sur le plateau
