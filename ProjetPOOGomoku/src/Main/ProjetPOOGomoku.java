@@ -22,7 +22,7 @@ public class ProjetPOOGomoku {
      */
     public static void main(String[] args) {
         
-        Board b = new Board(8);
+        Board b = new Board(6);
         b.display();
         
     }

@@ -11,14 +11,23 @@ package Board;
  */
 public class Position {
 
+    private int ContenuCase(Position p) {
+        return 0;
+       //return board[p.row][p.col];
+    }
+
+    private static Position voisine(Position premiereCase) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int row;
     public int col;
 
-    Board board = new Board(8);
+    Board board = new Board(6);
 
-    Position(int row, char col) { // la position c'est un nombre et un lettre 
-        this.row = row;
-        this.col = col;
+    Position(int numRow, int numCol) { // la position c'est un nombre et un lettre 
+        this.row = numRow;
+        this.col = numCol;
     }
 
     /**
@@ -61,22 +70,25 @@ public class Position {
      *
      * @return true si 5 pions sont alignés sur une ligne et false sinon.
      */
-    public static boolean rowComplete(Position p, Board b) {
-        //tant que est complet est faux pour chaque ligne on parcourt les colonnes, tant que nb pions < 5 on continue
-
+    public static boolean rowComplete(Board b, Color color, int lig) {
+        //tant que est complet est faux pour chaque ligne on parcourt les colonnes,< 5 on continue
+        /* quand on parcourt on choisis la preiere cas et on regarde si elle est vide 
+        si elle est vide, est complet  = faux
+        sinon, on regarde la couleur et on parcourt les 4 positions suivante de la ligne,
+        si elles sont occupées par autre couleur alors estComplete = faux 
+        si elles sont occupées par meme couleur alors est complet = vrai
+        */
         boolean estComplet = false;
         int nbPions = 0;
+        Position premiereCase = new Position (0, lig);
 
-        while (estComplet == false) {
-         //   for (int i = 0; i < b.Rows; i++) {
-             /*   if (b.col[i] != 0) {
-                    nbPions += nbPions;
-                }*/
-                if (nbPions == 5) {
-                    estComplet = true;
+        while (estComplet  && lig < b.size) {
+          /*  for ( int i = 0; i < 4; i++) {
+                if(ContenuCase(premiereCase) != ContenuCase(voisine(premiereCase))) {
+                    voisine(premiereCase) += voisine(premiereCase);
                 }
             }
-       // }
+        }*/
         return estComplet;
     }
 
@@ -86,7 +98,7 @@ public class Position {
      * @return true si 5 pions sont alignés sur une colonne et false sinon.
      */
     //tant que non complet, on parcourt pour chaque colonne on regarrde si chaque ligne est différent de null
-    public static boolean colComplete(Position p, Board b) {
+    /*public static boolean colComplete(Position p, Board b) {
 
         boolean estComplet = false;
         int nbPions = 0;
@@ -96,7 +108,7 @@ public class Position {
                 
             }
         //}
-
+*/
         return true;
     }
 
