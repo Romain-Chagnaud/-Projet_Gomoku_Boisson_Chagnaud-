@@ -11,7 +11,7 @@ package Board;
  */
 public class Board {
 
-    private final int Cols, Rows;
+    final int Cols, Rows;
     int rows = 0;
     char cols = 'A';
     Position[][] pos;

@@ -68,10 +68,10 @@ public class Position {
         int nbPions = 0;
 
         while (estComplet == false) {
-            for(int i = 0; i < b.rows; i++) {
-                if(b.cols != 0) {
+            for (int i = 0; i < b.Rows; i++) {
+             /*   if (b.col[i] != 0) {
                     nbPions += nbPions;
-                }
+                }*/
                 if (nbPions == 5) {
                     estComplet = true;
                 }
@@ -85,7 +85,18 @@ public class Position {
      *
      * @return true si 5 pions sont alignés sur une colonne et false sinon.
      */
-    public static boolean colComplete() {
+    //tant que non complet, on parcourt pour chaque colonne on regarrde si chaque ligne est différent de null
+    public static boolean colComplete(Position p, Board b) {
+
+        boolean estComplet = false;
+        int nbPions = 0;
+        
+        while (estComplet == false) {
+            for(int j = 0; j < b.cols; j++) {
+                
+            }
+        }
+
         return true;
     }
 
