@@ -7,7 +7,7 @@ package Board;
 
 /**
  *
- * @author manon
+ * @author Romain Chagnaud, Manon Boisson
  */
 public enum Color {
 

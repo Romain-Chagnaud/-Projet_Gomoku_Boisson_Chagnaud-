@@ -1,23 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Board;
 
 /**
  *
- * @author manon
+ * @author Romain Chagnaud, Manon Boisson
  */
 public class Position {
-
-    private static Position voisine(Position premiereCase) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     public int row;
     public int col;
 
+    /**
+     * Constructeur de la classe position.
+     *
+     * @param numRow le numéro d'une ligne
+     * @param numCol le numéro d'une colonne.
+     */
     Position(int numRow, int numCol) { // la position c'est un nombre et un lettre 
         this.row = numRow;
         this.col = numCol;
@@ -30,7 +27,7 @@ public class Position {
      * voisines occupées.
      * @return le nombre de cases voisines occupées.
      */
-    public static int voisines(Position p) {
+    public static int nbVoisines(Position p) {
 
         int nbVoisines = 0;
 
@@ -46,6 +43,11 @@ public class Position {
 
     }
 
+    /**
+     * Méthode indiquant si une case est vide.
+     * @param p la position de la case dont on regarde le contenu.
+     * @return 
+     */
     public static boolean caseVide(Position p) {
         boolean caseVide = false;
 
@@ -61,12 +63,14 @@ public class Position {
     /**
      * Méthode indiquant si 5 pions sont alignés sur une ligne.
      *
+     * @param b la plateau de jeu.
+     * @param lig la ligne que l'on consulte.
      * @return true si 5 pions sont alignés sur une ligne et false sinon.
      */
-    public static boolean rowComplete(Board b, Color color, int lig) {
-        Position premiereCase = new Position(lig, 0);
-        boolean ligneComplete = true;
+    public static boolean rowComplete(Board b, int lig) {
+        boolean estComplet = false;
         int col = 1;
+<<<<<<< HEAD
         while (ligneComplete && col < b.size) {
             Position caseLigne = new Position(lig, col);
            //if (Board.contenuCase(caseLigne) != Board.contenuCase(premiereCase)
@@ -94,66 +98,90 @@ public class Position {
           /*  for ( int i = 0; i < 4; i++) {
                 if(ContenuCase(premiereCase) != ContenuCase(voisine(premiereCase))) {
                     voisine(premiereCase) += voisine(premiereCase);
+=======
+        Position p = new Position(lig, 0);
+        Position suivante = new Position(lig, col);
+
+        while (estComplet) {
+            for (int i = 0; i < b.size; i++) {
+                for (int j = 0; j < b.size; j++) {
+                    if (b.contenuCase(p) == b.contenuCase(suivante)) {
+                        col += col;
+                        if (col == 5) {
+                            estComplet = true;
+                        }
+                    }
+>>>>>>> bee1aa588ad0b4f0e29496b8bf7bf81652b55408
                 }
+
             }
-        }*/
- /*   return estComplet;
+        }
+        return estComplet;
     }
-        return false;
-     */
+
     /**
      * Méthode indiquant si 5 pions sont alignés sur une colonne.
      *
+     * @param b le plateau de jeu.
+     * @param col la colonne que l'on consulte.
      * @return true si 5 pions sont alignés sur une colonne et false sinon.
      */
     //tant que non complet, on parcourt pour chaque colonne on regarrde si chaque ligne est différent de null
-    public boolean colComplete(Position p, Board b, Color c) {
+    public static boolean colComplete(Board b, int col) {
 
         boolean estComplet = false;
-        int nbPions = 0;
+        int lig = 1;
+        Position p = new Position(0, col);
+        Position suivante = new Position(lig, col);
 
-        while (estComplet == false) {
-            // for(int j = 0; j < b.cols; j++) {
-            for (int col = 0; col < b.size - 1; col++) {
-                for (int lig = 0; lig < b.size - 1; lig++) {
-                 //   if (ContenuCase(p) == 0) {
-                        estComplet = false;
-                  //  }
-                    //if (ContenuCase(p) != 0 && c == Color.BLACK) {
-                        //if (lig !=) {
-
-                      //  }
-                    //}
+        while (estComplet) {
+            for (int i = 0; i < b.size; i++) {
+                for (int j = 0; j < b.size; j++) {
+                    if (b.contenuCase(p) == b.contenuCase(suivante)) {
+                        lig += lig;
+                        if (lig == 5) {
+                            estComplet = true;
+                        }
+                    }
                 }
+
             }
-
         }
-        //}
-        /*
-        on parcourt les colonnes et pour chaque ligne de chaque colonnes on 
-        regarde sa couleur et si les 5 suivantes ont la meme  ou sont vides.
-         */
-
-        return true;
+        return estComplet;
     }
 
     /**
      * Méthode indiquant si 5 pions sont alignés sur une diagonale.
      *
+     * @param b le plateau de jeu.
      * @return true si 5 pions sont alignés sur une diagonale et false sinon.
      */
-    public static boolean diagComplete() {
-        return true;
-    }
+    public static boolean diagComplete(Board b) {
 
-    /**
-     * Méthode qui permet de prendre la position de la colonne.
-     *
-     * @return la colonnes choisis.
-     */
-    public int Col() {
-        return this.col;
+        boolean estComplet = false;
+        int lig = 1;
+        int col = 1;
+        Position p = new Position(lig, col);
+        Position suivante = new Position(lig, col);
+
+        while (estComplet) {
+            for (int i = 0; i < b.size; i++) {
+                for (int j = 0; j < b.size; j++) {
+                    if (b.contenuCase(p) == b.contenuCase(suivante)) {
+                        lig += lig;
+                        col += col;
+                        if (lig == 5) {
+                            estComplet = true;
+                        }
+                    }
+                }
+
+            }
+        }
+        return estComplet;
     }
     
-   
+    // on regarde chaque pour une ligne n, sa colonne n ainsi on consulte les case en diagonale,
+    // si elles sont identiques, alors estComplet est vrai.
+
 }
