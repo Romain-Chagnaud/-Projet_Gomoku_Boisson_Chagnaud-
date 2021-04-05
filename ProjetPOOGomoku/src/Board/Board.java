@@ -5,6 +5,8 @@
  */
 package Board;
 
+import static Board.Position.caseVide;
+
 /**
  *
  * @author romai
@@ -109,4 +111,10 @@ public class Board {
         
        return contenu;        
     }
+    
+        public int contenuCase(Position p) {
+        return board[p.row][p.col];
+    }
+        
+  
 }

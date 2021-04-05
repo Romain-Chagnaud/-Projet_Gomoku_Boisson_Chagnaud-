@@ -51,7 +51,7 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
             play = false;
         } else if (Position.voisines(p) != 0 && Position.caseVide(p)) {
 
-            //   posePion(p);// on ajoute un pion sur le plateur a la position demandé
+            posePion(p);// on ajoute un pion sur le plateur a la position demandé
             // ajouter la position a la liste
             if (color == BLACK) {  // on change de joueur
                 color = WHITE;
@@ -73,30 +73,27 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
      */
     public boolean partieFinie(Position p) {
         return false;// ajouté pour la compilation du code
-        /* if (Position.rowComplete() || Position.colComplete() || Position.diagComplete()) {
+        /*  if (Position.rowComplete() || Position.colComplete() || Position.diagComplete()) {
             return true;
         } else {
             return false;
-        }
-        
+        }*/
 
-    }*/
+    }
 
-        /**
-         * Méthode responsable de la pose d'un pion sur le plateau
-         *
-         * @param p la position à laquelle le joueur souhaite poser son pion.
-         */
-        /* public void posePion(Position p) {
-          for(int x = 0; x < board.cols; x++){
-            for(int y = 0; y < board.rows; y++){
-               //ici je sais pas trop quoi mettre donc il faut voir. 
+    /**
+     * Méthode responsable de la pose d'un pion sur le plateau
+     *
+     * @param p la position à laquelle le joueur souhaite poser son pion.
+     */
+    public void posePion(Position p) {
+        for (int x = 0; x < board.size; x++) {
+            for (int y = 0; y < board.size; y++) {
+                //ici je sais pas trop quoi mettre donc il faut voir. 
             }
         }
-  
-         
+
     }
-         */
-        // on ajoute un symbole a la position p
-    }
+
+    // on ajoute un symbole a la position p
 }
