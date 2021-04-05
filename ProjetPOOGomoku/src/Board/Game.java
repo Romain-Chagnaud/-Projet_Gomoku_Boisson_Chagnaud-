@@ -42,7 +42,7 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
      * @return true si le joueur peut poser son pion sur la position en
      * question.
      */
-    private boolean play(Position p, Color color) {
+    private boolean play(Board b, Position p, Color color, int nvlleVal) {
 
         boolean play = false;
 
@@ -51,10 +51,10 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
             play = false;
         } else if (Position.voisines(p) != 0 && Position.caseVide(p)) {
 
-            posePion(p);// on ajoute un pion sur le plateur a la position demandé
+            posePion(b,p, nvlleVal);// on ajoute un pion sur le plateur a la position demandé
             // ajouter la position a la liste
-            if (color == BLACK) {  // on change de joueur
-                color = WHITE;
+            if (color == BLACK) {  // on change de joueur // black = croix
+                color = WHITE; // croix
             } else {
                 color = BLACK;
             }
@@ -86,14 +86,9 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
      *
      * @param p la position à laquelle le joueur souhaite poser son pion.
      */
-    public void posePion(Position p) {
-        for (int x = 0; x < board.size; x++) {
-            for (int y = 0; y < board.size; y++) {
-                //ici je sais pas trop quoi mettre donc il faut voir. 
-            }
-        }
+    public void posePion(Board b, Position p, int nvlleVal) {
+        b.nouvelleValeur(p, nvlleVal); // on ajoute une nouvelle valeur à la position p.
 
     }
-
-    // on ajoute un symbole a la position p
+    
 }

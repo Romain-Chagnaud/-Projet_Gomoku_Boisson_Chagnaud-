@@ -97,24 +97,25 @@ public class Board {
         System.out.println(" |" + contenuLigne(lig) + "|");
     }
     // pour chaque ligne on affiche son contenu
-    
-    
-    
-    
+
     /**
      * Méthode responsable de la gestion du contenu d'une ligne.
+     *
      * @param lig
-     * @return 
+     * @return
      */
     private String contenuLigne(int lig) {
         String contenu = null;
-        
-       return contenu;        
+
+        return contenu;
     }
-    
-        public int contenuCase(Position p) {
+
+    public int contenuCase(Position p) {
         return board[p.row][p.col];
     }
-        
-  
+
+    public void nouvelleValeur(Position p, int nvlleVal) {
+        board[p.row][p.col] = nvlleVal;
+    }
+
 }

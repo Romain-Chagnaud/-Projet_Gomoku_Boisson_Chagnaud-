@@ -7,12 +7,16 @@ package Board;
 
 /**
  *
-<<<<<<< HEAD
  * @author manon
  */
 public enum Color {
-    BLACK,
-    WHITE,
+
+    /**
+     *
+     */
+    BLACK,// rond
+    WHITE,// croix
     NONE;
 
 }
+
