@@ -155,10 +155,7 @@ public class Position {
     
     // on regarde chaque pour une ligne n, sa colonne n ainsi on consulte les case en diagonale,
     // si elles sont identiques, alors estComplet est vrai.
-<<<<<<< HEAD
-=======
 
->>>>>>> 38512001ae8406577888b41237654be02345b11e
     /**
      * Méthode qui permet de prendre la position de la colonne.
      *
@@ -167,8 +164,5 @@ public class Position {
     public int Col() {
         return this.col;
     }
-<<<<<<< HEAD
-=======
-    
->>>>>>> 38512001ae8406577888b41237654be02345b11e
+
 }
