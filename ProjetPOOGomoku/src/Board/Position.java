@@ -11,9 +11,6 @@ package Board;
  */
 public class Position {
 
-    private static Position voisine(Position premiereCase) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     public int row;
     public int col;
@@ -30,7 +27,7 @@ public class Position {
      * voisines occupées.
      * @return le nombre de cases voisines occupées.
      */
-    public static int voisines(Position p) {
+    public static int nbVoisines(Position p) {
 
         int nbVoisines = 0;
 
@@ -61,89 +58,93 @@ public class Position {
     /**
      * Méthode indiquant si 5 pions sont alignés sur une ligne.
      *
+     * @param b
+     * @param lig
      * @return true si 5 pions sont alignés sur une ligne et false sinon.
      */
-    public static boolean rowComplete(Board b, Color color, int lig) {
-        Position premiereCase = new Position(lig, 0);
-        boolean ligneComplete = true;
+    public static boolean rowComplete(Board b, int lig) {
+        boolean estComplet = false;
         int col = 1;
-        while (ligneComplete && col < b.size) {
-            Position caseLigne = new Position(lig, col);
-           // if (Board.contenuCase(caseLigne) != Board.contenuCase(premiereCase)
-             //       || caseVide(premiereCase)
-               //     || caseVide(caseLigne)) {
-                ligneComplete = false;
-            }
-            col++;
-        //}
-        return ligneComplete;
-    }
-    //tant que est complet est faux pour chaque ligne on parcourt les colonnes,< 5 on continue
+        Position p = new Position(lig, 0);
+        Position suivante = new Position(lig, col);
 
-    /* quand on parcourt on choisis la preiere cas et on regarde si elle est vide 
-        si elle est vide, est complet  = faux
-        sinon, on regarde la couleur et on parcourt les 4 positions suivante de la ligne,
-        si elles sont occupées par autre couleur alors estComplete = faux 
-        si elles sont occupées par meme couleur alors est complet = vrai
-     */
- /* boolean estComplet = false;
-        int nbPions = 0;
-        Position premiereCase = new Position (0, lig);
-
-        while (estComplet  && lig < b.size) {
-          /*  for ( int i = 0; i < 4; i++) {
-                if(ContenuCase(premiereCase) != ContenuCase(voisine(premiereCase))) {
-                    voisine(premiereCase) += voisine(premiereCase);
+        while (estComplet) {
+            for (int i = 0; i < b.size; i++) {
+                for (int j = 0; j < b.size; j++) {
+                    if (b.contenuCase(p) == b.contenuCase(suivante)) {
+                        col += col;
+                        if (col == 5) {
+                            estComplet = true;
+                        }
+                    }
                 }
+
             }
-        }*/
- /*   return estComplet;
+        }
+        return estComplet;
     }
-        return false;
-     */
+
     /**
      * Méthode indiquant si 5 pions sont alignés sur une colonne.
      *
+     * @param b
+     * @param col
      * @return true si 5 pions sont alignés sur une colonne et false sinon.
      */
     //tant que non complet, on parcourt pour chaque colonne on regarrde si chaque ligne est différent de null
-    public boolean colComplete(Position p, Board b, Color c) {
+    public static boolean colComplete(Board b, int col) {
 
         boolean estComplet = false;
-        int nbPions = 0;
+        int lig = 1;
+        Position p = new Position(0, col);
+        Position suivante = new Position(lig, col);
 
-        while (estComplet == false) {
-            // for(int j = 0; j < b.cols; j++) {
-            for (int col = 0; col < b.size - 1; col++) {
-                for (int lig = 0; lig < b.size - 1; lig++) {
-                 //   if (ContenuCase(p) == 0) {
-                        estComplet = false;
-                  //  }
-                    //if (ContenuCase(p) != 0 && c == Color.BLACK) {
-                        //if (lig !=) {
-
-                      //  }
-                    //}
+        while (estComplet) {
+            for (int i = 0; i < b.size; i++) {
+                for (int j = 0; j < b.size; j++) {
+                    if (b.contenuCase(p) == b.contenuCase(suivante)) {
+                        lig += lig;
+                        if (lig == 5) {
+                            estComplet = true;
+                        }
+                    }
                 }
+
             }
-
         }
-        //}
-        /*
-        on parcourt les colonnes et pour chaque ligne de chaque colonnes on 
-        regarde sa couleur et si les 5 suivantes ont la meme  ou sont vides.
-         */
-
-        return true;
+        return estComplet;
     }
 
     /**
      * Méthode indiquant si 5 pions sont alignés sur une diagonale.
      *
+     * @param b
+     * @param c
      * @return true si 5 pions sont alignés sur une diagonale et false sinon.
      */
-    public static boolean diagComplete() {
-        return true;
+    public static boolean diagComplete(Board b) {
+
+        boolean estComplet = false;
+        int lig = 1;
+        int col = 1;
+        Position p = new Position(lig, col);
+        Position suivante = new Position(lig, col);
+
+        while (estComplet) {
+            for (int i = 0; i < b.size; i++) {
+                for (int j = 0; j < b.size; j++) {
+                    if (b.contenuCase(p) == b.contenuCase(suivante)) {
+                        lig += lig;
+                        col += col;
+                        if (lig == 5) {
+                            estComplet = true;
+                        }
+                    }
+                }
+
+            }
+        }
+        return estComplet;
     }
 
     /**
@@ -154,6 +155,5 @@ public class Position {
     public int Col() {
         return this.col;
     }
-    
-   
+
 }

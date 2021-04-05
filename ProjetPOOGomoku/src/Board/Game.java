@@ -36,7 +36,7 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
 
     /**
      * Méthode qui indique si il est possible pour un joueur de placer un pion à
-     * une certaine position.
+     * une certaine position et place un pion si c'est le cas.
      *
      * @param p la position à laquelle le joueur veut placer son pion
      * @return true si le joueur peut poser son pion sur la position en
@@ -49,9 +49,9 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
         if (coupsJoues.contains(p)) { // on verifie si le arrayList qui enregistre les coups joués contient la position à laquelle le joueur veut se placer
 
             play = false;
-        } else if (Position.voisines(p) != 0 && Position.caseVide(p)) {
+        } else if (Position.nbVoisines(p) != 0 && Position.caseVide(p)) {
 
-            posePion(b,p, nvlleVal);// on ajoute un pion sur le plateur a la position demandé
+            posePion(b, p, nvlleVal);// on ajoute un pion sur le plateur a la position demandé
             // ajouter la position a la liste
             if (color == BLACK) {  // on change de joueur // black = croix
                 color = WHITE; // croix
@@ -71,24 +71,27 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
      * @param p une position du plateau de jeu.
      * @return true si la partie est finie
      */
-    public boolean partieFinie(Position p) {
-        return false;// ajouté pour la compilation du code
-        /*  if (Position.rowComplete() || Position.colComplete() || Position.diagComplete()) {
-            return true;
-        } else {
-            return false;
-        }*/
+    public boolean partieFinie(Position p, Board b) {
 
+        boolean partieFinie = false;
+        if (Position.rowComplete(b, p.row) || Position.colComplete(b, p.col) || Position.diagComplete(b)) {
+            partieFinie = true;
+        } else {
+            partieFinie = false;
+        }
+        return partieFinie;
     }
 
     /**
      * Méthode responsable de la pose d'un pion sur le plateau
      *
+     * @param b
      * @param p la position à laquelle le joueur souhaite poser son pion.
+     * @param nvlleVal
      */
     public void posePion(Board b, Position p, int nvlleVal) {
         b.nouvelleValeur(p, nvlleVal); // on ajoute une nouvelle valeur à la position p.
 
     }
-    
+
 }
