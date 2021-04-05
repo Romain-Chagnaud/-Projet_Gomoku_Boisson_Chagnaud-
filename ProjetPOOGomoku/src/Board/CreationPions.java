@@ -9,7 +9,7 @@ package Board;
  *
  * @author romai
  */
-public class CréationPions {
+public class CreationPions {
 
     public void printBoard(Board b) {
         for (int i = 0; i < b.size; i++) {

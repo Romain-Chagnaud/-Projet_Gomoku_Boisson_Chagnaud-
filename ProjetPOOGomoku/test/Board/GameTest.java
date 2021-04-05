@@ -24,7 +24,7 @@ public class GameTest {
     }
 
     /**
-     * Test of posePion method, of class Game.
+     * Test pour voir si on peut poser un pion.
      */
     @Test
     public void testPosePion() {
