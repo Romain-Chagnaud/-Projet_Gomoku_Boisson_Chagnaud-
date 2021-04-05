@@ -69,7 +69,7 @@ public class Position {
         int col = 1;
         while (ligneComplete && col < b.size) {
             Position caseLigne = new Position(lig, col);
-           // if (Board.contenuCase(caseLigne) != Board.contenuCase(premiereCase)
+           //if (Board.contenuCase(caseLigne) != Board.contenuCase(premiereCase)
              //       || caseVide(premiereCase)
                //     || caseVide(caseLigne)) {
                 ligneComplete = false;
