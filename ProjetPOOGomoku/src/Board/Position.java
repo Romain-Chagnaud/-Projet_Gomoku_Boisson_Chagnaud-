@@ -70,35 +70,7 @@ public class Position {
     public static boolean rowComplete(Board b, int lig) {
         boolean estComplet = false;
         int col = 1;
-<<<<<<< HEAD
-        while (ligneComplete && col < b.size) {
-            Position caseLigne = new Position(lig, col);
-           //if (Board.contenuCase(caseLigne) != Board.contenuCase(premiereCase)
-             //       || caseVide(premiereCase)
-               //     || caseVide(caseLigne)) {
-                ligneComplete = false;
-            }
-            col++;
-        //}
-        return ligneComplete;
-    }
-    //tant que est complet est faux pour chaque ligne on parcourt les colonnes,< 5 on continue
-
-    /* quand on parcourt on choisis la preiere cas et on regarde si elle est vide 
-        si elle est vide, est complet  = faux
-        sinon, on regarde la couleur et on parcourt les 4 positions suivante de la ligne,
-        si elles sont occupées par autre couleur alors estComplete = faux 
-        si elles sont occupées par meme couleur alors est complet = vrai
-     */
- /* boolean estComplet = false;
-        int nbPions = 0;
-        Position premiereCase = new Position (0, lig);
-
-        while (estComplet  && lig < b.size) {
-          /*  for ( int i = 0; i < 4; i++) {
-                if(ContenuCase(premiereCase) != ContenuCase(voisine(premiereCase))) {
-                    voisine(premiereCase) += voisine(premiereCase);
-=======
+    
         Position p = new Position(lig, 0);
         Position suivante = new Position(lig, col);
 
@@ -111,7 +83,7 @@ public class Position {
                             estComplet = true;
                         }
                     }
->>>>>>> bee1aa588ad0b4f0e29496b8bf7bf81652b55408
+
                 }
 
             }
