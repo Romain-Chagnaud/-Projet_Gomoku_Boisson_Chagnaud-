@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Board;
 
 import java.awt.Color;
@@ -12,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author romai
+ * @author Romain Chagnaud, Manon Boisson
  */
 public class Game {  // il faut voir mais pour moi il faut extend avec Board
 
@@ -21,7 +16,7 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
     ArrayList<Position> coupsJoues;
 
     /**
-     * Constructeur de Game
+     * Constructeur de la classe Game
      *
      * @param nextPlayer indique le joueur qui doit jouer le prochain coup.
      * @param board contient l'état d plateau
@@ -38,7 +33,10 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
      * Méthode qui indique si il est possible pour un joueur de placer un pion à
      * une certaine position et place un pion si c'est le cas.
      *
+     * @param b la plateau de jeu.
      * @param p la position à laquelle le joueur veut placer son pion
+     * @param color la couleur du joueur courant.
+     * @param nvlleVal la valeur que le joueur courant souhaite jouer.
      * @return true si le joueur peut poser son pion sur la position en
      * question.
      */
@@ -69,7 +67,8 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
      * Méthode indiquant si une parite est finie ou non.
      *
      * @param p une position du plateau de jeu.
-     * @return true si la partie est finie
+     * @param b le plateau de jeu.
+     * @return true si la partie est finie et false sinon.
      */
     public boolean partieFinie(Position p, Board b) {
 
@@ -85,13 +84,20 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
     /**
      * Méthode responsable de la pose d'un pion sur le plateau
      *
-     * @param b
+     * @param b le plateau de jeu.
      * @param p la position à laquelle le joueur souhaite poser son pion.
-     * @param nvlleVal
+     * @param nvlleVal la valeur que le joueur souhaite ajouter à une case.
      */
     public void posePion(Board b, Position p, int nvlleVal) {
         b.nouvelleValeur(p, nvlleVal); // on ajoute une nouvelle valeur à la position p.
 
     }
+    
+    /*
+    A regarder incohérence entre la valeur que le joueur souhaite jouer et sa couleur
+    -> on  l'a déclaré comme un entier alors qu'il est censé déposer un char sur le plateau
+    -> voir avec l'enum de Romain
+    -> dans la classe play, on veut ajouter une vnlleval mais est -ce qu'on a réellement le choix de la val ?
+    */
 
 }

@@ -7,7 +7,7 @@ package Game;
 
 /**
  *
- * @author romai
+ * @author Romain Chagnaud, Manon Boisson
  */
 public class HumanPlayer implements Player{
     

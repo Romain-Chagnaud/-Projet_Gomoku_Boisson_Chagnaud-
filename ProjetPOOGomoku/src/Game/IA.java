@@ -7,7 +7,7 @@ package Game;
 
 /**
  *
- * @author romai
+ * @author Romain Chagnaud, Manon Boisson
  */
 public class IA implements Player{
     //crée un joueur IA

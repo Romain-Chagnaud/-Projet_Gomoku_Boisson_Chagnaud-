@@ -1,20 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Board;
 
 /**
  *
- * @author manon
+ * @author Romain Chagnaud, Manon Boisson
  */
 public class Position {
-
 
     public int row;
     public int col;
 
+    /**
+     * Constructeur de la classe position.
+     *
+     * @param numRow le numéro d'une ligne
+     * @param numCol le numéro d'une colonne.
+     */
     Position(int numRow, int numCol) { // la position c'est un nombre et un lettre 
         this.row = numRow;
         this.col = numCol;
@@ -43,6 +43,11 @@ public class Position {
 
     }
 
+    /**
+     * Méthode indiquant si une case est vide.
+     * @param p la position de la case dont on regarde le contenu.
+     * @return 
+     */
     public static boolean caseVide(Position p) {
         boolean caseVide = false;
 
@@ -58,8 +63,8 @@ public class Position {
     /**
      * Méthode indiquant si 5 pions sont alignés sur une ligne.
      *
-     * @param b
-     * @param lig
+     * @param b la plateau de jeu.
+     * @param lig la ligne que l'on consulte.
      * @return true si 5 pions sont alignés sur une ligne et false sinon.
      */
     public static boolean rowComplete(Board b, int lig) {
@@ -87,8 +92,8 @@ public class Position {
     /**
      * Méthode indiquant si 5 pions sont alignés sur une colonne.
      *
-     * @param b
-     * @param col
+     * @param b le plateau de jeu.
+     * @param col la colonne que l'on consulte.
      * @return true si 5 pions sont alignés sur une colonne et false sinon.
      */
     //tant que non complet, on parcourt pour chaque colonne on regarrde si chaque ligne est différent de null
@@ -118,8 +123,7 @@ public class Position {
     /**
      * Méthode indiquant si 5 pions sont alignés sur une diagonale.
      *
-     * @param b
-     * @param c
+     * @param b le plateau de jeu.
      * @return true si 5 pions sont alignés sur une diagonale et false sinon.
      */
     public static boolean diagComplete(Board b) {
@@ -146,14 +150,8 @@ public class Position {
         }
         return estComplet;
     }
-
-    /**
-     * Méthode qui permet de prendre la position de la colonne.
-     *
-     * @return la colonnes choisis.
-     */
-    public int Col() {
-        return this.col;
-    }
+    
+    // on regarde chaque pour une ligne n, sa colonne n ainsi on consulte les case en diagonale,
+    // si elles sont identiques, alors estComplet est vrai.
 
 }

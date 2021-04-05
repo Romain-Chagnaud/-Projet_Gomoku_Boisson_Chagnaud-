@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Board;
-
-import static Board.Position.caseVide;
 
 /**
  *
- * @author romai
+ * @author Romain Chagnaud, Manon Boisson
  */
 public class Board {
 
@@ -91,9 +84,9 @@ public class Board {
      * @param lig la ligne qui doit être affichée.
      */
     private void afficherLigne(int lig) {
-        for (lig = 0; lig < size - 1; lig++) {
+       /* for (lig = 0; lig < size - 1; lig++) {
             int numLig = lig;
-        }
+        }*/
         System.out.println(" |" + contenuLigne(lig) + "|");
     }
     // pour chaque ligne on affiche son contenu
@@ -101,8 +94,8 @@ public class Board {
     /**
      * Méthode responsable de la gestion du contenu d'une ligne.
      *
-     * @param lig
-     * @return
+     * @param lig la ligne dont on veut connaitre le contenu.
+     * @return le contenu de cette ligne.
      */
     private String contenuLigne(int lig) {
         String contenu = null;
@@ -110,10 +103,22 @@ public class Board {
         return contenu;
     }
 
+    
+    /**
+     * Méthode permettant de connaitre le contenu d'une case.
+     * @param p la position de la case dont nous voulons connaitre le contenu.
+     * @return le contenu de cette case.
+     */
     public int contenuCase(Position p) {
         return board[p.row][p.col];
     }
 
+    
+    /**
+     * Méthode responsable de l'ajout d'une nouvelle valeur dans une case.
+     * @param p la position à laquelle on souhaite ajouter une nouvelle valeur.
+     * @param nvlleVal la nouvelle valeur que l'on souhaite ajouter.
+     */
     public void nouvelleValeur(Position p, int nvlleVal) {
         board[p.row][p.col] = nvlleVal;
     }
