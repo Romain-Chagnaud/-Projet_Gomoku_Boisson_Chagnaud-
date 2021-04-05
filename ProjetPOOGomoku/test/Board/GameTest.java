@@ -30,7 +30,7 @@ public class GameTest {
     public void testPosePion() {
         Position p = new Position(3, 'A');
         char expResult = 'A';
-        int result = p.Col();
+        int result = p.col();
         assertEquals(expResult,result);
     }
 }
