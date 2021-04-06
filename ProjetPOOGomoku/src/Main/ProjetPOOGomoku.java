@@ -8,6 +8,7 @@ package Main;
 import Board.Board;
 import Board.Color;
 import Game.HumanPlayer;
+import java.awt.Dialog;
 import java.util.Scanner;
 
 /**
@@ -26,7 +27,7 @@ public class ProjetPOOGomoku {
         
         Board b = new Board(20);
         b.display();
-
+        
     }
     
      Scanner scanner = new Scanner(System.in);

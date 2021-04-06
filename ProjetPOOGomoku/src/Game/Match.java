@@ -43,7 +43,6 @@ public class Match implements Player {
     public void run() {
         // Board b = new board()
         Match match = new Match(joueur1, joueur2, board);
-        dialogueJoueur();
 
     }
 
