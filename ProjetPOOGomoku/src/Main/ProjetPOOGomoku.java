@@ -17,38 +17,41 @@ import java.util.Scanner;
  */
 public class ProjetPOOGomoku {
 
-    
-    String name;
-    Color color;
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         Board b = new Board(20);
         b.display();
+
+        // créer une nouvealle instatnce de match et lancer le run
+
         
     }
-    
-     Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
 
-    public void dialogueJoueur() {
-        
-        HumanPlayer joueur1 = new HumanPlayer(name, color);
-        HumanPlayer joueur2 = new HumanPlayer(name, color);
-        
+    /**
+     * Méthode reponsable du dialogue avec les joueurs.
+     */
+    public static void dialogueJoueur() {
+
+        HumanPlayer joueur1 = new HumanPlayer("bo", Color.BLACK);
+        HumanPlayer joueur2 = new HumanPlayer("bobé", Color.WHITE);
+
         // on crée de nouveaux joueurs.
         //on crée des noms
         //
-
-        System.out.println("Entrez le nom du premier joueur");
+        /*System.out.println("Entrez le nom du premier joueur");
         joueur1.name = scanner.next();
 
         System.out.println("Entrez le nom du deuxième joueur");
         joueur2.name = scanner.next();
-
+*/
 // nouvelle instance de position qu'on demande et lit puis utilise dans play        
 // appel à play
     }
 
+    // reussir a faire l'appel à dialogue dans le main
 }
