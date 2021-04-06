@@ -8,6 +8,7 @@ public class Board {
 
     public int size;
     public int[][] board;
+    public Color[][] color;
 
     /**
      * Constructeur pour l'affichage du plateau de jeu.
@@ -38,8 +39,9 @@ public class Board {
         bar();
         for (int lig = 0; lig < size - 1; lig++) {
             afficherLigne(lig);
-            bar();
+           
         }
+        bar();
 
         // on affiche l'alphabet
         // on affiche un espace
@@ -58,7 +60,7 @@ public class Board {
 
         System.out.print("   ");
         for (int c = 0; c < size - 2; c++) {
-            System.out.print("---+");
+            System.out.print("---");
         }
         System.out.println("---");
         //pour chaque indice du tableau o met en place une ligne de séparation horizontale
@@ -70,7 +72,7 @@ public class Board {
      */
     private void alphabet() {
 
-        System.out.print("    ");
+        System.out.print(" ");
         for (int c = 0; c < size; c++) {
             System.out.print(" " + (char) ('A' + c) + " ");
         }
