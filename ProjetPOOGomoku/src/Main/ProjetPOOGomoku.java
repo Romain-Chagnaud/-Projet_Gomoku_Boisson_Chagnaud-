@@ -23,9 +23,10 @@ public class ProjetPOOGomoku {
      */
     public static void main(String[] args) {
 
-        Board b = new Board(20);
+        Board b = new Board(5);
         b.display();
-
+        dialogueJoueur();
+        
         // créer une nouvealle instatnce de match et lancer le run
 
         
