@@ -107,6 +107,9 @@ public class Board {
     private String contenuLigne() {
         String contenu = null;
         return contenu;
+        // les caractères contenus dans chaque case
+        // pour chaque case on fait appel a contenu case
+        //on doit convertir le contenu des cases en String?
     }
 
     /**
