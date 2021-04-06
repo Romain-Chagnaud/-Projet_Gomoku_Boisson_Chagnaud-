@@ -6,7 +6,6 @@
 package Game;
 
 import Board.Color;
-import java.util.Scanner;
 
 /**
  *
