@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Game;
 
 /**
@@ -11,7 +6,12 @@ package Game;
  */
 public class Match implements Player  {
     
-    // lancement de la partie + appel des joueurs
+   public void dialogue() {
+       System.out.println("Entrez le nom du premier joueur");
+       System.out.println("Entrez le nom du deuxième joueur");
+       
+       
+   }
     
 }
 
