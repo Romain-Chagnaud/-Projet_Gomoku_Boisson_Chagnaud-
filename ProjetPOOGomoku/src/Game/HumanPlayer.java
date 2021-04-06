@@ -5,14 +5,27 @@
  */
 package Game;
 
+import Board.Color;
+import java.util.Scanner;
+
 /**
  *
  * @author Romain Chagnaud, Manon Boisson
  */
-public class HumanPlayer implements Player{
-    
-    
-    
-    //joueur 
-    // indique qui va jouer
+public class HumanPlayer implements Player {
+
+    public String name;
+    Color color;
+
+    /**
+     * Constructeur de la classe HumanPlayer.
+     *
+     * @param name le nom d'un joueur
+     * @param color la couleur d'un joueur.
+     */
+    public HumanPlayer(String name, Color color) {
+        this.color = color;
+        this.name = name;
+    }
+
 }

@@ -57,6 +57,7 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
                 color = BLACK;
             }
             play = true;
+            // inserer la demande de nouvelle position
         }
 
         return play;

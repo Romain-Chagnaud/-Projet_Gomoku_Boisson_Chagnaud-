@@ -6,38 +6,48 @@
 package Main;
 
 import Board.Board;
-
-
+import Board.Color;
+import Game.HumanPlayer;
+import java.util.Scanner;
 
 /**
  *
  * @author Romain Chagnaud, Manon Boisson
  */
 public class ProjetPOOGomoku {
-    
-    
 
+    
+    String name;
+    Color color;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         Board b = new Board(26);
         b.display();
+
+    }
+    
+     Scanner scanner = new Scanner(System.in);
+
+    public void dialogueJoueur() {
         
+        HumanPlayer joueur1 = new HumanPlayer(name, color);
+        HumanPlayer joueur2 = new HumanPlayer(name, color);
+        
+        // on crée de nouveaux joueurs.
+        //on crée des noms
+        //
+
+        System.out.println("Entrez le nom du premier joueur");
+        joueur1.name = scanner.next();
+
+        System.out.println("Entrez le nom du deuxième joueur");
+        joueur2.name = scanner.next();
+
+// nouvelle instance de position qu'on demande et lit puis utilise dans play        
+// appel à play
     }
-        //on crée une nouvelle instance de match et on lance la partie avec run()
-/**
- * Méthode responsable du dialogue avec l'utilisateur.
- */
-         public static  void dialogue () {
-              // Demander le nom du joueur 1
-              // Demander le nom du joueur 2
-              // demander la taille du plateau
-             System.out.println("");
-          }
-            
-    }
-    
-  
-    
+
+}
