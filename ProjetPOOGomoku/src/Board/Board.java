@@ -56,11 +56,11 @@ public class Board {
      */
     private void bar() {
 
-        System.out.print("   ");
+        System.out.print("   ");        
         for (int c = 0; c < size - 2; c++) {
-            System.out.print("---+");
+            System.out.print("----");
         }
-        System.out.println("---");
+        System.out.println("+");
         //pour chaque indice du tableau o met en place une ligne de séparation horizontale
     }
 
