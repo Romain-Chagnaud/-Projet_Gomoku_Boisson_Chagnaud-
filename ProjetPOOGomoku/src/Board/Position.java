@@ -15,7 +15,7 @@ public class Position {
      * @param numRow le numéro d'une ligne
      * @param numCol le numéro d'une colonne.
      */
-    Position(int numRow, int numCol) { // la position c'est un nombre et un lettre 
+   public Position(int numRow, int numCol) { // la position c'est un nombre et un lettre 
         this.row = numRow;
         this.col = numCol;
     }

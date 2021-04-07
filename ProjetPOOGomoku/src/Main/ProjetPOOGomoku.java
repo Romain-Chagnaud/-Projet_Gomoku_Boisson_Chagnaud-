@@ -7,6 +7,7 @@ package Main;
 
 import Board.Board;
 import Board.Color;
+import Board.Position;
 import Game.HumanPlayer;
 import java.awt.Dialog;
 import java.util.Scanner;
@@ -17,19 +18,17 @@ import java.util.Scanner;
  */
 public class ProjetPOOGomoku {
 
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
 
         Board b = new Board(5);
+
         b.display();
         dialogueJoueur();
-        
-        // créer une nouvealle instatnce de match et lancer le run
 
-        
+        // créer une nouvealle instatnce de match et lancer le run
     }
     Scanner scanner = new Scanner(System.in);
 
@@ -38,9 +37,25 @@ public class ProjetPOOGomoku {
      */
     public static void dialogueJoueur() {
 
-        HumanPlayer joueur1 = new HumanPlayer("bo", Color.BLACK);
-        HumanPlayer joueur2 = new HumanPlayer("bobé", Color.WHITE);
+        Position p;
 
+        HumanPlayer joueur1 = new HumanPlayer("bob", Color.BLACK);
+        HumanPlayer joueur2 = new HumanPlayer("bibi", Color.WHITE);
+
+        /*
+        HumanPlayer joueur1 = new HumanPlayer(name, Color.BLACK);
+        HumanPlayer joueur2 = new HumanPlayer(HumanPlayer.name, Color.WHITE);
+         */
+        Game.HumanPlayer.createHumanPlayers();
+
+        System.out.println(" " + joueur1.name + " choisissez la position du pion");
+        
+
+        /*
+        On demande de choisir au joueur 1 la position du pion qu'il veut placer
+        On garde en memeoire cette position pour pouvoir la réutiliser dans l'appel à play.
+        
+         */
         // on crée de nouveaux joueurs.
         //on crée des noms
         //
@@ -49,7 +64,7 @@ public class ProjetPOOGomoku {
 
         System.out.println("Entrez le nom du deuxième joueur");
         joueur2.name = scanner.next();
-*/
+         */
 // nouvelle instance de position qu'on demande et lit puis utilise dans play        
 // appel à play
     }

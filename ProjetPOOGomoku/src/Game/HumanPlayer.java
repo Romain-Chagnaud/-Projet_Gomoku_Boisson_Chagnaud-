@@ -27,4 +27,8 @@ public class HumanPlayer implements Player {
         this.name = name;
     }
 
+    public static void createHumanPlayers() {
+       
+    }
+
 }
