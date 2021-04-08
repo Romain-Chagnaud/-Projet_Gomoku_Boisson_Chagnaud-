@@ -26,7 +26,7 @@ public class Position {
      */
     public Position(String message) { // second constructeur
        this.row = rowToInt(message.charAt(0)); // prend le 1er caractère par ex dans A12 ça prends A
-       this.col = colToInt(message.subSequence(1,2)); // prend le reste du code est retourn un string, meme ex 12    
+       this.col = colToInt(message.substring(1,message.length()-1)); // prend le reste du code est retourn un string, meme ex 12    
     }
 
     /**
@@ -177,23 +177,32 @@ public class Position {
     }
 
     /**
-     * 
+     * tranformer un char en int 
      * @param charAt
      * @return
      */
     private int rowToInt(char charAt) {
+        //lever les exception 
         
        return 0;
     }
 
     /**
-     *
+     * transformer un char en int 
      * @param subSequence
      * @return
      */
-    private int colToInt(CharSequence subSequence) {
-        
-       return 0;
+    private int colToInt(String subSequence){
+        //lever les exceptions
+        try {
+            if(Integer.toString(col).equals(subSequence)){
+                System.out.println(subSequence);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+       return Integer.parseInt(subSequence); // permet de convertir un string en int 
+      
     }
 
 }

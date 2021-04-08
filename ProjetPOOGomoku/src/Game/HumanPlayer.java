@@ -31,6 +31,11 @@ public class HumanPlayer implements Player {
         this.name = name;
     }
 
+    /**
+     * Méthode permettant de donner la position d'un pion
+     * @param b
+     * @return la position choisi par le joueur
+     */
     @Override
     public Position choice(Board b) {
         System.out.println("Position :");
