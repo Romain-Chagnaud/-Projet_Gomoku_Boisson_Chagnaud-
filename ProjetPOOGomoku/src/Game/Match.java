@@ -2,6 +2,7 @@ package Game;
 
 import Board.Board;
 import Board.Color;
+import java.util.Scanner;
 
 /**
  *
@@ -12,11 +13,12 @@ public class Match{ //implemte deux player
     HumanPlayer joueur1;
     HumanPlayer joueur2;
     String name;
+    Scanner scanner;
     Color color;
     Board board;
    
 
-    Match(HumanPlayer joueur1, HumanPlayer joueur2, Board b) {
+    public Match(HumanPlayer joueur1, HumanPlayer joueur2, Board b) {
 
         this.board = board;
         this.joueur1 = joueur1;
@@ -30,7 +32,12 @@ public class Match{ //implemte deux player
    
     public void run() {
         // Board b = new board()
+        joueur1 = new HumanPlayer(scanner, color);
+        joueur2 = new HumanPlayer (scanner, color);
+        board = new Board(10);
         Match match = new Match(joueur1, joueur2, board);
+        
+        
 
     }
 

@@ -19,6 +19,7 @@ public class HumanPlayer implements Player {
 
     public String name;
     public Color color;
+    private Scanner scanner;
 
     /**
      * Constructeur de la classe HumanPlayer.
@@ -26,15 +27,17 @@ public class HumanPlayer implements Player {
      * @param name le nom d'un joueur
      * @param color la couleur d'un joueur.
      */
-    public HumanPlayer(String name, Color color) {
+    public HumanPlayer(Scanner scanner, Color color) {
         this.color = color;
-        this.name = name;
+        this.scanner = scanner;
+        System.out.println("Choisissez le nom du joueur");
+        this.name = this.scanner.next();
     }
 
     @Override
     public Position choice(Board b) {
         System.out.println("Position :");
-        Scanner scan = new Scanner(in); 
+        Scanner scan = new Scanner(in);
         String message = scan.next().trim();
         Position p = null;
         try {
@@ -42,7 +45,7 @@ public class HumanPlayer implements Player {
         } catch (Exception e) {
             System.out.println(e);
         }
-        
+
         return p;
     }
 
