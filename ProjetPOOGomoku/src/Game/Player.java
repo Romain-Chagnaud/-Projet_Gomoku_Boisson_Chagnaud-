@@ -5,10 +5,14 @@
  */
 package Game;
 
+import Board.Position;
+
 /**
  *
  * @author Romain Chagnaud, Manon Boisson
  */
 public interface Player {
-    // crée un joueur
+    //appele les deux payer dans match,
+    
+    Position choice(Board.Board b);
 }

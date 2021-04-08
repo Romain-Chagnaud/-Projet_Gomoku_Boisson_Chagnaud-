@@ -9,8 +9,8 @@ package Board;
  *
  * @author romai
  */
-public class CreationPionException extends Exception{
-    public CreationPionException(String message){
+public class InvalidPositionException extends Exception{
+    public InvalidPositionException(String message){
         super(message);
     }
 }

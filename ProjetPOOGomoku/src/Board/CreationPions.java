@@ -24,4 +24,13 @@ public class CreationPions { // je sais pas s'il faut faire des exceptions ici ?
             }
         }
     }
-}
+
+ /*   public void printBoardPossible(Board b) {
+        
+                if (b.board[i][y] == Color.BLACK.ordinal()) {
+                    System.out.println("x");
+                    throw new CreationPionException(" Pas le bon pion");
+
+                }
+            }*/
+        }

@@ -19,6 +19,15 @@ public class Position {
         this.row = numRow;
         this.col = numCol;
     }
+    
+    /**
+     * Constructeur pour la position d'un piont
+     * @param message
+     */
+    public Position(String message) { // second constructeur
+       this.row = rowToInt(message.charAt(0)); // prend le 1er caractère par ex dans A12 ça prends A
+       this.col = colToInt(message.subSequence(1,2)); // prend le reste du code est retourn un string, meme ex 12    
+    }
 
     /**
      * Méthode indiquant le nombre de cases voisines occupées
@@ -152,6 +161,8 @@ public class Position {
         }
         return estComplet;
     }
+
+    
     
     // on regarde chaque pour une ligne n, sa colonne n ainsi on consulte les case en diagonale,
     // si elles sont identiques, alors estComplet est vrai.
@@ -163,6 +174,26 @@ public class Position {
      */
     public int Col() {
         return this.col;
+    }
+
+    /**
+     * 
+     * @param charAt
+     * @return
+     */
+    private int rowToInt(char charAt) {
+        
+       return 0;
+    }
+
+    /**
+     *
+     * @param subSequence
+     * @return
+     */
+    private int colToInt(CharSequence subSequence) {
+        
+       return 0;
     }
 
 }

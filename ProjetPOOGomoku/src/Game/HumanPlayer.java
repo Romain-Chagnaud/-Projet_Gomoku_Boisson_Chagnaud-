@@ -5,7 +5,11 @@
  */
 package Game;
 
+import Board.Board;
 import Board.Color;
+import Board.Position;
+import static java.lang.System.in;
+import java.util.Scanner;
 
 /**
  *
@@ -25,6 +29,21 @@ public class HumanPlayer implements Player {
     public HumanPlayer(String name, Color color) {
         this.color = color;
         this.name = name;
+    }
+
+    @Override
+    public Position choice(Board b) {
+        System.out.println("Position :");
+        Scanner scan = new Scanner(in); 
+        String message = scan.next().trim();
+        Position p = null;
+        try {
+            p = new Position(message);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        return p;
     }
 
 }

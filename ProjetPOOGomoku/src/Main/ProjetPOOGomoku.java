@@ -26,7 +26,6 @@ public class ProjetPOOGomoku {
         Board b = new Board(5);
         b.display();
         dialogueJoueur();
-        
         // créer une nouvealle instatnce de match et lancer le run
 
         

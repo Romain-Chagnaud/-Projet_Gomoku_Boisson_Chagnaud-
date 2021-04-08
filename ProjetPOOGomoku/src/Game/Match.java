@@ -7,7 +7,7 @@ import Board.Color;
  *
  * @author Romain Chagnaud, Manon Boisson
  */
-public class Match implements Player {
+public class Match{ //implemte deux player
 
     HumanPlayer joueur1;
     HumanPlayer joueur2;
@@ -31,7 +31,6 @@ public class Match implements Player {
     public void run() {
         // Board b = new board()
         Match match = new Match(joueur1, joueur2, board);
-
 
     }
 
