@@ -14,8 +14,8 @@ public enum Color {
     /**
      *
      */
-    BLACK,// rond
-    WHITE,// croix
+    ROND,// rond
+    CROIX,// croix
     NONE;
 
 }

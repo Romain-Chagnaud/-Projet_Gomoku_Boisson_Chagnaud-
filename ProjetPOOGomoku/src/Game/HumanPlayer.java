@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class HumanPlayer implements Player {
 
     public String name;
-    Color color;
+    public Color color;
 
     /**
      * Constructeur de la classe HumanPlayer.

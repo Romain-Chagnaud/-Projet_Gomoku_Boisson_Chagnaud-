@@ -37,8 +37,8 @@ public class ProjetPOOGomoku {
      */
     public static void dialogueJoueur() {
 
-        HumanPlayer joueur1 = new HumanPlayer("bo", Color.BLACK);
-        HumanPlayer joueur2 = new HumanPlayer("bobé", Color.WHITE);
+        HumanPlayer joueur1 = new HumanPlayer("bo", Color.ROND);
+        HumanPlayer joueur2 = new HumanPlayer("bobé", Color.CROIX);
 
         // on crée de nouveaux joueurs.
         //on crée des noms
