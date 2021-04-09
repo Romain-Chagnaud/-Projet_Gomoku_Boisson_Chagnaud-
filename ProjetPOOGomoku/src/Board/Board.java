@@ -98,7 +98,7 @@ public class Board {
             }
             System.out.print("|");
             for (int c = 0; c < size; c++) {
-                System.out.print(contenuLigne());
+                System.out.print(contenuLigne(p));
             }
             System.out.println("|");
         }
@@ -111,9 +111,9 @@ public class Board {
      * @param lig la ligne dont on veut connaitre le contenu.
      * @return le contenu de cette ligne.
      */
-    private Color contenuLigne() {
+    private Color contenuLigne(Position p) {
 
-        Color contenu = Color.NONE;
+        Color contenu = getContenuCase(p);
 
         // le contenu d'une ligne c'est le contenu de chaque cases
         return contenu;
@@ -129,7 +129,11 @@ public class Board {
      * @return le contenu de cette case.
      */
     public Color getContenuCase(Position p) {
-        return board[p.row][p.col];
+        Color contenu = Color.NONE;
+        while (board.length < size) {
+            contenu = board[p.row][p.col];
+        }
+        return contenu;
     }
 
     /**
@@ -140,7 +144,8 @@ public class Board {
      * @param nvlleVal la nouvelle valeur que l'on souhaite ajouter.
      */
     public void setContenuCase(Position p, HumanPlayer player) {
-        board[p.row][p.col] = player.color;
+        board[p.row][p.col] = Color.CROIX;//player.color;
+       
 
     }
 
