@@ -88,7 +88,7 @@ public class Position {
         while (estComplet) {
             for (int i = 0; i < b.size; i++) {
                 for (int j = 0; j < b.size; j++) {
-                    if (b.contenuCase(p) == b.contenuCase(suivante)) {
+                    if (b.getContenuCase(p) == b.getContenuCase(suivante)) {
                         col += col;
                         if (col == 5) {
                             estComplet = true;
@@ -120,7 +120,7 @@ public class Position {
         while (estComplet) {
             for (int i = 0; i < b.size; i++) {
                 for (int j = 0; j < b.size; j++) {
-                    if (b.contenuCase(p) == b.contenuCase(suivante)) {
+                    if (b.getContenuCase(p) == b.getContenuCase(suivante)) {
                         lig += lig;
                         if (lig == 5) {
                             estComplet = true;
@@ -150,7 +150,7 @@ public class Position {
         while (estComplet) {
             for (int i = 0; i < b.size; i++) {
                 for (int j = 0; j < b.size; j++) {
-                    if (b.contenuCase(p) == b.contenuCase(suivante)) {
+                    if (b.getContenuCase(p) == b.getContenuCase(suivante)) {
                         lig += lig;
                         col += col;
                         if (lig == 5) {
@@ -193,6 +193,9 @@ public class Position {
         return charAt;
     }
 
+    
+    // ça sert à quoi ca
+    
     /**
      * transformer un char en int
      *

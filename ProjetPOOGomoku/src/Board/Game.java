@@ -1,8 +1,6 @@
 package Board;
 
-import java.awt.Color;
-import static java.awt.Color.BLACK;
-import static java.awt.Color.WHITE;
+import Board.Color;
 import java.util.ArrayList;
 
 /**
@@ -36,12 +34,14 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
      * @param b la plateau de jeu.
      * @param p la position à laquelle le joueur veut placer son pion
      * @param color la couleur du joueur courant.
-     * @param nvlleVal la valeur que le joueur courant souhaite jouer.
+     * @param nextColor la valeur que le joueur courant souhaite jouer.
      * @return true si le joueur peut poser son pion sur la position en
      * question.
      */
-    private boolean play(Board b, Position p, Color color, int nvlleVal) {
+    private boolean play(Board b, Position p, Color color) {
 
+        
+        
         boolean play = false;
 
         if (coupsJoues.contains(p)) { // on verifie si le arrayList qui enregistre les coups joués contient la position à laquelle le joueur veut se placer
@@ -49,12 +49,12 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
             play = false;
         } else if (Position.nbVoisines(p) != 0 && Position.caseVide(p)) {
 
-            posePion(b, p, nvlleVal);// on ajoute un pion sur le plateur a la position demandé
+            b.setContenuCase(p, color);// on ajoute un pion sur le plateur a la position demandé
             // ajouter la position a la liste
-            if (color == BLACK) {  // on change de joueur // black = croix
-                color = WHITE; // croix
+            if (color == Color.CROIX) {  // on change de joueur // black = croix
+                color = Color.ROND; // croix
             } else {
-                color = BLACK;
+                color = Color.ROND;
             }
             play = true;
             // inserer la demande de nouvelle position
@@ -81,17 +81,6 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
         return partieFinie;
     }
 
-    /**
-     * Méthode responsable de la pose d'un pion sur le plateau
-     *
-     * @param b le plateau de jeu.
-     * @param p la position à laquelle le joueur souhaite poser son pion.
-     * @param nvlleVal la valeur que le joueur souhaite ajouter à une case.
-     */
-    public void posePion(Board b, Position p, int nvlleVal) {
-        b.nouvelleValeur(p, nvlleVal); // on ajoute une nouvelle valeur à la position p.
-
-    }
     
     /*
     A regarder incohérence entre la valeur que le joueur souhaite jouer et sa couleur

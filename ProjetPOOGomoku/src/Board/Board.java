@@ -1,5 +1,7 @@
 package Board;
 
+import Game.HumanPlayer;
+
 /**
  *
  * @author Romain Chagnaud, Manon Boisson
@@ -7,9 +9,12 @@ package Board;
 public class Board {
 
     public int size;
-    public int[][] board;
-    public Color[][] Board; // je comprends pas le tableau a régler 
+
     
+    public Color[][] board; // je comprends pas le tableau a régler 
+  
+
+
     /**
      * Constructeur pour l'affichage du plateau de jeu.
      *
@@ -18,14 +23,18 @@ public class Board {
      */
     public Board(int size) {
 
+        if (size < 5 || size > 26) {
+            throw new IllegalArgumentException("La taille du tableau doit être comprise entre 5 et 26");
+        }
+        
         this.size = size;
-        board = new int[size][size]; // une board est un tableau de dimention 2 d'entiers
+        board = new Color[size][size]; // une board est un tableau de dimention 2 d'entiers
 
         // on met des 0 dans chaque cases du tableau.
         int lig, col;
         for (lig = 0; lig < size; lig++) {
             for (col = 0; col < size; col++) {
-                board[lig][col] = 0;
+                board[lig][col] = Color.NONE;
             }
         }
     }
@@ -61,8 +70,7 @@ public class Board {
         }
         System.out.println("+");
     }
-        //pour chaque indice du tableau o met en place une ligne de séparation horizontale
-    
+    //pour chaque indice du tableau o met en place une ligne de séparation horizontale
 
     /**
      * Méthode permettant de générer l'alphabet qui s'affiche en haut du
@@ -83,7 +91,7 @@ public class Board {
      * @param lig la ligne qui doit être affichée.
      */
     private void afficherLigne() {
-       
+
         for (int r = 1; r <= size; r++) {
             System.out.print(r + " ");
             if (r <= 9) {
@@ -104,8 +112,8 @@ public class Board {
      * @param lig la ligne dont on veut connaitre le contenu.
      * @return le contenu de cette ligne.
      */
-    private String contenuLigne() {
-        String contenu = null;
+    private Color contenuLigne() {
+        Color contenu = Color.NONE;
         return contenu;
         // les caractères contenus dans chaque case
         // pour chaque case on fait appel a contenu case
@@ -118,18 +126,42 @@ public class Board {
      * @param p la position de la case dont nous voulons connaitre le contenu.
      * @return le contenu de cette case.
      */
-    public int contenuCase(Position p) {
+    public Color getContenuCase(Position p) {
         return board[p.row][p.col];
     }
 
     /**
-     * Méthode responsable de l'ajout d'une nouvelle valeur dans une case.
+     * Méthode responsable de l'ajout d'une nouvelle valeur dans une case, donc de la pose d'un pion
      *
      * @param p la position à laquelle on souhaite ajouter une nouvelle valeur.
      * @param nvlleVal la nouvelle valeur que l'on souhaite ajouter.
      */
-    public void nouvelleValeur(Position p, int nvlleVal) {
-        board[p.row][p.col] = nvlleVal;
+    public void setContenuCase(Position p, Color nvlleVAl) {
+        board[p.row][p.col] = nvlleVAl;
+        
     }
+    
+   // on doit trouver le moyen d'associer une couleur à l'entier contenu dans une case
+    
+    
+    // le contenu d'une case -> la couleur à une position donc son char
+
+    
+    /*
+Le plateau:
+C'est un tableau de deux dimentions d'entiers -> ok
+c'est un tableau de taille -> ok
+la taille du plateau peut varier de 5 à 26 -> ok
+il est constitué d'entiers convertis en caractères qui représentent les couleurs ou symboles des joueurs ou de caractères espaces
+aux positions ou il n'y a aucun pions.
+
+l'affichage du plateau
+on affiche d'abord un alphabet en ligne -> ok
+ensuite pour chaque ligne on affiche: 
+- une barre de séparation horizontale -> ok
+- le numéro de cette ligne (qui commence à un) et le contenu de la ligne
+pour chaque ligne on a le contenu de chaque case, donc le contenu de chaque colonne pour cette ligne
+par le contenu, on veut dire le caractère associé au pion du joueur.
+     */
 
 }

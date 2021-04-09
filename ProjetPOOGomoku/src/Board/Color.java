@@ -14,9 +14,29 @@ public enum Color {
     /**
      *
      */
-    BLACK,// rond
-    WHITE,// croix
-    NONE;
+    ROND {
+        public String toString() {
+            return "O";
+        }
+    },// rond
+   
+    
+    CROIX {
+        public String toString() {
+            return "X";
+        }
+    },// croix
+    
+    
+    NONE {
+        public String toString() {
+            return "   ";
+        }
+    };
+    
+   
+    
+    
 
 }
 

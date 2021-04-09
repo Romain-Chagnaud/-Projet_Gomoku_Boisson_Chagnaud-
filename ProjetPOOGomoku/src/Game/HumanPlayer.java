@@ -18,20 +18,25 @@ import java.util.Scanner;
 public class HumanPlayer implements Player {
 
     public String name;
-    Color color;
+    public Color color;
+    
+    
+    Scanner scanner = new Scanner(System.in);
 
     /**
      * Constructeur de la classe HumanPlayer.
      *
-     * @param name le nom d'un joueur
+     * @param appelNomJoueur nom du joueurs
      * @param color la couleur d'un joueur.
      */
-    public HumanPlayer(String name, Color color) {
+    public HumanPlayer(Scanner appelNomJoueur, Color color) {
         this.color = color;
-        this.name = name;
+       // this.scanner = scanner;
+        System.out.println("Choisissez le nom du joueur");
+        this.name = this.scanner.nextLine();
     }
 
-    Scanner scanner = new Scanner(System.in);
+  
     
     /**
      * Méthode permettant de donner la position d'un pion
@@ -41,7 +46,7 @@ public class HumanPlayer implements Player {
     @Override
     public Position choice(Board b) {
         System.out.println("Position :");
-        Scanner scan = new Scanner(in); 
+        Scanner scan = new Scanner(in);
         String message = scan.next().trim();
         Position p = null;
         try {
@@ -49,7 +54,7 @@ public class HumanPlayer implements Player {
         } catch (Exception e) {
             System.out.println(e);
         }
-        
+
         return p;
     }
 
