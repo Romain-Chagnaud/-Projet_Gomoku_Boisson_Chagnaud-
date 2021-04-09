@@ -5,7 +5,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Scanner;
 
-
 /**
  *
  * @author Romain Chagnaud, Manon Boisson
@@ -15,7 +14,6 @@ public class Board {
     public int size;
     public Color[][] board; // je comprends pas le tableau a régler 
     Scanner scanner = new Scanner(System.in);
-
 
     /**
      * Constructeur pour l'affichage du plateau de jeu.
@@ -138,8 +136,8 @@ public class Board {
      * @param p la position à laquelle on souhaite ajouter une nouvelle valeur.
      * @param nvlleVal la nouvelle valeur que l'on souhaite ajouter.
      */
-    public void setContenuCase(Position p, Color nvlleVAl) {
-        board[p.row][p.col] = nvlleVAl;
+    public void setContenuCase(Position p, HumanPlayer player) {
+        board[p.row][p.col] = player.color;
 
     }
 
@@ -162,3 +160,18 @@ pour chaque ligne on a le contenu de chaque case, donc le contenu de chaque colo
 par le contenu, on veut dire le caractère associé au pion du joueur.
      */
 }
+
+// On demande le nom des joueurs -> ok
+// On demande la taille du plateau -> ok
+// on affiche le plateau -> ok
+
+
+// boucle partie non finie
+// On demande ou le joueur 1 veut poser
+// On affiche le plateau
+// On demande ou le joueur 2 vaut poser
+
+
+// quand on sort de la boucle
+// On affiche message aprtie finir
+     // on affiche le nom du gagant

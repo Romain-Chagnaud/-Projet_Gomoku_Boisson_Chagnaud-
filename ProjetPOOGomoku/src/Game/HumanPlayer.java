@@ -19,8 +19,7 @@ public class HumanPlayer implements Player {
 
     public String name;
     public Color color;
-    
-    
+
     Scanner scanner = new Scanner(System.in);
 
     /**
@@ -31,16 +30,14 @@ public class HumanPlayer implements Player {
      */
     public HumanPlayer(Scanner appelNomJoueur, Color color) {
         this.color = color;
-       // this.scanner = scanner;
+        // this.scanner = scanner;
         System.out.println("Choisissez le nom du joueur");
         this.name = this.scanner.nextLine();
     }
 
-
-  
-    
     /**
      * Méthode permettant de donner la position d'un pion
+     *
      * @param b plateau de jeu.
      * @return la position choisi par le joueur
      */
@@ -48,17 +45,25 @@ public class HumanPlayer implements Player {
     public Position choice(Board b) {
         System.out.println("Position :");
         Scanner scan = new Scanner(in);
-        String message = scan.next().trim();
+        String message = scan.nextLine().trim();
         Position p = null;
-        try {
+        //try {
+            
             p = new Position(message);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+           
+        //} catch (Exception e) {
+          //  System.out.println(e);
+        //}
 
         return p;
     }
-    
 
+    public Position caseCourante(Position p) {
+        int lig = p.row;
+        int col = p.col;
+        return p;
+        // regarder la ligne et la colonne d'une position;
+
+    }
 
 }

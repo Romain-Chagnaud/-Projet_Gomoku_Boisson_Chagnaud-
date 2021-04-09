@@ -1,5 +1,7 @@
 package Board;
 
+import Game.HumanPlayer;
+
 /**
  *
  * @author Romain Chagnaud, Manon Boisson
@@ -15,8 +17,7 @@ public class Position {
      * @param numRow le numéro d'une ligne
      * @param numCol le numéro d'une colonne.
      */
-
-   public Position(int numRow, int numCol) { // la position c'est un nombre et un lettre 
+    public Position(int numRow, int numCol) { // la position c'est un nombre et un lettre 
 
         this.row = numRow;
         this.col = numCol;
@@ -25,11 +26,11 @@ public class Position {
     /**
      * Constructeur pour la position d'un piont
      *
-     * @param message coordonée écrite 
+     * @param message coordonée écrite
      */
     public Position(String message) { // second constructeur
         this.row = rowToInt(message.charAt(0)); // prend le 1er caractère par ex dans A12 ça prends A
-        this.col = colToInt(message.substring(1, message.length() - 1)); // prend le reste du code est retourn un string, meme ex 12    
+        this.col = colToInt(message/*.substring(1, message.length() - 1)*/); // prend le reste du code est retourn un string, meme ex 12    
     }
 
     /**
@@ -39,7 +40,9 @@ public class Position {
      * voisines occupées.
      * @return le nombre de cases voisines occupées.
      */
-    public static int nbVoisines(Position p) {
+    public static int nbVoisines(Position p, HumanPlayer player) {
+
+        p = player.caseCourante(p);
 
         int nbVoisines = 0;
 
@@ -181,12 +184,12 @@ public class Position {
      * Tranformer un char en int
      *
      * @param charAt
-     * @return les caractères de la positions convertie en entier 
+     * @return les caractères de la positions convertie en entier
      */
     private int rowToInt(char charAt) {
         //lever les exception 
         try {
-            if(row == charAt){
+            if (row == charAt) {
                 System.out.println(charAt);
             }
         } catch (Exception e) {
@@ -195,9 +198,7 @@ public class Position {
         return charAt;
     }
 
-    
     // ça sert à quoi ca
-    
     /**
      * transformer un char en int
      *
@@ -206,15 +207,24 @@ public class Position {
      */
     private int colToInt(String subSequence) {
         //lever les exceptions
-        try {
-            if (Integer.toString(col).equals(subSequence)) {
+        /*try {
+            /*if (Integer.toString(col).equals(subSequence)) {
                 System.out.println(subSequence);
+            }*/
+        String s = "";
+        if (subSequence.length() >= 2) {
+            s = String.valueOf(subSequence.charAt(1));
+            // Si on a un nombre à 2 chiffres
+            if (subSequence.length() > 2) {
+                s = s.concat(String.valueOf(subSequence.charAt(2)));
             }
-        } catch (Exception e) { // il faut essayer de maitre InvalidPositionException
-            System.out.println(e);
+
         }
-        return Integer.parseInt(subSequence); // permet de convertir un string en int 
+        return Integer.parseInt(s) - 1;
 
+        /* } catch (Exception e) { // il faut essayer de maitre InvalidPositionException
+            System.out.println(e);
+        }*/
+        //return Integer.parseInt(subSequence); // permet de convertir un string en int 
     }
-
 }

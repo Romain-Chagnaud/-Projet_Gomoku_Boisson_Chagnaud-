@@ -43,29 +43,35 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
     public boolean play(Board b, Position p, HumanPlayer player) {
 
         Color color;
-        boolean play = false;
+        boolean playPossible = false;
 
-        while (partieFinie(p, b, player) == false) {
+        int lig = p.row;
+        int col = p.col;
 
-            if (coupsJoues.contains(p)) { // on verifie si le arrayList qui enregistre les coups joués contient la position à laquelle le joueur veut se placer
+        // while (partieFinie(p, b, player) == false) {
+//if (coupsJoues.contains(p)) { // on verifie si le arrayList qui enregistre les coups joués contient la position à laquelle le joueur veut se placer
+        for (int i = 0; i < 9 ; i++) {
+            playPossible = false;
+            /*}else */
+            if (Position.nbVoisines(p, player) != 0 && Position.caseVide(p)) {
 
-                play = false;
-            } else if (Position.nbVoisines(p) != 0 && Position.caseVide(p)) {
-
-                b.setContenuCase(p, player.color);// on ajoute un pion sur le plateur a la position demandé
+                b.setContenuCase(p, player);// on ajoute un pion sur le plateur a la position demandé
                 // ajouter la position a la liste
                 if (player.color == Color.CROIX) {  // on change de joueur // black = croix
                     color = Color.ROND; // croix
                 } else {
                     color = Color.ROND;
                 }
-                play = true;
+                playPossible = true;
+
                 // inserer la demande de nouvelle position
+                //}
             }
-
         }
-
-        return play;
+        // }
+        b.display();
+        System.out.println("sout du play");
+        return playPossible;
     }
 
     /**
@@ -77,7 +83,7 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
      */
     public boolean partieFinie(Position p, Board b, HumanPlayer player) {
 
-        p = player.choice(b);
+        p = player.caseCourante(p);
 
         // onn veut récupérer la position entrée par le joueur. pour initialiser p
         boolean partieFinie = false;
