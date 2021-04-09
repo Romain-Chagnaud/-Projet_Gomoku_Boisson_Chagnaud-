@@ -33,9 +33,10 @@ public class Match { //implemte deux player
         //joueur2 = new HumanPlayer(scanner, color);
         //board = new Board(10);
         //Match match = new Match(joueur1, joueur2, board);
-
+        
         Board b = new Board(7);
         b.display();
+        
 
     }
 

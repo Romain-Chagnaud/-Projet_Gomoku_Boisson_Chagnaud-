@@ -26,7 +26,7 @@ public class HumanPlayer implements Player {
     /**
      * Constructeur de la classe HumanPlayer.
      *
-     * @param name le nom d'un joueur
+     * @param appelNomJoueur nom du joueurs
      * @param color la couleur d'un joueur.
      */
     public HumanPlayer(Scanner appelNomJoueur, Color color) {
