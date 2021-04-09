@@ -36,6 +36,7 @@ public class HumanPlayer implements Player {
         this.name = this.scanner.nextLine();
     }
 
+
   
     
     /**
@@ -58,5 +59,6 @@ public class HumanPlayer implements Player {
         return p;
     }
     
+
 
 }
