@@ -31,10 +31,6 @@ public class Match { //implemte deux player
         this.joueur2 = joueur2;
     }
 
-
-
-       
-
         // Board b = new board()
         //joueur1! = new HumanPlayer(scanner, color);
         //joueur2 = new HumanPlayer(scanner, color);

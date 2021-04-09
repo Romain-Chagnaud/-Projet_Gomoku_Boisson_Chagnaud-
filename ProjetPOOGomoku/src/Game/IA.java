@@ -15,6 +15,7 @@ import Board.Position;
 public class IA implements Player{
 
     public Position choice(Board b) {
+        //je sais pas quoi mettre ici ??
         return null;
     }
     //crée un joueur IA
