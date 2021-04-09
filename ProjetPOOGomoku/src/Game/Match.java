@@ -43,12 +43,16 @@ public class Match { //implemte deux player
      
         
 
+
     public void run(Board b, HumanPlayer joueur1, HumanPlayer joueur2) {
+
+  
 
 
         Game g = new Game(color, board, coupsJoues);
 
         Position p;
+
 
         b.display(); // on affiche le plateau
         p = joueur1.choice(b);
