@@ -31,11 +31,15 @@ public class Match { //implemte deux player
         this.joueur2 = joueur2;
     }
 
-    // Board b = new board()
-    //joueur1! = new HumanPlayer(scanner, color);
-    //joueur2 = new HumanPlayer(scanner, color);
-    //board = new Board(10);
-    //Match match = new Match(joueur1, joueur2, board);
+        // Board b = new board()
+        //joueur1! = new HumanPlayer(scanner, color);
+        //joueur2 = new HumanPlayer(scanner, color);
+        //board = new Board(10);
+        //Match match = new Match(joueur1, joueur2, board);
+     
+        
+
+
     public void run(Board b, HumanPlayer joueur1, HumanPlayer joueur2) {
 
         Game g = new Game(color, board, coupsJoues);

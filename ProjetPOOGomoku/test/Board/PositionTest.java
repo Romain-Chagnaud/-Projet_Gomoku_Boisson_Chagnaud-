@@ -5,12 +5,9 @@
  */
 package Board;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.testng.AssertJUnit.assertEquals;
 
 /**
  *
@@ -25,7 +22,9 @@ public class PositionTest {
      */
     @Test
     public void testVoisines() {
-        
+        Position p = new Position(3, 'A');
+        Position.nbVoisines(p);
+        assertEquals(p, null); // remplacer nul par autre chose 
     }
 
     /**
