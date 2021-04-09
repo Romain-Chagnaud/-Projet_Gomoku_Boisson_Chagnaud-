@@ -29,9 +29,11 @@ public class Match{ //implemte deux player
      */
    
     public void run() {
-        // Board b = new board()
-        Match match = new Match(joueur1, joueur2, board);
-
+        /* Board b = new board()
+        Match match = new Match(joueur1, joueur2, board);*/
+       //boucle de jeu 
+       
+       
     }
 
 }

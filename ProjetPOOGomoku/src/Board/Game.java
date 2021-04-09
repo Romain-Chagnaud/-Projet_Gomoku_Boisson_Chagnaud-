@@ -61,7 +61,6 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
         }
 
         return play;
-
     }
 
     /**

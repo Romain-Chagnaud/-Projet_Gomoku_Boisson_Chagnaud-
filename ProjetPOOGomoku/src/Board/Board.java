@@ -8,7 +8,7 @@ public class Board {
 
     public int size;
     public int[][] board;
-    public Color[][] color; // je comprends pas le tableau a régler 
+    public Color[][] Board; // je comprends pas le tableau a régler 
     
     /**
      * Constructeur pour l'affichage du plateau de jeu.

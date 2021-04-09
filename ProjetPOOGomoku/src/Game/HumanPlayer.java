@@ -31,6 +31,8 @@ public class HumanPlayer implements Player {
         this.name = name;
     }
 
+    Scanner scanner = new Scanner(System.in);
+    
     /**
      * Méthode permettant de donner la position d'un pion
      * @param b
