@@ -2,6 +2,7 @@ package Board;
 
 import Board.Color;
 import Game.HumanPlayer;
+import Game.Match;
 import java.util.ArrayList;
 
 /**
@@ -44,20 +45,24 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
         Color color;
         boolean play = false;
 
-        if (coupsJoues.contains(p)) { // on verifie si le arrayList qui enregistre les coups joués contient la position à laquelle le joueur veut se placer
+        while (partieFinie(p, b, player) == false) {
 
-            play = false;
-        } else if (Position.nbVoisines(p) != 0 && Position.caseVide(p)) {
+            if (coupsJoues.contains(p)) { // on verifie si le arrayList qui enregistre les coups joués contient la position à laquelle le joueur veut se placer
 
-            b.setContenuCase(p, player.color);// on ajoute un pion sur le plateur a la position demandé
-            // ajouter la position a la liste
-            if (player.color == Color.CROIX) {  // on change de joueur // black = croix
-                color = Color.ROND; // croix
-            } else {
-                color = Color.ROND;
+                play = false;
+            } else if (Position.nbVoisines(p) != 0 && Position.caseVide(p)) {
+
+                b.setContenuCase(p, player.color);// on ajoute un pion sur le plateur a la position demandé
+                // ajouter la position a la liste
+                if (player.color == Color.CROIX) {  // on change de joueur // black = croix
+                    color = Color.ROND; // croix
+                } else {
+                    color = Color.ROND;
+                }
+                play = true;
+                // inserer la demande de nouvelle position
             }
-            play = true;
-            // inserer la demande de nouvelle position
+
         }
 
         return play;
@@ -70,8 +75,11 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
      * @param b le plateau de jeu.
      * @return true si la partie est finie et false sinon.
      */
-    public boolean partieFinie(Position p, Board b) {
+    public boolean partieFinie(Position p, Board b, HumanPlayer player) {
 
+        p = player.choice(b);
+
+        // onn veut récupérer la position entrée par le joueur. pour initialiser p
         boolean partieFinie = false;
         if (Position.rowComplete(b, p.row) || Position.colComplete(b, p.col) || Position.diagComplete(b)) {
             partieFinie = true;
