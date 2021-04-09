@@ -40,7 +40,7 @@ public class HumanPlayer implements Player {
     
     /**
      * Méthode permettant de donner la position d'un pion
-     * @param b
+     * @param b plateau de jeu.
      * @return la position choisi par le joueur
      */
     @Override

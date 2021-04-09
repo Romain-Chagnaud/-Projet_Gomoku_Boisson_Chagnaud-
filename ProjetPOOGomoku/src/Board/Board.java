@@ -1,6 +1,7 @@
 package Board;
 
 import Game.HumanPlayer;
+import java.util.Scanner;
 
 /**
  *
@@ -10,10 +11,8 @@ public class Board {
 
     public int size;
 
-    
     public Color[][] board; // je comprends pas le tableau a régler 
-  
-
+    Scanner scanner = new Scanner(System.in);
 
     /**
      * Constructeur pour l'affichage du plateau de jeu.
@@ -21,13 +20,12 @@ public class Board {
      * @param size la taille du plateau ( le nombre de lignes et colonnes du
      * plateau).
      */
-    public Board(int size) {
+    public Board(Scanner choixSize) {
 
-        if (size < 5 || size > 26) {
-            throw new IllegalArgumentException("La taille du tableau doit être comprise entre 5 et 26");
-        }
-        
         this.size = size;
+        System.out.println("Choisissez la taille du plateau de jeu");
+        this.size = this.scanner.nextInt();
+
         board = new Color[size][size]; // une board est un tableau de dimention 2 d'entiers
 
         // on met des 0 dans chaque cases du tableau.
@@ -131,22 +129,19 @@ public class Board {
     }
 
     /**
-     * Méthode responsable de l'ajout d'une nouvelle valeur dans une case, donc de la pose d'un pion
+     * Méthode responsable de l'ajout d'une nouvelle valeur dans une case, donc
+     * de la pose d'un pion
      *
      * @param p la position à laquelle on souhaite ajouter une nouvelle valeur.
      * @param nvlleVal la nouvelle valeur que l'on souhaite ajouter.
      */
     public void setContenuCase(Position p, Color nvlleVAl) {
         board[p.row][p.col] = nvlleVAl;
-        
-    }
-    
-   // on doit trouver le moyen d'associer une couleur à l'entier contenu dans une case
-    
-    
-    // le contenu d'une case -> la couleur à une position donc son char
 
-    
+    }
+
+    // on doit trouver le moyen d'associer une couleur à l'entier contenu dans une case
+    // le contenu d'une case -> la couleur à une position donc son char
     /*
 Le plateau:
 C'est un tableau de deux dimentions d'entiers -> ok
@@ -163,5 +158,4 @@ ensuite pour chaque ligne on affiche:
 pour chaque ligne on a le contenu de chaque case, donc le contenu de chaque colonne pour cette ligne
 par le contenu, on veut dire le caractère associé au pion du joueur.
      */
-
 }
