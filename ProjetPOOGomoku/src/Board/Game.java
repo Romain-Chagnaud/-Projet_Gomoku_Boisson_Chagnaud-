@@ -40,6 +40,8 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
      */
     private boolean play(Board b, Position p, Color color) {
 
+        
+        
         boolean play = false;
 
         if (coupsJoues.contains(p)) { // on verifie si le arrayList qui enregistre les coups joués contient la position à laquelle le joueur veut se placer

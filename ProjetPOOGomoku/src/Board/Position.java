@@ -186,6 +186,9 @@ public class Position {
        return 0;
     }
 
+    
+    // ça sert à quoi ca
+    
     /**
      *
      * @param subSequence
