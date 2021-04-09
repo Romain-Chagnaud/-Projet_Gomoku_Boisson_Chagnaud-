@@ -15,7 +15,7 @@ import Board.Position;
 public class IA implements Player{
 
     public Position choice(Board b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
     //crée un joueur IA
 }
