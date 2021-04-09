@@ -7,6 +7,7 @@ package Main;
 
 import Board.Board;
 import Board.Color;
+import Board.Position;
 import Game.HumanPlayer;
 import Game.Match;
 import java.util.Scanner;
@@ -22,7 +23,6 @@ public class ProjetPOOGomoku {
      */
     public static void main(String[] args) {
 
-        
         // création des instances pour le match
         Scanner scanner = new Scanner(System.in);
         Color color = Color.NONE;
@@ -50,6 +50,7 @@ public class ProjetPOOGomoku {
      // On affiche message aprtie finir
      // on affiche le nom du gagant
      
+ 
     }
 
   
