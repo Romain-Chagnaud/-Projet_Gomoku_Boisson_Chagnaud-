@@ -47,12 +47,10 @@ public class Match { //implemte deux player
         b.display();
         
 
-    public void run(Board b, HumanPlayer joueur1, HumanPlayer joueur2) {
-
-
- 
+  /*  public void run(Board b, HumanPlayer joueur1, HumanPlayer joueur2) {
         b.display(); // on affiche le plateau
 
-    }
+    }*/
 
+}
 }
