@@ -9,7 +9,8 @@ import Game.HumanPlayer;
 public class Board {
 
     public int size;
-    public int[][] board;
+   
+    public Color[][] board;
 
     /**
      * Constructeur pour l'affichage du plateau de jeu.
@@ -24,13 +25,13 @@ public class Board {
         }
         
         this.size = size;
-        board = new int[size][size]; // une board est un tableau de dimention 2 d'entiers
+        board = new Color[size][size]; // une board est un tableau de dimention 2 d'entiers
 
         // on met des 0 dans chaque cases du tableau.
         int lig, col;
         for (lig = 0; lig < size; lig++) {
             for (col = 0; col < size; col++) {
-                board[lig][col] = 0;
+                board[lig][col] = Color.NONE;
             }
         }
     }
@@ -108,8 +109,8 @@ public class Board {
      * @param lig la ligne dont on veut connaitre le contenu.
      * @return le contenu de cette ligne.
      */
-    private String contenuLigne() {
-        String contenu = null;
+    private Color contenuLigne() {
+        Color contenu = Color.NONE;
         return contenu;
         // les caractères contenus dans chaque case
         // pour chaque case on fait appel a contenu case
@@ -122,7 +123,7 @@ public class Board {
      * @param p la position de la case dont nous voulons connaitre le contenu.
      * @return le contenu de cette case.
      */
-    public int getContenuCase(Position p) {
+    public Color getContenuCase(Position p) {
         return board[p.row][p.col];
     }
 
@@ -132,7 +133,7 @@ public class Board {
      * @param p la position à laquelle on souhaite ajouter une nouvelle valeur.
      * @param nvlleVal la nouvelle valeur que l'on souhaite ajouter.
      */
-    public void setContenuCase(Position p, int nvlleVAl) {
+    public void setContenuCase(Position p, Color nvlleVAl) {
         board[p.row][p.col] = nvlleVAl;
         
     }

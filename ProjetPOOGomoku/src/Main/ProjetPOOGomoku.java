@@ -24,9 +24,16 @@ public class ProjetPOOGomoku {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+        Color color = Color.NONE;
         Board board = new Board(10);
-        Match m = new Match(new HumanPlayer(scanner, Color.CROIX), new HumanPlayer(scanner, Color.ROND), board);
+        HumanPlayer joueur1 = new HumanPlayer(scanner, color);
+        HumanPlayer joueur2 = new HumanPlayer(scanner, color);
+        // Match m = new Match(joueur1, joueur2, board);
+
+        Match m = new Match(joueur1, joueur2, board);
+        
         m.run();
+        
 
         // b.display();
         //dialogueJoueur();
