@@ -16,14 +16,14 @@ public enum Color {
      */
     ROND {
         public String toString() {
-            return "O";
+            return " O ";
         }
     },// rond
    
     
     CROIX {
         public String toString() {
-            return "X";
+            return " X ";
         }
     },// croix
     

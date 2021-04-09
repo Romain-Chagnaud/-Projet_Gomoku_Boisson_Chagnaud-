@@ -41,11 +41,11 @@ public class Board {
     /**
      * Méthode responsable de l'affichage du plateau.
      */
-    public void display() {
+    public void display(Position p) {
         alphabet();
         System.out.println(" ");
         bar();
-        afficherLigne();
+        afficherLigne(p);
         bar();
 
         // on affiche l'alphabet
@@ -89,7 +89,7 @@ public class Board {
      *
      * @param lig la ligne qui doit être affichée.
      */
-    private void afficherLigne() {
+    private void afficherLigne(Position p) {
 
         for (int r = 1; r <= size; r++) {
             System.out.print(r + " ");
@@ -112,7 +112,10 @@ public class Board {
      * @return le contenu de cette ligne.
      */
     private Color contenuLigne() {
+
         Color contenu = Color.NONE;
+
+        // le contenu d'une ligne c'est le contenu de chaque cases
         return contenu;
         // les caractères contenus dans chaque case
         // pour chaque case on fait appel a contenu case
@@ -164,14 +167,10 @@ par le contenu, on veut dire le caractère associé au pion du joueur.
 // On demande le nom des joueurs -> ok
 // On demande la taille du plateau -> ok
 // on affiche le plateau -> ok
-
-
 // boucle partie non finie
 // On demande ou le joueur 1 veut poser
 // On affiche le plateau
 // On demande ou le joueur 2 vaut poser
-
-
 // quand on sort de la boucle
 // On affiche message aprtie finir
      // on affiche le nom du gagant

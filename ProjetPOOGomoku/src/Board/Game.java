@@ -69,7 +69,7 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
             }
         }
         // }
-        b.display();
+        b.display(p);
         System.out.println("sout du play");
         return playPossible;
     }
