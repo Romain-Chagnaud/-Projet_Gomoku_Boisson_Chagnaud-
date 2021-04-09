@@ -3,6 +3,8 @@ package Board;
 import Game.HumanPlayer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Scanner;
+
 
 /**
  *
@@ -12,6 +14,8 @@ public class Board {
 
     public int size;
     public Color[][] board; // je comprends pas le tableau a régler 
+    Scanner scanner = new Scanner(System.in);
+
 
     /**
      * Constructeur pour l'affichage du plateau de jeu.
@@ -19,9 +23,12 @@ public class Board {
      * @param size la taille du plateau ( le nombre de lignes et colonnes du
      * plateau).
      */
-    public Board(int size) {
+    public Board(Scanner choixSize) {
 
         this.size = size;
+        System.out.println("Choisissez la taille du plateau de jeu");
+        this.size = this.scanner.nextInt();
+
         board = new Color[size][size]; // une board est un tableau de dimention 2 d'entiers
 
         //    on met des 0 dans chaque cases du tableau.

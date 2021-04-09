@@ -2,6 +2,9 @@ package Game;
 
 import Board.Board;
 import Board.Color;
+import Board.Position;
+import Game.HumanPlayer;
+import Board.Game;
 import java.util.Scanner;
 
 /**
@@ -13,9 +16,11 @@ public class Match { //implemte deux player
     HumanPlayer joueur1;
     HumanPlayer joueur2;
     String name;
-    Scanner scanner;
+    Scanner scanner = new Scanner(System.in);
     Color color;
     Board board;
+    int lig;
+    int col;
 
     public Match(HumanPlayer joueur1, HumanPlayer joueur2, Board b) {
 
@@ -27,6 +32,7 @@ public class Match { //implemte deux player
     /**
      * Méthode responsable du dialogue avec les joueurs.
      */
+
     public void run() {
 
        
@@ -41,12 +47,12 @@ public class Match { //implemte deux player
         b.display();
         
 
+    public void run(Board b, HumanPlayer joueur1, HumanPlayer joueur2) {
+
+
+ 
+        b.display(); // on affiche le plateau
 
     }
 
-    /* public Match creaMatch() {
-
-        return match;
-    }
-     */
 }

@@ -9,7 +9,6 @@ import Board.Board;
 import Board.Color;
 import Game.HumanPlayer;
 import Game.Match;
-import java.awt.Dialog;
 import java.util.Scanner;
 
 /**
@@ -23,42 +22,35 @@ public class ProjetPOOGomoku {
      */
     public static void main(String[] args) {
 
+        
+        // création des instances pour le match
         Scanner scanner = new Scanner(System.in);
         Color color = Color.NONE;
-        Board board = new Board(10);
+        Board board = new Board(scanner);
         HumanPlayer joueur1 = new HumanPlayer(scanner, color);
         HumanPlayer joueur2 = new HumanPlayer(scanner, color);
         // Match m = new Match(joueur1, joueur2, board);
 
-        Match m = new Match(joueur1, joueur2, board);
+      
+        Match m = new Match(joueur1, joueur2, board);// on crée un match
         
-        m.run();
+        m.run(board, joueur1, joueur2); //on lance une partie
         
 
-        // b.display();
-        //dialogueJoueur();
-        // créer une nouvealle instatnce de match et lancer le run
+     // On demande le nom des joueurs -> ok
+     // On demande la taille du plateau -> ok
+     // on affiche le plateau -> ok
+     
+     // boucle partie non finie
+     // On demande ou le joueur 1 veut poser
+     // On affiche le plateau
+     // On demande ou le joueur 2 vaut poser
+     
+     // quand on sort de la boucle
+     // On affiche message aprtie finir
+     // on affiche le nom du gagant
+     
     }
 
-    /**
-     * Méthode reponsable du dialogue avec les joueurs.
-     */
-    /*public static void dialogueJoueur() {
-
-        HumanPlayer joueur1 = new HumanPlayer("bo", Color.ROND);
-        HumanPlayer joueur2 = new HumanPlayer("bobé", Color.CROIX);
-
-        // on crée de nouveaux joueurs.
-        //on crée des noms
-        //
-        /*System.out.println("Entrez le nom du premier joueur");
-        joueur1.name = scanner.next();
-
-        System.out.println("Entrez le nom du deuxième joueur");
-        joueur2.name = scanner.next();
-     */
-// nouvelle instance de position qu'on demande et lit puis utilise dans play        
-// appel à play
-//    }
-    // reussir a faire l'appel à dialogue dans le main
+  
 }

@@ -1,6 +1,7 @@
 package Board;
 
 import Board.Color;
+import Game.HumanPlayer;
 import java.util.ArrayList;
 
 /**
@@ -38,10 +39,9 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
      * @return true si le joueur peut poser son pion sur la position en
      * question.
      */
-    private boolean play(Board b, Position p, Color color) {
+    public boolean play(Board b, Position p, HumanPlayer player) {
 
-        
-        
+        Color color;
         boolean play = false;
 
         if (coupsJoues.contains(p)) { // on verifie si le arrayList qui enregistre les coups joués contient la position à laquelle le joueur veut se placer
@@ -49,9 +49,9 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
             play = false;
         } else if (Position.nbVoisines(p) != 0 && Position.caseVide(p)) {
 
-            b.setContenuCase(p, color);// on ajoute un pion sur le plateur a la position demandé
+            b.setContenuCase(p, player.color);// on ajoute un pion sur le plateur a la position demandé
             // ajouter la position a la liste
-            if (color == Color.CROIX) {  // on change de joueur // black = croix
+            if (player.color == Color.CROIX) {  // on change de joueur // black = croix
                 color = Color.ROND; // croix
             } else {
                 color = Color.ROND;
@@ -81,12 +81,10 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
         return partieFinie;
     }
 
-    
     /*
     A regarder incohérence entre la valeur que le joueur souhaite jouer et sa couleur
     -> on  l'a déclaré comme un entier alors qu'il est censé déposer un char sur le plateau
     -> voir avec l'enum de Romain
     -> dans la classe play, on veut ajouter une vnlleval mais est -ce qu'on a réellement le choix de la val ?
-    */
-
+     */
 }
