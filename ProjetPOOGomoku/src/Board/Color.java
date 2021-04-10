@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Board;
 
 /**
@@ -15,28 +10,24 @@ public enum Color {
      *
      */
     ROND {
+        @Override
         public String toString() {
             return " O ";
         }
     },// rond
-   
-    
+
     CROIX {
+        @Override
         public String toString() {
             return " X ";
         }
     },// croix
-    
-    
+
     NONE {
+        @Override
         public String toString() {
             return "   ";
         }
     };
-    
-   
-    
-    
 
 }
-

@@ -49,9 +49,14 @@ public class Match { //implemte deux player
         HumanPlayer player2 = joueur2;
 
         
+        // tant que partie non finie on devraut boucler al dessus
+        System.out.println("affichage demande joueur 1");
             p = joueur1.choice(b);
+            System.out.println("on lance le play");
             g.play(b, p, joueur1);
+            System.out.println("affichage demande joueur2");
             p = joueur2.choice(b);
+            System.out.println("on relance le play");
             g.play(b, p, joueur2);
 
         // tant que la partie n'est pas finie

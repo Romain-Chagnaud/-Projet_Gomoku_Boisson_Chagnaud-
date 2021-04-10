@@ -1,15 +1,13 @@
 package Board;
 
-import Board.Color;
 import Game.HumanPlayer;
-import Game.Match;
 import java.util.ArrayList;
 
 /**
  *
  * @author Romain Chagnaud, Manon Boisson
  */
-public class Game {  // il faut voir mais pour moi il faut extend avec Board
+public class Game {
 
     Color nextPlayer;
     Board board;
@@ -26,7 +24,6 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
         this.nextPlayer = nextPlayer;
         this.board = board;
         this.coupsJoues = coupsJoues;
-        
 
     }
 
@@ -36,8 +33,7 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
      *
      * @param b la plateau de jeu.
      * @param p la position à laquelle le joueur veut placer son pion
-     * @param color la couleur du joueur courant.
-     * @param nextColor la valeur que le joueur courant souhaite jouer.
+     * @param player le joueur courant.
      * @return true si le joueur peut poser son pion sur la position en
      * question.
      */
@@ -50,25 +46,27 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
 
         // while (partieFinie(p, b, player) == false) {
 //if (coupsJoues.contains(p)) { // on verifie si le arrayList qui enregistre les coups joués contient la position à laquelle le joueur veut se placer
-        for (int i = 0; i < 9 ; i++) {
+        //for (int i = 0; i < 9; i++) {
             playPossible = false;
             /*}else */
             if (Position.nbVoisines(p, player) != 0 && Position.caseVide(p)) {
 
+                 Color nvlleCase = Color.NONE;
+                 
                 b.setContenuCase(p, player);// on ajoute un pion sur le plateur a la position demandé
                 // ajouter la position a la liste
-                if (player.color == Color.CROIX) {  // on change de joueur // black = croix
+               /* if (player.color == Color.CROIX) {  // on change de joueur // black = croix
                     color = Color.ROND; // croix
                 } else {
                     color = Color.ROND;
-                }
+                }*/
                 playPossible = true;
 
-                // inserer la demande de nouvelle position
                 //}
             }
-        }
+        //}
         // }
+        System.out.println("blablablablbalb");
         b.display(p);
         System.out.println("sout du play");
         return playPossible;
@@ -79,13 +77,14 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
      *
      * @param p une position du plateau de jeu.
      * @param b le plateau de jeu.
+     * @param player le joueur courant.
      * @return true si la partie est finie et false sinon.
      */
     public boolean partieFinie(Position p, Board b, HumanPlayer player) {
 
         p = player.caseCourante(p);
 
-        // onn veut récupérer la position entrée par le joueur. pour initialiser p
+        // onn veut récupérer la position entrée par le joueur. pour initialiser p -> c'est surement ça qui fait qu'on demande deux fois la position dans l'affichage
         boolean partieFinie = false;
         if (Position.rowComplete(b, p.row) || Position.colComplete(b, p.col) || Position.diagComplete(b)) {
             partieFinie = true;
@@ -95,10 +94,4 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
         return partieFinie;
     }
 
-    /*
-    A regarder incohérence entre la valeur que le joueur souhaite jouer et sa couleur
-    -> on  l'a déclaré comme un entier alors qu'il est censé déposer un char sur le plateau
-    -> voir avec l'enum de Romain
-    -> dans la classe play, on veut ajouter une vnlleval mais est -ce qu'on a réellement le choix de la val ?
-     */
 }

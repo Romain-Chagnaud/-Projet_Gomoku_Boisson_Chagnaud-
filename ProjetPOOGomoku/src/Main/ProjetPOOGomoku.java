@@ -29,8 +29,7 @@ public class ProjetPOOGomoku {
         Board board = new Board(scanner);
         HumanPlayer joueur1 = new HumanPlayer(scanner, color);
         HumanPlayer joueur2 = new HumanPlayer(scanner, color);
-        // Match m = new Match(joueur1, joueur2, board);
-
+        
       
         Match m = new Match(joueur1, joueur2, board);// on crée un match
         
@@ -43,8 +42,11 @@ public class ProjetPOOGomoku {
      
      // boucle partie non finie
      // On demande ou le joueur 1 veut poser
+     // pose du pion avec play
      // On affiche le plateau
      // On demande ou le joueur 2 vaut poser
+     // pose du pion avec play
+     // on affiche le plateau
      
      // quand on sort de la boucle
      // On affiche message aprtie finir

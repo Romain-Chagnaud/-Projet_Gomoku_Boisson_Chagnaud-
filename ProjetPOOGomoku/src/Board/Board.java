@@ -12,14 +12,13 @@ import java.util.Scanner;
 public class Board {
 
     public int size;
-    public Color[][] board; // je comprends pas le tableau a régler 
+    public Color[][] board;
     Scanner scanner = new Scanner(System.in);
 
     /**
      * Constructeur pour l'affichage du plateau de jeu.
      *
-     * @param size la taille du plateau ( le nombre de lignes et colonnes du
-     * plateau).
+     * @param choixSize la taille du plateau choisie par l'utilisateur.
      */
     public Board(Scanner choixSize) {
 
@@ -27,13 +26,13 @@ public class Board {
         System.out.println("Choisissez la taille du plateau de jeu");
         this.size = this.scanner.nextInt();
 
-        board = new Color[size][size]; // une board est un tableau de dimention 2 d'entiers
+        board = new Color[size][size]; // une board est un tableau de dimention 2 dde couleurs
 
-        //    on met des 0 dans chaque cases du tableau.
+        // on met des caractères espace dans chaque cases pour l'initialisation du tableau
         int lig, col;
         for (lig = 0; lig < size; lig++) {
             for (col = 0; col < size; col++) {
-                board[lig][col] = Color.NONE;
+                board[lig][col] = Color.NONE;// peut être que notre tableau "vide" vient de la ?
             }
         }
 
@@ -41,26 +40,21 @@ public class Board {
 
     /**
      * Méthode responsable de l'affichage du plateau.
+     *
+     * @param p la position d'une case
      */
-    public void display(Position p) {
+    public void display(Position p) {// est -ce que c'est vraiment util d'avoir un parametre position
         alphabet();
         System.out.println(" ");
         bar();
         afficherLigne(p);
         bar();
-
-        // on affiche l'alphabet
-        // on affiche un espace
-        // on affiche la barre de séparation horizontale
-        // pour chaque ligne, on affiche son contenu
-        // on affiche une barre de séparation hoeirontale sous chaque ligne
-        // afficherLigne(size - 1);
-        //System.out.println("");
     }
 
     /**
      * Méthode responsable de l'affihcage de la barre horizontale de séparation
-     * entre les lignes.
+     * entre chaque ligne du plateau de jeu.
+     *
      */
     private void bar() {
 
@@ -70,7 +64,6 @@ public class Board {
         }
         System.out.println("+");
     }
-    //pour chaque indice du tableau o met en place une ligne de séparation horizontale
 
     /**
      * Méthode permettant de générer l'alphabet qui s'affiche en haut du
@@ -81,14 +74,12 @@ public class Board {
         for (int c = 0; c < size; c++) {
             System.out.print(" " + (char) ('A' + c) + " ");
         }
-
-        // on met en place un alphabet en associant un lettre donc un caractère à un entier
     }
 
     /**
      * Méthode responsable de l'affichage d'une ligne.
      *
-     * @param lig la ligne qui doit être affichée.
+     * @param p la position de la ligne qu'on souhaite afficher
      */
     private void afficherLigne(Position p) {
 
@@ -99,13 +90,25 @@ public class Board {
             }
             System.out.print("|");
             for (int c = 0; c < size; c++) {
+<<<<<<< HEAD
                 System.out.print(board[r][c]);
                 
+=======
+
+                System.out.print(contenuLigne(p));
+                
+
+>>>>>>> 156ee7dc00a13b8b15097db41b798ce90f0c9584
             }
             System.out.println("|");
         }
     }
+<<<<<<< HEAD
     // pour chaque ligne on affiche son contenu
+=======
+    
+// pour chaque ligne on affiche son contenu
+>>>>>>> 156ee7dc00a13b8b15097db41b798ce90f0c9584
 
 //    /**
 //     * Méthode responsable de la gestion du contenu d'une ligne.
@@ -123,6 +126,29 @@ public class Board {
 //            //on doit convertir le contenu des cases en String?
 //        
 //    }
+<<<<<<< HEAD
+=======
+    
+    
+    
+    /**
+     * Méthode responsable de la gestion du contenu d'une ligne.
+     *
+     * @param p une position de la ligne
+     * @return le contenu de cette ligne.
+     */
+    private Color contenuLigne(Position p) {
+
+        Color contenu = getContenuCase(p);
+
+        // le contenu d'une ligne c'est le contenu de chaque cases
+        return contenu;
+        // les caractères contenus dans chaque case
+        // pour chaque case on fait appel a contenu case
+        //on doit convertir le contenu des cases en String?
+    }
+
+>>>>>>> 156ee7dc00a13b8b15097db41b798ce90f0c9584
     /**
      * Méthode permettant de connaitre le contenu d'une case.
      *
@@ -150,10 +176,15 @@ public class Board {
      * de la pose d'un pion
      *
      * @param p la position à laquelle on souhaite ajouter une nouvelle valeur.
-     * @param nvlleVal la nouvelle valeur que l'on souhaite ajouter.
+     * @param player le joueur courant
      */
     public void setContenuCase(Position p, HumanPlayer player) {
+<<<<<<< HEAD
         board[p.row][p.col] = Color.CROIX;//player.color;
+=======
+        board[p.row][p.col] = player.color;//player.color;
+        
+>>>>>>> 156ee7dc00a13b8b15097db41b798ce90f0c9584
 
     }
 
@@ -215,6 +246,7 @@ public class Board {
 
         return présence;
     }
+<<<<<<< HEAD
 
     // on doit trouver le moyen d'associer une couleur à l'entier contenu dans une case
     // le contenu d'une case -> la couleur à une position donc son char
@@ -225,20 +257,16 @@ c'est un tableau de taille -> ok
 la taille du plateau peut varier de 5 à 26 -> ok
 il est constitué d'entiers convertis en caractères qui représentent les couleurs ou symboles des joueurs ou de caractères espaces
 aux positions ou il n'y a aucun pions.
+=======
+>>>>>>> 156ee7dc00a13b8b15097db41b798ce90f0c9584
 
-l'affichage du plateau
-on affiche d'abord un alphabet en ligne -> ok
-ensuite pour chaque ligne on affiche: 
-- une barre de séparation horizontale -> ok
-- le numéro de cette ligne (qui commence à un) et le contenu de la ligne
-pour chaque ligne on a le contenu de chaque case, donc le contenu de chaque colonne pour cette ligne
-par le contenu, on veut dire le caractère associé au pion du joueur.
-     */
 }
 
 // On demande le nom des joueurs -> ok
 // On demande la taille du plateau -> ok
 // on affiche le plateau -> ok
+
+
 // boucle partie non finie
 // On demande ou le joueur 1 veut poser
 // On affiche le plateau
