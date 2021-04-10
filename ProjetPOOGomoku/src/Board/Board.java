@@ -211,6 +211,9 @@ public class Board {
                 ok = true;
                 System.out.println("dans le if");
 
+            } else if (getContenuCase(p) != Color.NONE){
+                ok = false;
+                System.out.println("Choix invalide. Choisissez une autre position");
             } else {
                 System.out.println("dans le else");
                 ok = getAdj(p);

@@ -48,22 +48,15 @@ public class Match { //implemte deux player
         while (!end) {
 
             p = joueur1.choice(board);
-
             g.play2(board, p, joueur1);
-
             tour++;
-            
             p = joueur2.choice(board);
-
             g.play2(board, p, joueur2);
-
             tour++;
-            
-
 
         }
-        // tant que la partie n'est pas finie
-        // le joueur1 joue, des qu'il a posé une case le joueur 2 joue
+      
+        System.out.println("La partie est terminée");
 
     }
     

@@ -38,16 +38,21 @@ public class ProjetPOOGomoku {
         // On demande le nom des joueurs -> ok
         // On demande la taille du plateau -> ok
         // on affiche le plateau -> ok
-        // boucle partie non finie
-        // On demande ou le joueur 1 veut poser
-        // pose du pion avec play
-        // On affiche le plateau
-        // On demande ou le joueur 2 vaut poser
-        // pose du pion avec play
-        // on affiche le plateau
+        
+        
+        // boucle partie non finie-> ok
+        // On demande ou le joueur 1 veut poser -> ok
+        // pose du pion avec play -> ok
+        // On affiche le plateau->ok
+        // On demande ou le joueur 2 vaut poser ->ok
+        // pose du pion avec play ->ok
+        // on affiche le plateau->ok
         // quand on sort de la boucle
+        
+        
         // On affiche message aprtie finir
         // on affiche le nom du gagant
+        // on affiche la liste des coups
     }
 
     public static int choisirTaille() {
