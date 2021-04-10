@@ -36,6 +36,7 @@ public class Board {
                 board[lig][col] = Color.NONE;
             }
         }
+
     }
 
     /**
@@ -98,16 +99,13 @@ public class Board {
             }
             System.out.print("|");
             for (int c = 0; c < size; c++) {
-
-
                 System.out.print(board[r][c]);
-
+                
             }
             System.out.println("|");
         }
     }
     // pour chaque ligne on affiche son contenu
-
 
 //    /**
 //     * Méthode responsable de la gestion du contenu d'une ligne.
@@ -125,26 +123,6 @@ public class Board {
 //            //on doit convertir le contenu des cases en String?
 //        
 //    }
-    
-
-    /**
-     * Méthode responsable de la gestion du contenu d'une ligne.
-     *
-     * @param lig la ligne dont on veut connaitre le contenu.
-     * @return le contenu de cette ligne.
-     */
-    private Color contenuLigne(Position p) {
-
-        Color contenu = getContenuCase(p);
-
-        // le contenu d'une ligne c'est le contenu de chaque cases
-        return contenu;
-        // les caractères contenus dans chaque case
-        // pour chaque case on fait appel a contenu case
-        //on doit convertir le contenu des cases en String?
-    }
-
-
     /**
      * Méthode permettant de connaitre le contenu d'une case.
      *
@@ -152,11 +130,19 @@ public class Board {
      * @return le contenu de cette case.
      */
     public Color getContenuCase(Position p) {
-        Color contenu = Color.NONE;
-        while (board.length < size) {
-            contenu = board[p.row][p.col];
+        for (int x = 0; 0 < size; x++) {
+            for (int y = 0; 0 < size; y++) {
+                
+                System.out.println(board[x][y]);
+                
+            }
         }
-        return contenu;
+
+        //           Color contenu = Color.NONE;
+//        while (board.length < size) {
+//            contenu = board[p.row][p.col];
+//        }
+        return null;
     }
 
     /**
@@ -168,24 +154,25 @@ public class Board {
      */
     public void setContenuCase(Position p, HumanPlayer player) {
         board[p.row][p.col] = Color.CROIX;//player.color;
-       
 
     }
-    
+
     /**
      * Boolean permettant de déterminer si une position existe dans le plateau
+     *
      * @param p position donnée par le joueur à vérifier
      * @return si la position donnée est dans le plateau
      */
-    public boolean estDansPlateau(Position p){
-         return (p.row < size && p.col < size && p.row >= 0 && p.col >= 0);
+    public boolean estDansPlateau(Position p) {
+        return (p.row < size && p.col < size && p.row >= 0 && p.col >= 0);
     }
-    
+
     /**
      * Méthode permettant de voir si une position est valide
+     *
      * @param p position donnée par le joueur
      * @param tours nombre de tours jouée
-     * @return si possible de jouée ou pas 
+     * @return si possible de jouée ou pas
      */
     boolean valide(Position p, int tours) {
         boolean ok = false;
@@ -202,8 +189,7 @@ public class Board {
         }
         return ok;
     }
-    
-    
+
     /*
      *Boolean qui determine si une position existe dans le plateau
      *@param p la position à vérifier
@@ -219,8 +205,8 @@ public class Board {
                 //on regarde pas à l'exterieur du plateau
                 if (estDansPlateau(x)) {
                     //si il y'a un pion adjacent
-                    if (board[i][j] != Color.NONE  //et si la position ciblée est libre
-                         && board[p.row][p.col] == Color.NONE) {
+                    if (board[i][j] != Color.NONE //et si la position ciblée est libre
+                            && board[p.row][p.col] == Color.NONE) {
                         présence = true;
                     }
                 }
@@ -229,8 +215,7 @@ public class Board {
 
         return présence;
     }
-    
-    
+
     // on doit trouver le moyen d'associer une couleur à l'entier contenu dans une case
     // le contenu d'une case -> la couleur à une position donc son char
     /*

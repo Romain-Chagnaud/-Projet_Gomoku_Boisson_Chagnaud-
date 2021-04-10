@@ -168,6 +168,9 @@ public class Position {
         }
         return estComplet;
     }
+    
+    
+    
 
     // on regarde chaque pour une ligne n, sa colonne n ainsi on consulte les case en diagonale,
     // si elles sont identiques, alors estComplet est vrai.
