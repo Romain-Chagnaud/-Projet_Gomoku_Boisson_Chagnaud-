@@ -4,6 +4,7 @@ import Board.Board;
 import Board.Color;
 import Board.Position;
 import static java.lang.System.in;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -38,10 +39,29 @@ public class HumanPlayer implements Player {
      */
     @Override
     public Position choice(Board b) {
-        System.out.println("Position :");
-        Scanner scan = new Scanner(in);
-        String message = scan.nextLine().trim();
-        Position p = new Position(message);
+        Position p = null;
+        Scanner scan = new Scanner(System.in);
+        boolean choiceValide = false;
+
+        while (!choiceValide) {
+            System.out.println("Position :");
+            try {
+                String message = scan.nextLine().trim();
+                p = new Position(message);
+                if (b.valide(p, 0) == true) {
+                    choiceValide = true;
+                } else if (b.valide(p, 0) == false) {
+                    choiceValide = false;
+                    System.out.println("Choisissez une position valide");
+
+                }
+
+            } catch (Exception e) {
+                System.out.println("Choisissez une position valide");
+                scan.nextLine();
+            }
+        }
+
         return p;
     }
 

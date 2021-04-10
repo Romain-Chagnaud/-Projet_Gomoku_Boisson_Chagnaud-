@@ -2,8 +2,6 @@ package Board;
 
 import Game.HumanPlayer;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.Scanner;
 
 /**
@@ -82,7 +80,6 @@ public class Board {
     /**
      * Méthode responsable de l'affichage d'une ligne.
      *
-     * @param p la position de la ligne qu'on souhaite afficher
      */
     private void afficherLignes() {
 
@@ -102,12 +99,18 @@ public class Board {
                 
                 Color toDisplay = this.board[r][c];
                 
-                if(toDisplay == Color.NONE){
-                    System.out.print("   ");
-                }else if(toDisplay == Color.CROIX){
-                    System.out.print(" X ");
-                }else{
+                if(null == toDisplay){
                     System.out.print(" O ");
+                }else switch (toDisplay) {
+                    case NONE:
+                        System.out.print("   ");
+                        break;
+                    case CROIX:
+                        System.out.print(" X ");
+                        break;
+                    default:
+                        System.out.print(" O ");
+                        break;
                 }
             }
             System.out.println("|");
@@ -194,7 +197,7 @@ public class Board {
      * @param tours nombre de tours jouée
      * @return si possible de jouée ou pas
      */
-    boolean valide(Position p, int tours) {
+    public boolean valide(Position p, int tours) {
         boolean ok = false;
         if (estDansPlateau(p)) {
             //on peut poser npt ou au premeir tour

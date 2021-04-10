@@ -60,7 +60,7 @@ public class ProjetPOOGomoku {
                 i = in.nextInt();
                 valide = true;
             } catch (Exception e) {
-                System.out.println("entrée taille valide");
+                System.out.println("Cette taille de plateau n'est pas valide");
                 in.nextLine();
             }
         }
