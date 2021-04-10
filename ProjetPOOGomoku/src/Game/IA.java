@@ -14,7 +14,7 @@ import Board.Position;
  */
 public class IA implements Player{
 
-    public Position choice(Board b) {
+    public Position choice(Board b, int tours) {
         //je sais pas quoi mettre ici ??
         return null;
     }

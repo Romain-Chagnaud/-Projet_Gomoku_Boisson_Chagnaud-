@@ -32,7 +32,7 @@ public class ProjetPOOGomoku {
         HumanPlayer joueur2 = new HumanPlayer(scanner, Color.ROND);
 
         Match m = new Match(joueur1, joueur2, board);// on crée un match
-
+        board.display();
         m.run(); //on lance une partie
 
         // On demande le nom des joueurs -> ok

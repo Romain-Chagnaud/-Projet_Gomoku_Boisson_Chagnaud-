@@ -1,6 +1,7 @@
 package Board;
 
 import Game.HumanPlayer;
+import Game.Match;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -28,7 +29,7 @@ public class Board {
 
         Convertor = new HashMap<>();
         for (int col = 0; col < size; col++) {
-            Convertor.put(Character.toString((char) 65 + col),col); //
+            Convertor.put(Character.toString((char) 65 + col), col); //
         }
 
         // on met des caractères espace dans chaque cases pour l'initialisation du tableau
@@ -96,21 +97,23 @@ public class Board {
             System.out.print("|");
             // pour tout le contenu de la ligne
             for (int c = 0; c < size; c++) {
-                
+
                 Color toDisplay = this.board[r][c];
-                
-                if(null == toDisplay){
+
+                if (null == toDisplay) {
                     System.out.print(" O ");
-                }else switch (toDisplay) {
-                    case NONE:
-                        System.out.print("   ");
-                        break;
-                    case CROIX:
-                        System.out.print(" X ");
-                        break;
-                    default:
-                        System.out.print(" O ");
-                        break;
+                } else {
+                    switch (toDisplay) {
+                        case NONE:
+                            System.out.print("   ");
+                            break;
+                        case CROIX:
+                            System.out.print(" X ");
+                            break;
+                        default:
+                            System.out.print(" O ");
+                            break;
+                    }
                 }
             }
             System.out.println("|");
@@ -198,20 +201,34 @@ public class Board {
      * @return si possible de jouée ou pas
      */
     public boolean valide(Position p, int tours) {
+
         boolean ok = false;
+        boolean end = false;
         if (estDansPlateau(p)) {
-            //on peut poser npt ou au premeir tour
+
             if (tours == 0) {
                 ok = true;
+                tours ++;
+
+                System.out.println("dans le if");
+
             } else {
+                System.out.println("dans le else");
                 ok = adjacent(p);
-                if (!ok) {
+                System.out.println(ok);
+                tours++;
+                if (ok == false) {
                     System.err.println("Choix invalide. Veuillez rejouer");
                 }
             }
+
         }
+        
         return ok;
     }
+
+    // au premier tour on puet posier si dans plateau et couleur.none
+    // apres on peut poser si couleur.none et adj !=0
 
     /*
      *Boolean qui determine si une position existe dans le plateau
@@ -254,7 +271,7 @@ aux positions ou il n'y a aucun pions.
 // On demande le nom des joueurs -> ok
 // On demande la taille du plateau -> ok
 // on affiche le plateau -> ok
-// boucle partie non finie
+// boucle partie non finie -> 
 // On demande ou le joueur 1 veut poser
 // On affiche le plateau
 // On demande ou le joueur 2 vaut poser

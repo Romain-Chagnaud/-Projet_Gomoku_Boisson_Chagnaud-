@@ -39,33 +39,26 @@ public class Game {
     public boolean play(Board b, Position p, HumanPlayer player) {
 
         //Color color;
-       // boolean playPossible = false;
+        // boolean playPossible = false;
         //int lig = p.row;
         //int col = p.col;
-
-        
         // while (partieFinie(p, b, player) == false) {
 //if (coupsJoues.contains(p)) { // on verifie si le arrayList qui enregistre les coups joués contient la position à laquelle le joueur veut se placer
         //for (int i = 0; i < 9; i++) {
         //playPossible = false;
         /*}else */
         //if (Position.nbVoisines(p, player) != 0 && Position.caseVide(p)) {
-
-            //Color nvlleCase = Color.NONE;
-
-            // on ajoute un pion sur le plateur a la position demandé
-            // ajouter la position a la liste
-            /* if (player.color == Color.CROIX) {  // on change de joueur // black = croix
+        //Color nvlleCase = Color.NONE;
+        // on ajoute un pion sur le plateur a la position demandé
+        // ajouter la position a la liste
+        /* if (player.color == Color.CROIX) {  // on change de joueur // black = croix
                     color = Color.ROND; // croix
                 } else {
                     color = Color.ROND;
                 }*/
-            //playPossible = true;
-
-            //}
+        //playPossible = true;
         //}
-        
-
+        //}
         b.setContenuCase(p, player);
         //}
         // }
@@ -74,13 +67,13 @@ public class Game {
         //System.out.println("sout du play");
         return true;
     }
-    
-    public void play2(Board currentBoard, Position pos, HumanPlayer player ){
-        System.out.println(pos);
+
+    public void play2(Board currentBoard, Position pos, HumanPlayer player) {
         currentBoard.setContenuCase(pos, player);
-        System.out.println("Le coup à été joué, mtn on display");
         currentBoard.display();
     }
+    
+    
 
     /**
      * Méthode indiquant si une parite est finie ou non.

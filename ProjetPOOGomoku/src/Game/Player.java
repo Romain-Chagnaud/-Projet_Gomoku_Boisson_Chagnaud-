@@ -14,5 +14,5 @@ import Board.Position;
 public interface Player {
     //appele les deux payer dans match,
     
-    Position choice(Board.Board b);
+    Position choice(Board.Board b, int tours);
 }

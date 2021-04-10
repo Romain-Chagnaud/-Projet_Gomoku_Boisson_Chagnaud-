@@ -19,12 +19,14 @@ public class Match { //implemte deux player
     Color color;
     Board board;
     ArrayList<Position> coupsJoues;
+    private int cpt;
 
     public Match(HumanPlayer joueur1, HumanPlayer joueur2, Board b) {
 
         this.board = b;
         this.joueur1 = joueur1;
         this.joueur2 = joueur2;
+        this.cpt = 0;
     }
 
     // Board b = new board()
@@ -45,13 +47,15 @@ public class Match { //implemte deux player
         // tant que partie non finie on devraut boucler al dessus
         while (!end) {
 
-            p = joueur1.choice(board);
+            p = joueur1.choice(board, cpt);
 
             g.play2(board, p, joueur1);
 
-            p = joueur2.choice(board);
+            p = joueur2.choice(board, cpt);
 
             g.play2(board, p, joueur2);
+            cpt++;
+
         }
         // tant que la partie n'est pas finie
         // le joueur1 joue, des qu'il a posé une case le joueur 2 joue

@@ -2,6 +2,7 @@ package Game;
 
 import Board.Board;
 import Board.Color;
+import Board.Game;
 import Board.Position;
 import static java.lang.System.in;
 import java.util.InputMismatchException;
@@ -35,11 +36,13 @@ public class HumanPlayer implements Player {
      * Méthode permettant de donner la position d'un pion
      *
      * @param b plateau de jeu.
+     * @param tours
      * @return la position choisi par le joueur
      */
     @Override
-    public Position choice(Board b) {
+    public Position choice(Board b, int tours) {
         Position p = null;
+        
         Scanner scan = new Scanner(System.in);
         boolean choiceValide = false;
 
@@ -48,9 +51,9 @@ public class HumanPlayer implements Player {
             try {
                 String message = scan.nextLine().trim();
                 p = new Position(message);
-                if (b.valide(p, 0) == true) {
+                if (b.valide(p, tours) == true) {
                     choiceValide = true;
-                } else if (b.valide(p, 0) == false) {
+                } else if (b.valide(p, tours) == false) {
                     choiceValide = false;
                     System.out.println("Choisissez une position valide");
 
@@ -60,6 +63,7 @@ public class HumanPlayer implements Player {
                 System.out.println("Choisissez une position valide");
                 scan.nextLine();
             }
+            
         }
 
         return p;
