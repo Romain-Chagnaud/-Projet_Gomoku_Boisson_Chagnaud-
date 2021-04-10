@@ -46,24 +46,27 @@ public class Game {
 
         // while (partieFinie(p, b, player) == false) {
 //if (coupsJoues.contains(p)) { // on verifie si le arrayList qui enregistre les coups joués contient la position à laquelle le joueur veut se placer
-        for (int i = 0; i < 9; i++) {
+        //for (int i = 0; i < 9; i++) {
             playPossible = false;
             /*}else */
             if (Position.nbVoisines(p, player) != 0 && Position.caseVide(p)) {
 
+                 Color nvlleCase = Color.NONE;
+                 
                 b.setContenuCase(p, player);// on ajoute un pion sur le plateur a la position demandé
                 // ajouter la position a la liste
-                if (player.color == Color.CROIX) {  // on change de joueur // black = croix
+               /* if (player.color == Color.CROIX) {  // on change de joueur // black = croix
                     color = Color.ROND; // croix
                 } else {
                     color = Color.ROND;
-                }
+                }*/
                 playPossible = true;
 
                 //}
             }
-        }
+        //}
         // }
+        System.out.println("blablablablbalb");
         b.display(p);
         System.out.println("sout du play");
         return playPossible;

@@ -90,7 +90,7 @@ public class Board {
             System.out.print("|");
             for (int c = 0; c < size; c++) {
 
-                System.out.print(board[r][c]);
+                System.out.print(contenuLigne(p));
                 
 
             }
@@ -158,7 +158,8 @@ public class Board {
      * @param player le joueur courant
      */
     public void setContenuCase(Position p, HumanPlayer player) {
-        board[p.row][p.col] = Color.CROIX;//player.color;
+        board[p.row][p.col] = player.color;//player.color;
+        
 
     }
 
