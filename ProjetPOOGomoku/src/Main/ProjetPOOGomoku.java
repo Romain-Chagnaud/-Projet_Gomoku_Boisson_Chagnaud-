@@ -23,7 +23,7 @@ public class ProjetPOOGomoku {
      */
     public static void main(String[] args) {
 
-        // création des instances pour le match
+        // création des instances pour lancer le match
         Scanner scanner = new Scanner(System.in);
         Color color = Color.NONE;
         int choix = choisirTaille();
@@ -31,30 +31,18 @@ public class ProjetPOOGomoku {
         HumanPlayer joueur1 = new HumanPlayer(scanner, Color.CROIX);
         HumanPlayer joueur2 = new HumanPlayer(scanner, Color.ROND);
 
-        Match m = new Match(joueur1, joueur2, board);// on crée un match
+        Match m = new Match(joueur1, joueur2, board);// On crée un match.
         board.display();
-        m.run(); //on lance une partie
+        m.run(); //On lance une partie.
 
-        // On demande le nom des joueurs -> ok
-        // On demande la taille du plateau -> ok
-        // on affiche le plateau -> ok
-        
-        
-        // boucle partie non finie-> ok
-        // On demande ou le joueur 1 veut poser -> ok
-        // pose du pion avec play -> ok
-        // On affiche le plateau->ok
-        // On demande ou le joueur 2 vaut poser ->ok
-        // pose du pion avec play ->ok
-        // on affiche le plateau->ok
-        // quand on sort de la boucle
-        
-        
-        // On affiche message aprtie finir
-        // on affiche le nom du gagant
-        // on affiche la liste des coups
     }
 
+    /**
+     * Méthode permettant à l'utilisateur de choisir la taille du plateau de
+     * jeu.
+     *
+     * @return la taille du plateau de jeu.
+     */
     public static int choisirTaille() {
         int i = 0;
         Scanner in = new Scanner(System.in);

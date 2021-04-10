@@ -17,7 +17,7 @@ public class Position {
      * @param numRow le numéro d'une ligne
      * @param numCol le numéro d'une colonne.
      */
-    public Position(int numRow, int numCol) { // la position c'est un nombre et un lettre 
+    public Position(int numRow, int numCol) {
 
         this.row = numRow;
         this.col = numCol;
@@ -26,7 +26,7 @@ public class Position {
     /**
      * Constructeur pour la position d'un piont
      *
-     * @param message coordonée écrite
+     * @param message les coordonées d'une position entrée par l'utilsateur.
      */
     public Position(String message) { // second constructeur
         this.row = rowToInt(Character.toString(message.charAt(0))); // prend le 1er caractère par ex dans A12 ça prends A
@@ -63,7 +63,7 @@ public class Position {
      * Méthode indiquant si une case est vide.
      *
      * @param p la position de la case dont on regarde le contenu.
-     * @return
+     * @return true si la case ne contient aps de pions.
      */
     public static boolean caseVide(Position p) {
         boolean caseVide = false;
@@ -76,11 +76,10 @@ public class Position {
 
     }
 
-    
     /**
      * Méthode indiquant si 5 pions sont alignés sur une ligne.
      *
-     * @param b la plateau de jeu.
+     * @param b le plateau de jeu.
      * @param lig la ligne que l'on consulte.
      * @return true si 5 pions sont alignés sur une ligne et false sinon.
      */
@@ -115,7 +114,7 @@ public class Position {
      * @param col la colonne que l'on consulte.
      * @return true si 5 pions sont alignés sur une colonne et false sinon.
      */
-    //tant que non complet, on parcourt pour chaque colonne on regarrde si chaque ligne est différent de null
+    //tant que non complet, on parcourt pour chaque colonne on regarde si chaque ligne est différent de null
     public static boolean colComplete(Board b, int col) {
 
         boolean estComplet = false;
@@ -169,13 +168,9 @@ public class Position {
         }
         return estComplet;
     }
-    
-    
-    
 
-    
     /**
-     * Méthode qui permet de prendre la position de la colonne.
+     * Méthode qui permet de récupérere la position d'une colonne.
      *
      * @return la colonnes choisis.
      */
@@ -187,46 +182,31 @@ public class Position {
      * Méthode permettant de convertir le caractère d'une ligne en entier.
      *
      * @param charAt la caractère que l'on veut convertir.
-     * @return les caractères de la positions convertie en entier
+     * @return les caractères de la position convertie en entier
      */
     private int rowToInt(String charAt) {
-        //lever les exception 
-        if(Board.Convertor.containsKey(charAt)){
-             return Board.Convertor.get(charAt);
+
+        if (Board.Convertor.containsKey(charAt)) {
+            return Board.Convertor.get(charAt);
         }
-       return 0;
+        return 0;
     }
 
     /**
      * Méthode permettant de convertir le caractère d'une colonne en entier.
      *
      * @param subSequence la chaine de caractère de la colonne.
-     * @return
+     * @return les caractères de la colonne convertie en entier.
      */
     private int colToInt(String subSequence) {
-        //lever les exceptions
-        /*try {
-            /*if (Integer.toString(col).equals(subSequence)) {
-                System.out.println(subSequence);
-            }*/
+
         String s = "";
         if (subSequence.length() >= 1) {
             s = String.valueOf(subSequence.charAt(0));
-            // Si on a un nombre à 2 chiffres
-            
-            // !! vous prenez ici nombre de n'importe quelle taile...
-            // si le board fait 10 et que je met A234 ca va crash
-            
             if (subSequence.length() > 1) {
                 s = s.concat(String.valueOf(subSequence.charAt(1)));
             }
-
         }
         return Integer.parseInt(s);
-
-        /* } catch (Exception e) { // il faut essayer de maitre InvalidPositionException
-            System.out.println(e);
-        }*/
-        //return Integer.parseInt(subSequence); // permet de convertir un string en int 
     }
 }

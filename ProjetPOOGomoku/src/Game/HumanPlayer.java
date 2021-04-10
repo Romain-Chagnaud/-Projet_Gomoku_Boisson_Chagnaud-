@@ -2,10 +2,7 @@ package Game;
 
 import Board.Board;
 import Board.Color;
-import Board.Game;
 import Board.Position;
-import static java.lang.System.in;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -22,27 +19,25 @@ public class HumanPlayer implements Player {
     /**
      * Constructeur de la classe HumanPlayer.
      *
-     * @param appelNomJoueur nom du joueurs
-     * @param color la couleur d'un joueur.
+     * @param appelNomJoueur le nom du joueur que l'utilisateur choisit.
+     * @param color la couleur assiciée à un joueur.
      */
     public HumanPlayer(Scanner appelNomJoueur, Color color) {
         this.color = color;
-        // this.scanner = scanner;
         System.out.println("Choisissez le nom du joueur");
         this.name = this.scanner.nextLine();
     }
 
     /**
-     * Méthode permettant de donner la position d'un pion
+     * Méthode permettant à l'utilisateur de choisir la position d'un pion.
      *
      * @param b plateau de jeu.
-     * @param tours
-     * @return la position choisi par le joueur
+     * @return la position choisie par le joueur.
      */
     @Override
     public Position choice(Board b) {
         Position p = null;
-        
+
         Scanner scan = new Scanner(System.in);
         boolean choiceValide = false;
 
@@ -63,7 +58,7 @@ public class HumanPlayer implements Player {
                 System.out.println("Choisissez une position valide");
                 scan.nextLine();
             }
-            
+
         }
 
         return p;
@@ -73,7 +68,6 @@ public class HumanPlayer implements Player {
         int lig = p.row;
         int col = p.col;
         return p;
-        // regarder la ligne et la colonne d'une position;
 
     }
 

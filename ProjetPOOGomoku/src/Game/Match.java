@@ -3,16 +3,14 @@ package Game;
 import Board.Board;
 import Board.Color;
 import Board.Position;
-import Game.HumanPlayer;
 import Board.Game;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *
  * @author Romain Chagnaud, Manon Boisson
  */
-public class Match { //implemte deux player
+public class Match {
 
     HumanPlayer joueur1;
     HumanPlayer joueur2;
@@ -21,6 +19,13 @@ public class Match { //implemte deux player
     ArrayList<Position> coupsJoues;
     public static int tour;
 
+    /**
+     * Constructeur de la classe Match.
+     *
+     * @param joueur1 un joueur.
+     * @param joueur2 un autre joueur.
+     * @param b un plateau de jeu.
+     */
     public Match(HumanPlayer joueur1, HumanPlayer joueur2, Board b) {
 
         this.board = b;
@@ -29,11 +34,9 @@ public class Match { //implemte deux player
         this.tour = 0;
     }
 
-    // Board b = new board()
-    //joueur1! = new HumanPlayer(scanner, color);
-    //joueur2 = new HumanPlayer(scanner, color);
-    //board = new Board(10);
-    //Match match = new Match(joueur1, joueur2, board);
+    /**
+     * Méthode responsable de l'execution d'une partie entre deux joueurs.
+     */
     public void run() {
 
         Game g = new Game(board, coupsJoues);
@@ -44,15 +47,14 @@ public class Match { //implemte deux player
 
         boolean end = false;
 
-        // tant que partie non finie on devraut boucler al dessus
-        while (!end) {
+        while (!end) { // Tant que la partie n'est pas finie.
 
             p = joueur1.choice(board);
-            g.play2(board, p, joueur1);
+            g.play(board, p, joueur1);
             tour++;
 
             p = joueur2.choice(board);
-            g.play2(board, p, joueur2);
+            g.play(board, p, joueur2);
             end = g.partieFinie(p, board, player);
             tour++;
             if (g.partieFinie(p, board, player) == true) {

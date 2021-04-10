@@ -25,18 +25,17 @@ public class Board {
     public Board(int choixSize) {
 
         this.size = choixSize;
-
-        board = new Color[size][size]; // une board est un tableau de dimention 2 dde couleurs
-
+        board = new Color[size][size];
         Convertor = new HashMap<>();
+
         for (int col = 0; col < size; col++) {
-            Convertor.put(Character.toString((char) 65 + col), col); //
+            Convertor.put(Character.toString((char) 65 + col), col);
         }
 
-        // on met des caractères espace dans chaque cases pour l'initialisation du tableau
+        // On met des caractères espace dans chaque cases pour l'initialisation du tableau
         for (int lig = 0; lig < size; lig++) {
             for (int col = 0; col < size; col++) {
-                board[lig][col] = Color.NONE;// peut être que notre tableau "vide" vient de la ?
+                board[lig][col] = Color.NONE;
             }
         }
 
@@ -46,7 +45,7 @@ public class Board {
      * Méthode responsable de l'affichage du plateau.
      *
      */
-    public void display() {// est -ce que c'est vraiment util d'avoir un parametre position
+    public void display() {
         alphabet();
         System.out.println(" ");
         bar();
@@ -55,7 +54,7 @@ public class Board {
     }
 
     /**
-     * Méthode responsable de l'affihcage de la barre horizontale de séparation
+     * Méthode responsable de l'affichage de la barre horizontale de séparation
      * entre chaque ligne du plateau de jeu.
      *
      */
@@ -87,14 +86,11 @@ public class Board {
 
         // pour chaque row
         for (int r = 0; r < size; r++) {
-            // premier espace
             System.out.print(r + " ");
             // si le nb de la row à un seul char
             if (r <= 9) {
-                // deux espaces
                 System.out.print(" ");
             }
-            // barre de séparation
             System.out.print("|");
             // pour tout le contenu de la ligne
             for (int c = 0; c < size; c++) {
@@ -121,101 +117,59 @@ public class Board {
         }
     }
 
-    // pour chaque ligne on affiche son contenu
-// pour chaque ligne on affiche son contenu
-//    /**
-//     * Méthode responsable de la gestion du contenu d'une ligne.
-//     *
-//     * @param lig la ligne dont on veut connaitre le contenu.
-//     * @return le contenu de cette ligne.
-//     */
-//    private Color contenuLigne() {
-//            
-//             Color contenu = Color.NONE;
-//            // le contenu d'une ligne c'est le contenu de chaque cases
-//            return contenu;
-//            // les caractères contenus dans chaque case
-//            // pour chaque case on fait appel a contenu case
-//            //on doit convertir le contenu des cases en String?
-//        
-//    }
-    /**
-     * Méthode responsable de la gestion du contenu d'une ligne.
-     *
-     * @param p une position de la ligne
-     * @return le contenu de cette ligne.
-     */
-    private Color contenuLigne(Position p) {
-
-        Color contenu = getContenuCase(p);
-
-        // le contenu d'une ligne c'est le contenu de chaque cases
-        return contenu;
-        // les caractères contenus dans chaque case
-        // pour chaque case on fait appel a contenu case
-        //on doit convertir le contenu des cases en String?
-    }
-
     /**
      * Méthode permettant de connaitre le contenu d'une case.
      *
      * @param p la position de la case dont nous voulons connaitre le contenu.
-     * @return le contenu de cette case.
+     * @return la couleur contenue dans cette case.
      */
     public Color getContenuCase(Position p) {
 
-        //           Color contenu = Color.NONE;
-//        while (board.length < size) {
-//            contenu = board[p.row][p.col];
-//        }
         return board[p.row][p.col];
     }
 
     /**
-     * Méthode responsable de l'ajout d'une nouvelle valeur dans une case, donc
-     * de la pose d'un pion
+     * Méthode responsable de l'ajout d'une nouvelle couleur dans une case du
+     * plateau de jeu.
      *
-     * @param p la position à laquelle on souhaite ajouter une nouvelle valeur.
-     * @param player le joueur courant
+     * @param p la position à laquelle on souhaite ajouter une nouvelle couleur.
+     * @param player le joueur courant.
      */
     public void setContenuCase(Position p, HumanPlayer player) {
 
         this.board[p.col][p.row] = player.color;//player.color;
-
     }
 
     /**
-     * Boolean permettant de déterminer si une position existe dans le plateau
+     * Méthode permettant de déterminer si une position existe dans le plateau.
      *
-     * @param p position donnée par le joueur à vérifier
-     * @return si la position donnée est dans le plateau
+     * @param p la position entrée par l'utilisateur dont il faut verifier
+     * l'existence sur le plateau.
+     * @return true si la position donnée est dans le plateau et false sinon.
      */
     public boolean estDansPlateau(Position p) {
         return (p.row < size && p.col < size && p.row >= 0 && p.col >= 0);
     }
 
     /**
-     * Méthode permettant de voir si une position est valide
+     * Méthode permettant de voir si une position est valide.
      *
-     * @param p position donnée par le joueur
-     * @param tours nombre de tours jouée
-     * @return si possible de jouée ou pas
+     * @param p la position entrée par l'utilisateur dont il faut voir si elle
+     * est valide.
+     * @return true si la position est valide et false sinon.
      */
     public boolean valide(Position p) {
 
         boolean ok = false;
-        boolean end = false;
         if (estDansPlateau(p)) {
 
             if (Match.tour == 0) {
                 ok = true;
-                System.out.println("dans le if");
 
-            } else if (getContenuCase(p) != Color.NONE){
+            } else if (getContenuCase(p) != Color.NONE) {
                 ok = false;
                 System.out.println("Choix invalide. Choisissez une autre position");
             } else {
-                System.out.println("dans le else");
                 ok = getAdj(p);
                 System.out.println(ok);
                 if (ok == false) {
@@ -228,13 +182,13 @@ public class Board {
         return ok;
     }
 
-    // au premier tour on puet posier si dans plateau et couleur.none
-    // apres on peut poser si couleur.none et adj !=0
     /**
-     * Methode permettant de savoir si une position à d'autres positions non nulles autour
-     * 
-     * @param pos la position en question
-     * @return true si une position alliée ou ennemie est détectée, false sinon
+     * Méthode permettant de savoir si une position possède des cases adjacentes
+     * occupées.
+     *
+     * @param pos la position à laquelle le joueur souhaite poser un pion.
+     * @return true si une position adjacente est occupée par le pion d'un
+     * joueur et false sinon.
      */
     private boolean getAdj(Position pos) {
 
@@ -257,37 +211,6 @@ public class Board {
         Position tryHeight = new Position(pos.col + 1, pos.row + 1);
         neighbour.add(tryHeight);
 
-        for (Position p : neighbour) {
-            if (estDansPlateau(p)) {
-                if (board[p.row][p.col].equals(Color.CROIX) || board[p.row][p.col].equals(Color.ROND)) {
-                    return true;
-                }
-            }
-
-        }
-
-        return false;
+        return neighbour.stream().filter(p -> (estDansPlateau(p))).anyMatch(p -> (board[p.row][p.col].equals(Color.CROIX) || board[p.row][p.col].equals(Color.ROND)));
     }
-
-    // on doit trouver le moyen d'associer une couleur à l'entier contenu dans une case
-    // le contenu d'une case -> la couleur à une position donc son char
-    /*
-Le plateau:
-C'est un tableau de deux dimentions d'entiers -> ok
-c'est un tableau de taille -> ok
-la taille du plateau peut varier de 5 à 26 -> ok
-il est constitué d'entiers convertis en caractères qui représentent les couleurs ou symboles des joueurs ou de caractères espaces
-aux positions ou il n'y a aucun pions.
-     */
 }
-
-// On demande le nom des joueurs -> ok
-// On demande la taille du plateau -> ok
-// on affiche le plateau -> ok
-// boucle partie non finie -> 
-// On demande ou le joueur 1 veut poser
-// On affiche le plateau
-// On demande ou le joueur 2 vaut poser
-// quand on sort de la boucle
-// On affiche message aprtie finir
-     // on affiche le nom du gagant
