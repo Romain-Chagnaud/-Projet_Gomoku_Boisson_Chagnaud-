@@ -98,19 +98,17 @@ public class Board {
             }
             System.out.print("|");
             for (int c = 0; c < size; c++) {
-<<<<<<< HEAD
+
 
                 System.out.print(board[r][c]);
-=======
-                System.out.print(contenuLigne(p));
->>>>>>> 8d92c78dbf25e95696c6cdb17670668d5356e78a
+
             }
             System.out.println("|");
         }
     }
     // pour chaque ligne on affiche son contenu
 
-<<<<<<< HEAD
+
 //    /**
 //     * Méthode responsable de la gestion du contenu d'une ligne.
 //     *
@@ -128,7 +126,7 @@ public class Board {
 //        
 //    }
     
-=======
+
     /**
      * Méthode responsable de la gestion du contenu d'une ligne.
      *
@@ -145,7 +143,7 @@ public class Board {
         // pour chaque case on fait appel a contenu case
         //on doit convertir le contenu des cases en String?
     }
->>>>>>> 8d92c78dbf25e95696c6cdb17670668d5356e78a
+
 
     /**
      * Méthode permettant de connaitre le contenu d'une case.
