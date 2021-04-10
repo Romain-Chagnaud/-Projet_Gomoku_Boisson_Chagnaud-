@@ -11,6 +11,7 @@ import java.util.Scanner;
  * @author Romain Chagnaud, Manon Boisson
  */
 public class Board {
+    
 
     public int size;
     public Color[][] board;
