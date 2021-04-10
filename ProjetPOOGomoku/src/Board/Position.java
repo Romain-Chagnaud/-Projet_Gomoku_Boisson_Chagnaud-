@@ -38,6 +38,7 @@ public class Position {
      *
      * @param p la position de la case dont on veut connaitre le nombre de cases
      * voisines occupées.
+     * @param player le joueur courant.
      * @return le nombre de cases voisines occupées.
      */
     public static int nbVoisines(Position p, HumanPlayer player) {
@@ -75,7 +76,7 @@ public class Position {
 
     }
 
-    //Trouver un moyen de factoriser ces trois methodes pour eviter la duplication de code
+    
     /**
      * Méthode indiquant si 5 pions sont alignés sur une ligne.
      *
@@ -169,8 +170,7 @@ public class Position {
         return estComplet;
     }
 
-    // on regarde chaque pour une ligne n, sa colonne n ainsi on consulte les case en diagonale,
-    // si elles sont identiques, alors estComplet est vrai.
+    
     /**
      * Méthode qui permet de prendre la position de la colonne.
      *
@@ -181,9 +181,9 @@ public class Position {
     }
 
     /**
-     * Tranformer un char en int
+     * Méthode permettant de convertir le caractère d'une ligne en entier.
      *
-     * @param charAt
+     * @param charAt la caractère que l'on veut convertir.
      * @return les caractères de la positions convertie en entier
      */
     private int rowToInt(char charAt) {
@@ -198,11 +198,10 @@ public class Position {
         return charAt;
     }
 
-    // ça sert à quoi ca
     /**
-     * transformer un char en int
+     * Méthode permettant de convertir le caractère d'une colonne en entier.
      *
-     * @param subSequence
+     * @param subSequence la chaine de caractère de la colonne.
      * @return
      */
     private int colToInt(String subSequence) {
