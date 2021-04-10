@@ -1,6 +1,8 @@
 package Board;
 
 import Game.HumanPlayer;
+import Game.Match;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -28,7 +30,7 @@ public class Board {
 
         Convertor = new HashMap<>();
         for (int col = 0; col < size; col++) {
-            Convertor.put(Character.toString((char) 65 + col),col); //
+            Convertor.put(Character.toString((char) 65 + col), col); //
         }
 
         // on met des caractères espace dans chaque cases pour l'initialisation du tableau
@@ -96,21 +98,23 @@ public class Board {
             System.out.print("|");
             // pour tout le contenu de la ligne
             for (int c = 0; c < size; c++) {
-                
+
                 Color toDisplay = this.board[r][c];
-                
-                if(null == toDisplay){
+
+                if (null == toDisplay) {
                     System.out.print(" O ");
-                }else switch (toDisplay) {
-                    case NONE:
-                        System.out.print("   ");
-                        break;
-                    case CROIX:
-                        System.out.print(" X ");
-                        break;
-                    default:
-                        System.out.print(" O ");
-                        break;
+                } else {
+                    switch (toDisplay) {
+                        case NONE:
+                            System.out.print("   ");
+                            break;
+                        case CROIX:
+                            System.out.print(" X ");
+                            break;
+                        default:
+                            System.out.print(" O ");
+                            break;
+                    }
                 }
             }
             System.out.println("|");
@@ -197,46 +201,69 @@ public class Board {
      * @param tours nombre de tours jouée
      * @return si possible de jouée ou pas
      */
-    public boolean valide(Position p, int tours) {
+    public boolean valide(Position p) {
+
         boolean ok = false;
+        boolean end = false;
         if (estDansPlateau(p)) {
-            //on peut poser npt ou au premeir tour
-            if (tours == 0) {
+
+            if (Match.tour == 0) {
                 ok = true;
+                System.out.println("dans le if");
+
             } else {
-                ok = adjacent(p);
-                if (!ok) {
+                System.out.println("dans le else");
+                ok = getAdj(p);
+                System.out.println(ok);
+                if (ok == false) {
                     System.err.println("Choix invalide. Veuillez rejouer");
                 }
             }
+
         }
+
         return ok;
     }
 
-    /*
-     *Boolean qui determine si une position existe dans le plateau
-     *@param p la position à vérifier
-     *return si la position en paramètre est dans le plateau
+    // au premier tour on puet posier si dans plateau et couleur.none
+    // apres on peut poser si couleur.none et adj !=0
+    /**
+     * Methode permettant de savoir si une position à d'autres positions non nulles autour
+     * 
+     * @param pos la position en question
+     * @return true si une position alliée ou ennemie est détectée, false sinon
      */
-    private Boolean adjacent(Position p) {
-        Boolean présence = false;
-        //regarde si il y'a bien un pion à coté 
-        for (int i = p.row - 1; i < p.row + 2; i++) {
-            for (int j = p.col - 1; j < p.col + 2;
-                    j++) {
-                Position x = new Position(i, j);
-                //on regarde pas à l'exterieur du plateau
-                if (estDansPlateau(x)) {
-                    //si il y'a un pion adjacent
-                    if (board[i][j] != Color.NONE //et si la position ciblée est libre
-                            && board[p.row][p.col] == Color.NONE) {
-                        présence = true;
-                    }
+    private boolean getAdj(Position pos) {
+
+        ArrayList<Position> neighbour = new ArrayList();
+
+        Position tryOne = new Position(pos.col - 1, pos.row - 1);
+        neighbour.add(tryOne);
+        Position tryTwo = new Position(pos.col, pos.row - 1);
+        neighbour.add(tryTwo);
+        Position tryThree = new Position(pos.col + 1, pos.row - 1);
+        neighbour.add(tryThree);
+        Position tryFour = new Position(pos.col - 1, pos.row);
+        neighbour.add(tryFour);
+        Position tryFive = new Position(pos.col + 1, pos.row);
+        neighbour.add(tryFive);
+        Position trySix = new Position(pos.col - 1, pos.row + 1);
+        neighbour.add(trySix);
+        Position trySeven = new Position(pos.col, pos.row + 1);
+        neighbour.add(trySeven);
+        Position tryHeight = new Position(pos.col + 1, pos.row + 1);
+        neighbour.add(tryHeight);
+
+        for (Position p : neighbour) {
+            if (estDansPlateau(p)) {
+                if (board[p.row][p.col].equals(Color.CROIX) || board[p.row][p.col].equals(Color.ROND)) {
+                    return true;
                 }
             }
+
         }
 
-        return présence;
+        return false;
     }
 
     // on doit trouver le moyen d'associer une couleur à l'entier contenu dans une case
@@ -254,7 +281,7 @@ aux positions ou il n'y a aucun pions.
 // On demande le nom des joueurs -> ok
 // On demande la taille du plateau -> ok
 // on affiche le plateau -> ok
-// boucle partie non finie
+// boucle partie non finie -> 
 // On demande ou le joueur 1 veut poser
 // On affiche le plateau
 // On demande ou le joueur 2 vaut poser

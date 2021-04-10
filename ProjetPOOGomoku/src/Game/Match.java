@@ -19,14 +19,14 @@ public class Match { //implemte deux player
     Color color;
     Board board;
     ArrayList<Position> coupsJoues;
-    private int cpt;
+    public static int tour;
 
     public Match(HumanPlayer joueur1, HumanPlayer joueur2, Board b) {
 
         this.board = b;
         this.joueur1 = joueur1;
         this.joueur2 = joueur2;
-        this.cpt = 0;
+        this.tour = 0;
     }
 
     // Board b = new board()
@@ -51,15 +51,21 @@ public class Match { //implemte deux player
 
             g.play2(board, p, joueur1);
 
+            tour++;
+            
             p = joueur2.choice(board);
 
             g.play2(board, p, joueur2);
+
+            tour++;
             
-            cpt++;
+
+
         }
         // tant que la partie n'est pas finie
         // le joueur1 joue, des qu'il a posé une case le joueur 2 joue
 
     }
+    
 
 }
