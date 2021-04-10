@@ -91,36 +91,38 @@ public class Board {
      */
     private void afficherLigne(Position p) {
 
-        for (int r = 1; r <= size; r++) {
+        for (int r = 1; r < size; r++) {
             System.out.print(r + " ");
             if (r <= 9) {
                 System.out.print(" ");
             }
             System.out.print("|");
             for (int c = 0; c < size; c++) {
-                System.out.print(contenuLigne());
+
+                System.out.print(board[r][c]);
             }
             System.out.println("|");
         }
     }
     // pour chaque ligne on affiche son contenu
 
-    /**
-     * Méthode responsable de la gestion du contenu d'une ligne.
-     *
-     * @param lig la ligne dont on veut connaitre le contenu.
-     * @return le contenu de cette ligne.
-     */
-    private Color contenuLigne() {
-
-        Color contenu = Color.NONE;
-
-        // le contenu d'une ligne c'est le contenu de chaque cases
-        return contenu;
-        // les caractères contenus dans chaque case
-        // pour chaque case on fait appel a contenu case
-        //on doit convertir le contenu des cases en String?
-    }
+//    /**
+//     * Méthode responsable de la gestion du contenu d'une ligne.
+//     *
+//     * @param lig la ligne dont on veut connaitre le contenu.
+//     * @return le contenu de cette ligne.
+//     */
+//    private Color contenuLigne() {
+//            
+//             Color contenu = Color.NONE;
+//            // le contenu d'une ligne c'est le contenu de chaque cases
+//            return contenu;
+//            // les caractères contenus dans chaque case
+//            // pour chaque case on fait appel a contenu case
+//            //on doit convertir le contenu des cases en String?
+//        
+//    }
+    
 
     /**
      * Méthode permettant de connaitre le contenu d'une case.
@@ -143,7 +145,66 @@ public class Board {
         board[p.row][p.col] = player.color;
 
     }
+    
+    /**
+     * Boolean permettant de déterminer si une position existe dans le plateau
+     * @param p position donnée par le joueur à vérifier
+     * @return si la position donnée est dans le plateau
+     */
+    public boolean estDansPlateau(Position p){
+         return (p.row < size && p.col < size && p.row >= 0 && p.col >= 0);
+    }
+    
+    /**
+     * Méthode permettant de voir si une position est valide
+     * @param p position donnée par le joueur
+     * @param tours nombre de tours jouée
+     * @return si possible de jouée ou pas 
+     */
+    boolean valide(Position p, int tours) {
+        boolean ok = false;
+        if (estDansPlateau(p)) {
+            //on peut poser npt ou au premeir tour
+            if (tours == 0) {
+                ok = true;
+            } else {
+                ok = adjacent(p);
+                if (!ok) {
+                    System.err.println("Choix invalide. Veuillez rejouer");
+                }
+            }
+        }
+        return ok;
+    }
+    
+    
+    /*
+     *Boolean qui determine si une position existe dans le plateau
+     *@param p la position à vérifier
+     *return si la position en paramètre est dans le plateau
+     */
+    private Boolean adjacent(Position p) {
+        Boolean présence = false;
+        //regarde si il y'a bien un pion à coté 
+        for (int i = p.row - 1; i < p.row + 2; i++) {
+            for (int j = p.col - 1; j < p.col + 2;
+                    j++) {
+                Position x = new Position(i, j);
+                //on regarde pas à l'exterieur du plateau
+                if (estDansPlateau(x)) {
+                    //si il y'a un pion adjacent
+                    if (board[i][j] != Color.NONE  //et si la position ciblée est libre
+                         && board[p.row][p.col] == Color.NONE) {
+                        présence = true;
+                    }
+                }
+            }
+        }
 
+        return présence;
+    }
+    
+    
     // on doit trouver le moyen d'associer une couleur à l'entier contenu dans une case
     // le contenu d'une case -> la couleur à une position donc son char
     /*

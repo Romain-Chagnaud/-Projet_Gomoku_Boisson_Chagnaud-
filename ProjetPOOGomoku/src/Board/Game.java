@@ -26,6 +26,7 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
         this.nextPlayer = nextPlayer;
         this.board = board;
         this.coupsJoues = coupsJoues;
+        
 
     }
 
@@ -44,7 +45,6 @@ public class Game {  // il faut voir mais pour moi il faut extend avec Board
 
         Color color;
         boolean playPossible = false;
-
         int lig = p.row;
         int col = p.col;
 

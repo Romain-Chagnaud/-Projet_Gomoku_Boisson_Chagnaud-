@@ -23,7 +23,7 @@ public class PositionTest {
     @Test
     public void testVoisines() {
         Position p = new Position(3, 'A');
-        Position.nbVoisines(p);
+        
         assertEquals(p, null); // remplacer nul par autre chose 
     }
 

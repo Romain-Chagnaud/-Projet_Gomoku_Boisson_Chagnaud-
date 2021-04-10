@@ -46,11 +46,13 @@ public class Match { //implemte deux player
 
         Position p;
         HumanPlayer player = joueur1;
+        HumanPlayer player2 = joueur2;
 
         
             p = joueur1.choice(b);
             g.play(b, p, joueur1);
-        
+            p = joueur2.choice(b);
+            g.play(b, p, joueur2);
 
         // tant que la partie n'est pas finie
         // le joueur1 joue, des qu'il a posé une case le joueur 2 joue
