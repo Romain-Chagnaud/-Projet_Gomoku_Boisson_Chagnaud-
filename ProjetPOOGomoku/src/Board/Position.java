@@ -29,8 +29,8 @@ public class Position {
      * @param message coordonée écrite
      */
     public Position(String message) { // second constructeur
-        this.row = rowToInt(message.charAt(0)); // prend le 1er caractère par ex dans A12 ça prends A
-        this.col = colToInt(message/*.substring(1, message.length() - 1)*/); // prend le reste du code est retourn un string, meme ex 12    
+        this.row = rowToInt(Character.toString(message.charAt(0))); // prend le 1er caractère par ex dans A12 ça prends A
+        this.col = colToInt(message.substring(1)); // prend le reste du code est retourn un string, meme ex 12    
     }
 
     /**
@@ -189,16 +189,12 @@ public class Position {
      * @param charAt la caractère que l'on veut convertir.
      * @return les caractères de la positions convertie en entier
      */
-    private int rowToInt(char charAt) {
+    private int rowToInt(String charAt) {
         //lever les exception 
-        try {
-            if (row == charAt) {
-                System.out.println(charAt);
-            }
-        } catch (Exception e) {
-            System.out.println(e);
+        if(Board.Convertor.containsKey(charAt)){
+             return Board.Convertor.get(charAt);
         }
-        return charAt;
+       return 0;
     }
 
     /**
@@ -214,15 +210,19 @@ public class Position {
                 System.out.println(subSequence);
             }*/
         String s = "";
-        if (subSequence.length() >= 2) {
-            s = String.valueOf(subSequence.charAt(1));
+        if (subSequence.length() >= 1) {
+            s = String.valueOf(subSequence.charAt(0));
             // Si on a un nombre à 2 chiffres
-            if (subSequence.length() > 2) {
-                s = s.concat(String.valueOf(subSequence.charAt(2)));
+            
+            // !! vous prenez ici nombre de n'importe quelle taile...
+            // si le board fait 10 et que je met A234 ca va crash
+            
+            if (subSequence.length() > 1) {
+                s = s.concat(String.valueOf(subSequence.charAt(1)));
             }
 
         }
-        return Integer.parseInt(s) - 1;
+        return Integer.parseInt(s);
 
         /* } catch (Exception e) { // il faut essayer de maitre InvalidPositionException
             System.out.println(e);

@@ -26,34 +26,45 @@ public class ProjetPOOGomoku {
         // création des instances pour le match
         Scanner scanner = new Scanner(System.in);
         Color color = Color.NONE;
-        Board board = new Board(scanner);
-        HumanPlayer joueur1 = new HumanPlayer(scanner, color);
-        HumanPlayer joueur2 = new HumanPlayer(scanner, color);
-        
-      
-        Match m = new Match(joueur1, joueur2, board);// on crée un match
-        
-        m.run(board, joueur1, joueur2); //on lance une partie
-        
+        int choix = choisirTaille();
+        Board board = new Board(choix);
+        HumanPlayer joueur1 = new HumanPlayer(scanner, Color.CROIX);
+        HumanPlayer joueur2 = new HumanPlayer(scanner, Color.ROND);
 
-     // On demande le nom des joueurs -> ok
-     // On demande la taille du plateau -> ok
-     // on affiche le plateau -> ok
-     
-     // boucle partie non finie
-     // On demande ou le joueur 1 veut poser
-     // pose du pion avec play
-     // On affiche le plateau
-     // On demande ou le joueur 2 vaut poser
-     // pose du pion avec play
-     // on affiche le plateau
-     
-     // quand on sort de la boucle
-     // On affiche message aprtie finir
-     // on affiche le nom du gagant
-     
- 
+        Match m = new Match(joueur1, joueur2, board);// on crée un match
+
+        m.run(); //on lance une partie
+
+        // On demande le nom des joueurs -> ok
+        // On demande la taille du plateau -> ok
+        // on affiche le plateau -> ok
+        // boucle partie non finie
+        // On demande ou le joueur 1 veut poser
+        // pose du pion avec play
+        // On affiche le plateau
+        // On demande ou le joueur 2 vaut poser
+        // pose du pion avec play
+        // on affiche le plateau
+        // quand on sort de la boucle
+        // On affiche message aprtie finir
+        // on affiche le nom du gagant
     }
 
-  
+    public static int choisirTaille() {
+        int i = 0;
+        Scanner in = new Scanner(System.in);
+        boolean valide = false;
+        while (!valide) {
+            System.out.println("Choisir taille plateau : ");
+            try {
+                i = in.nextInt();
+                valide = true;
+            } catch (Exception e) {
+                System.out.println("entrée taille valide");
+                in.nextLine();
+            }
+        }
+
+        return i;
+    }
 }

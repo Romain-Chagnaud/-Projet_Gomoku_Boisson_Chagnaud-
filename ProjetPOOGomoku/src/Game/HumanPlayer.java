@@ -41,15 +41,7 @@ public class HumanPlayer implements Player {
         System.out.println("Position :");
         Scanner scan = new Scanner(in);
         String message = scan.nextLine().trim();
-        Position p = null;
-        //try {
-            
-            p = new Position(message);
-           
-        //} catch (Exception e) {
-          //  System.out.println(e);
-        //}
-
+        Position p = new Position(message);
         return p;
     }
 

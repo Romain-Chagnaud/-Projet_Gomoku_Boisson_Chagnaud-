@@ -1,6 +1,7 @@
 package Board;
 
 import Game.HumanPlayer;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Scanner;
@@ -14,24 +15,27 @@ public class Board {
     public int size;
     public Color[][] board;
     Scanner scanner = new Scanner(System.in);
+    public static HashMap<String, Integer> Convertor;
 
     /**
      * Constructeur pour l'affichage du plateau de jeu.
      *
      * @param choixSize la taille du plateau choisie par l'utilisateur.
      */
-    public Board(Scanner choixSize) {
+    public Board(int choixSize) {
 
-        this.size = size;
-        System.out.println("Choisissez la taille du plateau de jeu");
-        this.size = this.scanner.nextInt();
+        this.size = choixSize;
 
         board = new Color[size][size]; // une board est un tableau de dimention 2 dde couleurs
 
+        Convertor = new HashMap<>();
+        for (int col = 0; col < size; col++) {
+            Convertor.put(Character.toString((char) 65 + col),col); //
+        }
+
         // on met des caractères espace dans chaque cases pour l'initialisation du tableau
-        int lig, col;
-        for (lig = 0; lig < size; lig++) {
-            for (col = 0; col < size; col++) {
+        for (int lig = 0; lig < size; lig++) {
+            for (int col = 0; col < size; col++) {
                 board[lig][col] = Color.NONE;// peut être que notre tableau "vide" vient de la ?
             }
         }
@@ -41,13 +45,12 @@ public class Board {
     /**
      * Méthode responsable de l'affichage du plateau.
      *
-     * @param p la position d'une case
      */
-    public void display(Position p) {// est -ce que c'est vraiment util d'avoir un parametre position
+    public void display() {// est -ce que c'est vraiment util d'avoir un parametre position
         alphabet();
         System.out.println(" ");
         bar();
-        afficherLigne(p);
+        afficherLignes();
         bar();
     }
 
@@ -81,35 +84,38 @@ public class Board {
      *
      * @param p la position de la ligne qu'on souhaite afficher
      */
-    private void afficherLigne(Position p) {
+    private void afficherLignes() {
 
-        for (int r = 1; r < size; r++) {
+        // pour chaque row
+        for (int r = 0; r < size; r++) {
+            // premier espace
             System.out.print(r + " ");
+            // si le nb de la row à un seul char
             if (r <= 9) {
+                // deux espaces
                 System.out.print(" ");
             }
+            // barre de séparation
             System.out.print("|");
+            // pour tout le contenu de la ligne
             for (int c = 0; c < size; c++) {
-<<<<<<< HEAD
-                System.out.print(board[r][c]);
                 
-=======
-
-                System.out.print(contenuLigne(p));
+                Color toDisplay = this.board[r][c];
                 
-
->>>>>>> 156ee7dc00a13b8b15097db41b798ce90f0c9584
+                if(toDisplay == Color.NONE){
+                    System.out.print("   ");
+                }else if(toDisplay == Color.CROIX){
+                    System.out.print(" X ");
+                }else{
+                    System.out.print(" O ");
+                }
             }
             System.out.println("|");
         }
     }
-<<<<<<< HEAD
-    // pour chaque ligne on affiche son contenu
-=======
-    
-// pour chaque ligne on affiche son contenu
->>>>>>> 156ee7dc00a13b8b15097db41b798ce90f0c9584
 
+    // pour chaque ligne on affiche son contenu
+// pour chaque ligne on affiche son contenu
 //    /**
 //     * Méthode responsable de la gestion du contenu d'une ligne.
 //     *
@@ -126,11 +132,6 @@ public class Board {
 //            //on doit convertir le contenu des cases en String?
 //        
 //    }
-<<<<<<< HEAD
-=======
-    
-    
-    
     /**
      * Méthode responsable de la gestion du contenu d'une ligne.
      *
@@ -148,7 +149,6 @@ public class Board {
         //on doit convertir le contenu des cases en String?
     }
 
->>>>>>> 156ee7dc00a13b8b15097db41b798ce90f0c9584
     /**
      * Méthode permettant de connaitre le contenu d'une case.
      *
@@ -156,19 +156,12 @@ public class Board {
      * @return le contenu de cette case.
      */
     public Color getContenuCase(Position p) {
-        for (int x = 0; 0 < size; x++) {
-            for (int y = 0; 0 < size; y++) {
-                
-                System.out.println(board[x][y]);
-                
-            }
-        }
 
         //           Color contenu = Color.NONE;
 //        while (board.length < size) {
 //            contenu = board[p.row][p.col];
 //        }
-        return null;
+        return board[p.row][p.col];
     }
 
     /**
@@ -179,12 +172,8 @@ public class Board {
      * @param player le joueur courant
      */
     public void setContenuCase(Position p, HumanPlayer player) {
-<<<<<<< HEAD
-        board[p.row][p.col] = Color.CROIX;//player.color;
-=======
-        board[p.row][p.col] = player.color;//player.color;
-        
->>>>>>> 156ee7dc00a13b8b15097db41b798ce90f0c9584
+
+        this.board[p.col][p.row] = player.color;//player.color;
 
     }
 
@@ -246,7 +235,6 @@ public class Board {
 
         return présence;
     }
-<<<<<<< HEAD
 
     // on doit trouver le moyen d'associer une couleur à l'entier contenu dans une case
     // le contenu d'une case -> la couleur à une position donc son char
@@ -257,16 +245,12 @@ c'est un tableau de taille -> ok
 la taille du plateau peut varier de 5 à 26 -> ok
 il est constitué d'entiers convertis en caractères qui représentent les couleurs ou symboles des joueurs ou de caractères espaces
 aux positions ou il n'y a aucun pions.
-=======
->>>>>>> 156ee7dc00a13b8b15097db41b798ce90f0c9584
-
+     */
 }
 
 // On demande le nom des joueurs -> ok
 // On demande la taille du plateau -> ok
 // on affiche le plateau -> ok
-
-
 // boucle partie non finie
 // On demande ou le joueur 1 veut poser
 // On affiche le plateau
