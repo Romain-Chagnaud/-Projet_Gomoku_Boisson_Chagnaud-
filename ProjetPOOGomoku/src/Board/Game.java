@@ -71,6 +71,8 @@ public class Game {
     public void play2(Board currentBoard, Position pos, HumanPlayer player) {
         currentBoard.setContenuCase(pos, player);
         currentBoard.display();
+       
+        
     }
     
     

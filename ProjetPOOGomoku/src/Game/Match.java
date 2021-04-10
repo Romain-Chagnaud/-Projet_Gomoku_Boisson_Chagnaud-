@@ -50,15 +50,18 @@ public class Match { //implemte deux player
             p = joueur1.choice(board);
             g.play2(board, p, joueur1);
             tour++;
+
             p = joueur2.choice(board);
             g.play2(board, p, joueur2);
+            end = g.partieFinie(p, board, player);
             tour++;
-
+            if (g.partieFinie(p, board, player) == true) {
+                end = true;
+            }
         }
-      
-        System.out.println("La partie est terminée");
 
+        System.out.println("La partie est terminée.");
+        System.out.println("Le gagnant est " + player);
     }
-    
 
 }
